@@ -1,0 +1,10 @@
+.ellipsis-text {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ellipsis-expand:hover {
+    cursor: pointer;
+}
