@@ -1,13 +1,16 @@
 <div class="card-block accordion-block color-accordion-block">
     <div class="color-accordion" id="color-accordion">
 
-        @if (count($visi_misis->where('aktif', 1)) > 0)
+        @forelse ($visi_misis->where('aktif', 1) as $visi_misi)
         <div class="accordion-desc text-center">
             <h6>
-                {{ $visi_misis[0]->name }}
+                {{ $visi_misi->name }}
+            </h6>
+            <h6>
+                {{ $visi_misi->tahun_awal . '-' . $visi_misi->tahun_akhir }}
             </h6>
         </div>
-        @forelse ($visi_misis[0]->misi->sortBy('nomor') as $misi)
+        @forelse ($visi_misi->misi->sortBy('nomor') as $misi)
         <div class="accordion-desc">
             <p>
                 {{ $misi->nomor . ". ". $misi->name }}
@@ -16,16 +19,16 @@
         @empty
         <div class="accordion-desc">
             <p>
-                Kosong
+                Misi Kosong
             </p>
         </div>
         @endforelse
-        @else
+        @empty
         <div class="accordion-desc text-center">
             <h6>
-                Misi Kosong
+                Visi & Misi Kosong
             </h6>
         </div>
-        @endif
+        @endforelse
     </div>
 </div>

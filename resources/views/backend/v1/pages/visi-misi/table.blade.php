@@ -23,16 +23,14 @@
                 @if (Auth::user()->rule !== 'User')
                 <td>
                     <div class="btn-group">
-                        <a href="{{ route('visi-misi.edit', $visi_misi->id) }}"
-                            class="btn btn-light btn-sm text-primary">
-                            <i class="fa fa-pencil-square-o"></i>
-                            Edit
-                        </a>
+
+                        @include('backend.v1.pages.visi-misi.edit-visi')
+
                         <form action="{{ route('visi-misi.destroy', $visi_misi->id) }}" method="POST">
                             @csrf
                             @method('delete')
                             <button class="btn btn-light btn-sm text-danger"
-                                onclick="return confirm('Yakin Ingin Hapus Visi & Misi?')">
+                                onclick="return confirm('Menghapus visi juga akan menghapus misi yang ada didalamnya\nYakin Ingin menghapus Visi & Misi ini?')">
                                 <i class="fas fa-trash text-danger"></i>
                                 Hapus
                             </button>
@@ -44,6 +42,7 @@
                 <td>{{ $visi_misi->tahun_awal }}</td>
                 <td>{{ $visi_misi->tahun_akhir }}</td>
                 <td>
+                    @stack('tambah_misi')
                     @forelse ($visi_misi->misi->sortBy('nomor') as $misi)
                     <p>{{ $misi->nomor . ". " . $misi->name }}</p>
                     @empty

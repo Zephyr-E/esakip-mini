@@ -7,6 +7,7 @@ use App\Models\Misi;
 use App\Models\Visi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class VisiMisiController extends Controller
 {
@@ -43,15 +44,26 @@ class VisiMisiController extends Controller
             return redirect()->route('visi-misi.index');
         }
 
-        $request->validate([
-            'name' => 'required',
-            'tahun_awal' => 'required',
-            'tahun_akhir' => 'required',
-        ]);
+        if ($request->query('tipe_tambah') == 'visi') {
+            $request->validate([
+                'name' => 'required',
+                'tahun_awal' => 'required',
+                'tahun_akhir' => 'required',
+            ]);
 
-        $data = $request->all();
-        $data['aktif'] = 0;
-        Visi::create($data);
+            $data = $request->all();
+            $data['aktif'] = 0;
+            Visi::create($data);
+        } elseif ($request->query('tipe_tambah') == 'misi') {
+            $request->validate([
+                'nomor' => 'required',
+                'name' => 'required',
+            ]);
+
+            $data = $request->all();
+            $data['visi_id'] = $request->query('visi_id');
+            Misi::create($data);
+        }
 
         return redirect()->route('visi-misi.index')->with(['success', 'Visi & Misi Berhasil di Tambahkan']);
     }
@@ -73,11 +85,8 @@ class VisiMisiController extends Controller
      * @param  \App\Models\Visi  $visi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Visi $visi)
+    public function edit(Visi $visi_misi)
     {
-        $data['visi'] = $visi;
-        dd($visi);
-        return view('backend.v1.pages.visi-misi.edit', $data);
     }
 
     /**
@@ -87,9 +96,32 @@ class VisiMisiController extends Controller
      * @param  \App\Models\Visi  $visi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Visi $visi)
+    public function update(Request $request, Visi $visi_misi)
     {
-        //
+        if (Auth::user()->rule !== 'Admin') {
+            return redirect()->route('visi-misi.index');
+        }
+        $request->validate([
+            'name' => 'required',
+            'tahun_awal' => 'required',
+            'tahun_akhir' => 'required',
+            'aktif' => 'required'
+        ]);
+
+        $data = $request->all();
+
+        //menon aktif kan semua record yang aktif
+        $deactivated = Visi::all();
+        foreach ($deactivated as $deactivate) {
+            if ($deactivate->aktif == 1) {
+                DB::table('visis')->where('id', $deactivate->id)->update(['aktif' => 0]);
+            }
+        }
+
+        //update record yang ingin diaktif kan
+        $visi_misi->update($data);
+
+        return redirect()->route('visi-misi.index')->with('toast_success', 'Visi Berhasil di Perbaharui');
     }
 
     /**
@@ -98,23 +130,15 @@ class VisiMisiController extends Controller
      * @param  \App\Models\Visi  $visi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Visi $visi)
+    public function destroy(Visi $visi_misi)
     {
         if (Auth::user()->rule !== 'Admin') {
             return redirect()->route('visi-misi.index');
         }
 
-        dd($visi);
+        $visi_misi->delete();
 
-        $query = $visi->delete();
-        // check data deleted or not
-        if ($query > 0) {
-            return response()->json('202 Accepted', 202);
-        } else {
-            return response()->json('404 Not Found', 404);
-        }
-
-        // $visi->delete();
-        // return redirect()->back()->with('toast_success', 'Visi & Misi Berhasil di Hapus');
+        // $query = DB::table('visis')->where('id', '=', $request->query('id'))->delete();
+        return redirect()->back()->with('success', 'Visi & Misi Berhasil di Hapus');
     }
 }
