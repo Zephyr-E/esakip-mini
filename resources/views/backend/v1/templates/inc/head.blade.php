@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{ url('templates/backend') }}/pages/waves/css/waves.min.css" type="text/css" media="all">
 <!-- Required Fremwork -->
 <link rel="stylesheet" type="text/css" href="{{ url('templates/backend') }}/css/bootstrap/css/bootstrap.min.css">
+{{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
 <!-- waves.css -->
 <link rel="stylesheet" href="{{ url('templates/backend') }}/pages/waves/css/waves.min.css" type="text/css" media="all">
 <!-- themify icon -->

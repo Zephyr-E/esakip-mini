@@ -32,8 +32,8 @@
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
-            <li class="{{ in_array(Route::currentRouteName(), ['visi-misi.index']) ? 'active' : '' }}">
-                <a href="{{ route('visi-misi.index') }}" class="waves-effect waves-dark">
+            <li class="{{ in_array(Route::currentRouteName(), ['visi.index']) ? 'active' : '' }}">
+                <a href="{{ route('visi.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="fa fa-check-square"></i><b>D</b></span>
                     <span class="pcoded-mtext">Visi & Misi</span>
                     <span class="pcoded-mcaret"></span>

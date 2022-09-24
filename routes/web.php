@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\backend\v1\DashboardController;
+use App\Http\Controllers\backend\v1\MisiController;
 use App\Http\Controllers\backend\v1\TujuanSasaranController;
-use App\Http\Controllers\backend\v1\VisiMisiController;
+use App\Http\Controllers\backend\v1\VisiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::group(["middleware" => [
     Route::get('profile', [DashboardController::class, 'profile'])->name('profile');
     Route::get('logout', [DashboardController::class, 'logout'])->name('logout');
 
-    Route::resource('visi-misi', VisiMisiController::class);
+    Route::resource('visi', VisiController::class);
+    Route::resource('misi', MisiController::class);
     Route::resource('tujuan-sasaran', TujuanSasaranController::class);
 });

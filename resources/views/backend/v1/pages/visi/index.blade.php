@@ -15,7 +15,7 @@
                     <li class="breadcrumb-item">
                         <a href="{{ route('home') }}"> <i class="fa fa-home"></i> </a>
                     </li>
-                    <li class="breadcrumb-item"><a href="{{ route('visi-misi.index') }}">Visi & Misi</a>
+                    <li class="breadcrumb-item"><a href="{{ route('visi.index') }}">Visi & Misi</a>
                     </li>
                 </ul>
             </div>
@@ -26,7 +26,7 @@
 
 @section('content')
 @if (Auth::user()->rule !== 'User')
-@include('backend.v1.pages.visi-misi.create-visi')
+@include('backend.v1.pages.visi.create-visi')
 @endif
 
 <div class="card">
@@ -50,12 +50,12 @@
                 <div class="tab-content tabs card-block">
                     {{-- tabel visi misi --}}
                     <div class="tab-pane active" id="tabel1" role="tabpanel">
-                        @include('backend.v1.pages.visi-misi.table')
+                        @include('backend.v1.pages.visi.table')
                     </div>
 
                     {{-- tampilan visi misi --}}
                     <div class="tab-pane" id="tampilan1" role="tabpanel">
-                        @include('backend.v1.pages.visi-misi.tampilan')
+                        @include('backend.v1.pages.visi.tampilan')
                     </div>
                 </div>
             </div>
