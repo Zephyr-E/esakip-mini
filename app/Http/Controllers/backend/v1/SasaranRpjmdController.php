@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\backend\v1;
 
 use App\Http\Controllers\Controller;
-use App\Models\Visi;
+use App\Models\SasaranRpjmd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class VisiController extends Controller
+class SasaranRpjmdController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,7 @@ class VisiController extends Controller
      */
     public function index()
     {
-        $data['visis'] = Visi::all();
-        return view('backend.v1.pages.visi.index', $data);
+        //
     }
 
     /**
@@ -40,29 +38,28 @@ class VisiController extends Controller
     public function store(Request $request)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('visi.index');
+            return redirect()->route('tujuan.index');
         }
 
         $request->validate([
+            'nomor' => 'required',
             'name' => 'required',
-            'tahun_awal' => 'required',
-            'tahun_akhir' => 'required',
+            'tujuan_rpjmd_id' => 'required',
         ]);
 
         $data = $request->all();
-        $data['aktif'] = 0;
-        Visi::create($data);
+        SasaranRpjmd::create($data);
 
-        return redirect()->route('visi.index')->with(['success', 'Visi Berhasil di Tambahkan']);
+        return redirect()->route('tujuan.index')->with(['success', 'Sasaran Berhasil di Tambahkan']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Visi  $visi
+     * @param  \App\Models\SasaranRpjmd  $sasaranRpjmd
      * @return \Illuminate\Http\Response
      */
-    public function show(Visi $visi)
+    public function show(SasaranRpjmd $sasaranRpjmd)
     {
         //
     }
@@ -70,10 +67,10 @@ class VisiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Visi  $visi
+     * @param  \App\Models\SasaranRpjmd  $sasaranRpjmd
      * @return \Illuminate\Http\Response
      */
-    public function edit(Visi $visi)
+    public function edit(SasaranRpjmd $sasaranRpjmd)
     {
         //
     }
@@ -82,49 +79,40 @@ class VisiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Visi  $visi
+     * @param  \App\Models\SasaranRpjmd  $sasaranRpjmd
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Visi $visi)
+    public function update(Request $request, SasaranRpjmd $sasaran)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('visi.index');
+            return redirect()->route('tujuan.index');
         }
         $request->validate([
+            'nomor' => 'required',
             'name' => 'required',
-            'tahun_awal' => 'required',
-            'tahun_akhir' => 'required',
-            'aktif' => 'required'
         ]);
 
         $data = $request->all();
+        $sasaran->update($data);
 
-        if ($data['aktif'] == 1) {
-            //menon aktif kan hanya satu record yang aktif
-            DB::table('visis')->where('aktif', 1)->update(['aktif' => 0]);
-        }
-
-        //update record yang ingin diaktif kan
-        $visi->update($data);
-
-        return redirect()->route('visi.index')->with('toast_success', 'Visi Berhasil di Perbaharui');
+        return redirect()->route('tujuan.index')->with('toast_success', 'Sasaran Berhasil di Perbaharui');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Visi  $visi
+     * @param  \App\Models\SasaranRpjmd  $sasaranRpjmd
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Visi $visi)
+    public function destroy(SasaranRpjmd $sasaran)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('visi.index');
+            return redirect()->route('tujuan.index');
         }
 
-        $visi->delete();
+        $sasaran->delete();
 
         // $query = DB::table('visis')->where('id', '=', $request->query('id'))->delete();
-        return redirect()->back()->with('success', 'Visi & Misi Berhasil di Hapus');
+        return redirect()->back()->with('success', 'Sasaran Berhasil di Hapus');
     }
 }

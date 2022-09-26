@@ -14,7 +14,7 @@
                     <h5>Buat Visi Baru</h5>
                 </div>
                 <div class="card-block">
-                    <form id="edit-visi{{ $visi->id }}" class="form-material"
+                    <form id="form-edit-visi-{{ $visi->id }}" class="form-material"
                         action="{{ route('visi.update', $visi->id) }}" method="POST">
                         @csrf
                         @method('patch')
@@ -50,7 +50,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" form="edit-visi{{ $visi->id }}" class="btn btn-primary">Perbaharui</button>
+                <button type="submit" form="form-edit-visi-{{ $visi->id }}" class="btn btn-primary">Perbaharui</button>
             </div>
         </div>
     </div>

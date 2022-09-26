@@ -39,8 +39,8 @@
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
-            <li class="{{ in_array(Route::currentRouteName(), ['tujuan-sasaran.index']) ? 'active' : '' }}">
-                <a href="{{ route('tujuan-sasaran.index') }}" class="waves-effect waves-dark">
+            <li class="{{ in_array(Route::currentRouteName(), ['tujuan.index']) ? 'active' : '' }}">
+                <a href="{{ route('tujuan.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="fas fa-bullseye"></i><b>D</b></span>
                     <span class="pcoded-mtext">Tujuan & Sasaran</span>
                     <span class="pcoded-mcaret"></span>

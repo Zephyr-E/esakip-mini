@@ -2,18 +2,18 @@
     <table class="table table-bordered datatables">
         <thead>
             <tr>
-                <th scope="col">No</th>
+                <th scope="col" class="text-center">No</th>
                 @if (Auth::user()->rule !== 'User')
-                <th scope="col" class="col-2">
+                <th scope="col" class="col-2" class="text-center">
                     <div class="d-flex justify-content-center">
                         <i class="fas fa-cog"></i>
                     </div>
                 </th>
                 @endif
-                <th scope="col" class="col-2">Visi</th>
-                <th scope="col" colspan="2">Tahun</th>
-                <th scope="col" class="col-1">Status</th>
-                <th scope="col" class="col-4">Misi</th>
+                <th scope="col" class="text-center">Visi</th>
+                <th scope="col" class="text-center" colspan="2">Tahun</th>
+                <th scope="col" class="text-center">Status</th>
+                <th scope="col" class="text-center">Misi</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@
                     <div class="form-inline">
 
                         @include('backend.v1.pages.visi.edit-visi')
-
+                        &nbsp;
                         <form action="{{ route('visi.destroy', $visi->id) }}" method="POST">
                             @csrf
                             @method('delete')
@@ -49,9 +49,9 @@
                     @forelse ($visi->misi->sortBy('nomor') as $misi)
                     <div class="form-inline">
                         {{ $misi->nomor . ". " . $misi->name }}
-
+                        &nbsp;
                         @include('backend.v1.pages.visi.edit-misi')
-
+                        &nbsp;
                         <form action="{{ route('misi.destroy', $misi->id) }}" method="POST">
                             @csrf
                             @method('delete')

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\backend\v1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Misi;
+use App\Models\TujuanRpjmd;
 use App\Models\Visi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class VisiController extends Controller
+class TujuanRpjmdController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +19,10 @@ class VisiController extends Controller
      */
     public function index()
     {
-        $data['visis'] = Visi::all();
-        return view('backend.v1.pages.visi.index', $data);
+        $data['visi'] = DB::table('visis')->where('aktif', 1)->first();
+        $data['misis'] = DB::table('misis')->where('visi_id', $data['visi']->id)->get()->sortBy('nomor');
+
+        return view('backend.v1.pages.tujuan.index', $data);
     }
 
     /**
@@ -40,29 +44,28 @@ class VisiController extends Controller
     public function store(Request $request)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('visi.index');
+            return redirect()->route('tujuan.index');
         }
 
         $request->validate([
+            'nomor' => 'required',
             'name' => 'required',
-            'tahun_awal' => 'required',
-            'tahun_akhir' => 'required',
+            'misi_id' => 'required',
         ]);
 
         $data = $request->all();
-        $data['aktif'] = 0;
-        Visi::create($data);
+        TujuanRpjmd::create($data);
 
-        return redirect()->route('visi.index')->with(['success', 'Visi Berhasil di Tambahkan']);
+        return redirect()->route('tujuan.index')->with(['success', 'Tujuan Berhasil di Tambahkan']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Visi  $visi
+     * @param  \App\Models\TujuanRpjmd  $tujuanRpjmd
      * @return \Illuminate\Http\Response
      */
-    public function show(Visi $visi)
+    public function show(TujuanRpjmd $tujuanRpjmd)
     {
         //
     }
@@ -70,10 +73,10 @@ class VisiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Visi  $visi
+     * @param  \App\Models\TujuanRpjmd  $tujuanRpjmd
      * @return \Illuminate\Http\Response
      */
-    public function edit(Visi $visi)
+    public function edit(TujuanRpjmd $tujuanRpjmd)
     {
         //
     }
@@ -82,49 +85,40 @@ class VisiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Visi  $visi
+     * @param  \App\Models\TujuanRpjmd  $tujuanRpjmd
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Visi $visi)
+    public function update(Request $request, TujuanRpjmd $tujuan)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('visi.index');
+            return redirect()->route('tujuan.index');
         }
         $request->validate([
+            'nomor' => 'required',
             'name' => 'required',
-            'tahun_awal' => 'required',
-            'tahun_akhir' => 'required',
-            'aktif' => 'required'
         ]);
 
         $data = $request->all();
+        $tujuan->update($data);
 
-        if ($data['aktif'] == 1) {
-            //menon aktif kan hanya satu record yang aktif
-            DB::table('visis')->where('aktif', 1)->update(['aktif' => 0]);
-        }
-
-        //update record yang ingin diaktif kan
-        $visi->update($data);
-
-        return redirect()->route('visi.index')->with('toast_success', 'Visi Berhasil di Perbaharui');
+        return redirect()->route('tujuan.index')->with('toast_success', 'Tujuan Berhasil di Perbaharui');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Visi  $visi
+     * @param  \App\Models\TujuanRpjmd  $tujuanRpjmd
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Visi $visi)
+    public function destroy(TujuanRpjmd $tujuan)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('visi.index');
+            return redirect()->route('tujuan.index');
         }
 
-        $visi->delete();
+        $tujuan->delete();
 
         // $query = DB::table('visis')->where('id', '=', $request->query('id'))->delete();
-        return redirect()->back()->with('success', 'Visi & Misi Berhasil di Hapus');
+        return redirect()->back()->with('success', 'Tujuan Berhasil di Hapus');
     }
 }

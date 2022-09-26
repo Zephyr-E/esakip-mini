@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\backend\v1\DashboardController;
 use App\Http\Controllers\backend\v1\MisiController;
-use App\Http\Controllers\backend\v1\TujuanSasaranController;
+use App\Http\Controllers\backend\v1\SasaranRpjmdController;
+use App\Http\Controllers\backend\v1\TujuanRpjmdController;
 use App\Http\Controllers\backend\v1\VisiController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,5 +29,6 @@ Route::group(["middleware" => [
 
     Route::resource('visi', VisiController::class);
     Route::resource('misi', MisiController::class);
-    Route::resource('tujuan-sasaran', TujuanSasaranController::class);
+    Route::resource('tujuan', TujuanRpjmdController::class);
+    Route::resource('sasaran', SasaranRpjmdController::class);
 });

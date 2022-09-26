@@ -1,24 +1,24 @@
-<button type="button" class="btn btn-info btn-sm col-12 mb-4" data-toggle="modal"
-    data-target="#misiCreateModal{{ $visi->id }}"><i class="fas fa-plus fa-sm"></i>
-    Tambah Misi</button>
+<button type="button" class="btn btn-sm col-12" data-toggle="modal"
+    data-target="#tujuanCreateModal{{ $misi->id }}"><i class="fas fa-plus fa-sm"></i>
+    Tambah Tujuan</button>
 
-{{-- modal membuat misi- --}}
-<div class="modal fade" id="misiCreateModal{{ $visi->id }}" tabindex="-1" role="dialog"
-    aria-labelledby="misiCreateModalLabel{{ $visi->id }}" aria-hidden="true">
+{{-- modal membuat tujuan- --}}
+<div class="modal fade" id="tujuanCreateModal{{ $misi->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="tujuanCreateModalLabel{{ $misi->id }}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card">
                 <div class="card-header">
-                    <h5>Buat Misi Baru</h5>
+                    <h5>Buat Tujuan Baru</h5>
                 </div>
                 <div class="card-block">
                     <div class="mb-4">
-                        <h6 class="text-center mb-5">{{ $visi->name }}</h6>
+                        <h6 class="text-center mb-5">{{ $misi->name }}</h6>
                     </div>
-                    <form id="form-create-misi-{{ $visi->id }}" class="form-material" action="{{ route('misi.store') }}"
+                    <form id="form-create-tujuan-{{ $misi->id }}" class="form-material" action="{{ route('tujuan.store') }}"
                         method="POST">
                         @csrf
-                        <input type="text" name="visi_id" value="{{ $visi->id }}" hidden>
+                        <input type="text" name="misi_id" value="{{ $misi->id }}" hidden>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="number" name="nomor" class="form-control" required>
                             <span class="form-bar"></span>
@@ -27,14 +27,15 @@
                         <div class="form-group form-primary form-static-label pb-4">
                             <textarea name="name" class="form-control" required></textarea>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Misi <small>(contoh: Datang tepat waktu)</small></label>
+                            <label class="float-label">Masukkan Tujuan <small>(contoh: Datang tepat
+                                    waktu)</small></label>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" form="form-create-misi-{{ $visi->id }}" class="btn btn-primary">Simpan</button>
+                <button type="submit" form="form-create-tujuan-{{ $misi->id }}" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>

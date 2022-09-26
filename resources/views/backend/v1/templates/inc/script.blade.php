@@ -32,5 +32,5 @@
 <script src="{{ url('templates/backend') }}/js/table-ellipsis.js"></script>
 
 <script>
-    $('.datatables').DataTable( );
+    $('.datatables').DataTable();
 </script>
