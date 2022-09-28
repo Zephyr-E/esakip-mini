@@ -101,7 +101,7 @@ class VisiController extends Controller
 
         if ($data['aktif'] == 1) {
             //menon aktif kan hanya satu record yang aktif
-            DB::table('visis')->where('aktif', 1)->update(['aktif' => 0]);
+            Visi::where('aktif', 1)->update(['aktif' => 0]);
         }
 
         //update record yang ingin diaktif kan

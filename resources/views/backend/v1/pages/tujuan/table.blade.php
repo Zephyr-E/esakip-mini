@@ -8,33 +8,30 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($misis as $misi)
+            @forelse ($misis as $misi)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td colspan="4">
                     {{ 'Misi '. $misi->nomor .': ' . $misi->name }}
                 </td>
             </tr>
-            @php
-            $tujuans = DB::table('tujuan_rpjmds')->where('misi_id', $misi->id)->get()->sortBy('nomor');
-            @endphp
             <tr>
                 <td></td>
                 <td colspan="4">
                     @include('backend.v1.pages.tujuan.create-tujuan')
                 </td>
             </tr>
-            @foreach ($tujuans as $tujuan)
+            @foreach ($misi->tujuan_rpjmd as $tujuan_rpjmd)
             <tr>
                 <td></td>
                 <td>{{ $loop->iteration }}</td>
                 <td colspan="3">
                     <div class="form-inline">
-                        {{ 'Tujuan '. $tujuan->nomor .': ' . $tujuan->name }}
+                        {{ 'Tujuan '. $tujuan_rpjmd->nomor .': ' . $tujuan_rpjmd->name }}
                         &nbsp;
                         @include('backend.v1.pages.tujuan.edit-tujuan')
                         &nbsp;
-                        <form action="{{ route('tujuan.destroy', $tujuan->id) }}" method="POST">
+                        <form action="{{ route('tujuan.destroy', $tujuan_rpjmd->id) }}" method="POST">
                             @csrf
                             @method('delete')
                             <button class="btn btn-light btn-sm text-danger"
@@ -45,9 +42,6 @@
                     </div>
                 </td>
             </tr>
-            @php
-            $sasarans = DB::table('sasaran_rpjmds')->where('tujuan_rpjmd_id', $tujuan->id)->get()->sortBy('nomor');
-            @endphp
             <tr>
                 <td></td>
                 <td></td>
@@ -55,18 +49,18 @@
                     @include('backend.v1.pages.tujuan.create-sasaran')
                 </td>
             </tr>
-            @foreach ($sasarans as $sasaran)
+            @foreach ($tujuan_rpjmd->sasaran_rpjmd->sortBy('nomor') as $sasaran_rpjmd)
             <tr>
                 <td></td>
                 <td></td>
                 <td>{{ $loop->iteration }}</td>
                 <td colspan="2">
                     <div class="form-inline">
-                        {{ 'Sasaran '. $sasaran->nomor .': ' . $sasaran->name }}
+                        {{ 'Sasaran '. $sasaran_rpjmd->nomor .': ' . $sasaran_rpjmd->name }}
                         &nbsp;
                         @include('backend.v1.pages.tujuan.edit-sasaran')
                         &nbsp;
-                        <form action="{{ route('sasaran.destroy', $sasaran->id) }}" method="POST">
+                        <form action="{{ route('sasaran.destroy', $sasaran_rpjmd->id) }}" method="POST">
                             @csrf
                             @method('delete')
                             <button class="btn btn-light btn-sm text-danger"
@@ -80,7 +74,12 @@
             </tr>
             @endforeach
             @endforeach
-            @endforeach
+            @empty
+            <tr>
+                <td></td>
+                <td colspan="4" class="text-center">Kosong</td>
+            </tr>
+            @endforelse
         </tbody>
     </table>
 </div>

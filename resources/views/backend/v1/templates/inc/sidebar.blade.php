@@ -49,8 +49,8 @@
         </ul>
         <div class="pcoded-navigation-label">Perencanaan</div>
         <ul class="pcoded-item pcoded-left-item">
-            <li class="{{ Route::currentRouteName() == 'renstra' ? 'active' : '' }}">
-                <a href="!#" class="waves-effect waves-dark">
+            <li class="{{ in_array(Route::currentRouteName(), ['renstra-tujuan.index']) ? 'active' : '' }}">
+                <a href="{{ route('renstra-tujuan.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-layers"></i><b>D</b></span>
                     <span class="pcoded-mtext" style="font-size: 13px">RENSTRA</span>
                     <span class="pcoded-mcaret"></span>

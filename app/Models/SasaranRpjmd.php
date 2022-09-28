@@ -15,4 +15,9 @@ class SasaranRpjmd extends Model
     {
         return $this->belongsTo(TujuanRpjmd::class);
     }
+
+    public function tujuan_renstra()
+    {
+        return $this->hasMany(TujuanRenstra::class);
+    }
 }

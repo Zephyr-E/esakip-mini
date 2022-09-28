@@ -18,6 +18,6 @@ class TujuanRpjmd extends Model
 
     public function sasaran_rpjmd()
     {
-        return $this->hasMany(SasaranRpjmds::class);
+        return $this->hasMany(SasaranRpjmd::class);
     }
 }

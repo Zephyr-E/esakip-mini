@@ -112,7 +112,6 @@ class SasaranRpjmdController extends Controller
 
         $sasaran->delete();
 
-        // $query = DB::table('visis')->where('id', '=', $request->query('id'))->delete();
         return redirect()->back()->with('success', 'Sasaran Berhasil di Hapus');
     }
 }

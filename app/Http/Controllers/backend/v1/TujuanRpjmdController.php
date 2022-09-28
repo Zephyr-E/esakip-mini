@@ -19,8 +19,13 @@ class TujuanRpjmdController extends Controller
      */
     public function index()
     {
-        $data['visi'] = DB::table('visis')->where('aktif', 1)->first();
-        $data['misis'] = DB::table('misis')->where('visi_id', $data['visi']->id)->get()->sortBy('nomor');
+
+        $data['visi'] = Visi::where('aktif', 1)->first();
+        $data['misis'] = Misi::where('visi_id', $data['visi']->id)->get()->sortBy('nomor');
+
+        // $data['tujuan_rpjmds'] = TujuanRpjmd::whereHas('misi.visi', function ($query) {
+        //     return $query->where('aktif', 1);
+        // })->get();
 
         return view('backend.v1.pages.tujuan.index', $data);
     }
@@ -118,7 +123,6 @@ class TujuanRpjmdController extends Controller
 
         $tujuan->delete();
 
-        // $query = DB::table('visis')->where('id', '=', $request->query('id'))->delete();
         return redirect()->back()->with('success', 'Tujuan Berhasil di Hapus');
     }
 }

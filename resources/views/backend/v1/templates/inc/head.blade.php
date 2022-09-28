@@ -5,8 +5,7 @@
 <!-- waves.css -->
 <link rel="stylesheet" href="{{ url('templates/backend') }}/pages/waves/css/waves.min.css" type="text/css" media="all">
 <!-- Required Fremwork -->
-<link rel="stylesheet" type="text/css" href="{{ url('templates/backend') }}/css/bootstrap/css/bootstrap.min.css">
-{{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
+<link rel="stylesheet" type="text/css" href="{{ url('templates/backend') }}/css/bootstrap.min.css">
 <!-- waves.css -->
 <link rel="stylesheet" href="{{ url('templates/backend') }}/pages/waves/css/waves.min.css" type="text/css" media="all">
 <!-- themify icon -->
@@ -23,4 +22,16 @@
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ url('templates/backend') }}/css/table-ellipsis.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css">
+
+<style>
+    .option-custom {
+        max-width: 100%;
+        width: 100%;
+        overflow: hidden;
+        word-wrap: normal !important;
+        white-space: normal;
+    }
+</style>
