@@ -24,7 +24,7 @@ class TujuanRenstraController extends Controller
         })->get();
 
 
-        return view('backend.v1.pages.renstra-tujuan.index', $data);
+        return view('backend.v1.pages.renstra.index', $data);
     }
 
     /**
@@ -46,7 +46,7 @@ class TujuanRenstraController extends Controller
     public function store(Request $request)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renstra-tujuan.index');
+            return redirect()->route('renstra.index');
         }
 
         $request->validate([
@@ -58,7 +58,7 @@ class TujuanRenstraController extends Controller
         $data = $request->all();
         TujuanRenstra::create($data);
 
-        return redirect()->route('renstra-tujuan.index')->with(['success', 'Tujuan SKPD Berhasil di Tambahkan']);
+        return redirect()->route('renstra.index')->with(['success', 'Tujuan SKPD Berhasil di Tambahkan']);
     }
 
     /**
@@ -90,10 +90,10 @@ class TujuanRenstraController extends Controller
      * @param  \App\Models\TujuanRenstra  $tujuanRenstra
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TujuanRenstra $renstra_tujuan)
+    public function update(Request $request, TujuanRenstra $renstra)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renstra-tujuan.index');
+            return redirect()->route('renstra.index');
         }
         $request->validate([
             'nomor' => 'required',
@@ -101,9 +101,9 @@ class TujuanRenstraController extends Controller
         ]);
 
         $data = $request->all();
-        $renstra_tujuan->update($data);
+        $renstra->update($data);
 
-        return redirect()->route('renstra-tujuan.index')->with('toast_success', 'Tujuan SKPD Berhasil di Perbaharui');
+        return redirect()->route('renstra.index')->with('toast_success', 'Tujuan SKPD Berhasil di Perbaharui');
     }
 
     /**
@@ -112,13 +112,13 @@ class TujuanRenstraController extends Controller
      * @param  \App\Models\TujuanRenstra  $tujuanRenstra
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TujuanRenstra $renstra_tujuan)
+    public function destroy(TujuanRenstra $renstra)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renstra-tujuan.index');
+            return redirect()->route('renstra.index');
         }
 
-        $renstra_tujuan->delete();
+        $renstra->delete();
 
         return redirect()->back()->with('success', 'Tujuan SKPD Berhasil di Hapus');
     }

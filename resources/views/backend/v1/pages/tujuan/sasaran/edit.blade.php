@@ -11,9 +11,9 @@
         <div class="modal-content">
             <div class="card">
                 <div class="card-header">
-                    <h5>Perbaharui Sasaran</h5>
+                    <h5>Perbaharui Sasaran RPJMD</h5>
                 </div>
-                <div class="card-block">
+                <div class="modal-body">
                     <div class="mb-4">
                         <h6 class="text-center mb-5">{{ $tujuan_rpjmd->name }}</h6>
                     </div>
@@ -25,19 +25,18 @@
                             <input type="number" name="nomor" class="form-control" value="{{ $sasaran_rpjmd->nomor }}"
                                 required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Nomor <small>(contoh: 1)</small></label>
+                            <label class="float-label">Masukkan Nomor</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <textarea name="name" class="form-control" required>{{ $sasaran_rpjmd->name }}</textarea>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Sasaran <small>(contoh: Datang tepat
-                                    waktu)</small></label>
+                            <label class="float-label">Masukkan Sasaran</label>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                 <button type="submit" form="form-edit-sasaran-{{ $sasaran_rpjmd->id }}"
                     class="btn btn-primary">Perbaharui</button>
             </div>

@@ -26,7 +26,7 @@
 
 @section('content')
 @if (Auth::user()->rule !== 'User')
-@include('backend.v1.pages.visi.create-visi')
+@include('backend.v1.pages.visi.create')
 @endif
 
 <div class="card">

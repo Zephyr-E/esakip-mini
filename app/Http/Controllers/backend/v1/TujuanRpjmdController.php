@@ -8,7 +8,6 @@ use App\Models\TujuanRpjmd;
 use App\Models\Visi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class TujuanRpjmdController extends Controller
 {
@@ -19,13 +18,7 @@ class TujuanRpjmdController extends Controller
      */
     public function index()
     {
-
         $data['visi'] = Visi::where('aktif', 1)->first();
-        $data['misis'] = Misi::where('visi_id', $data['visi']->id)->get()->sortBy('nomor');
-
-        // $data['tujuan_rpjmds'] = TujuanRpjmd::whereHas('misi.visi', function ($query) {
-        //     return $query->where('aktif', 1);
-        // })->get();
 
         return view('backend.v1.pages.tujuan.index', $data);
     }
@@ -120,7 +113,6 @@ class TujuanRpjmdController extends Controller
         if (Auth::user()->rule !== 'Admin') {
             return redirect()->route('tujuan.index');
         }
-
         $tujuan->delete();
 
         return redirect()->back()->with('success', 'Tujuan Berhasil di Hapus');

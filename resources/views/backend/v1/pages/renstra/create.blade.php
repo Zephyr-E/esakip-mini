@@ -8,10 +8,10 @@
         <div class="modal-content">
             <div class="card">
                 <div class="card-header">
-                    <h5>Buat Tujuan</h5>
+                    <h5>Buat Tujuan SKPD</h5>
                 </div>
-                <div class="card-block">
-                    <form id="create-renstra-tujuan" class="form-material" action="{{ route('renstra-tujuan.store') }}"
+                <div class="modal-body">
+                    <form id="create-renstra-tujuan" class="form-material" action="{{ route('renstra.store') }}"
                         method="POST">
                         @csrf
                         <div class="form-group form-primary form-static-label pb-4">
@@ -36,7 +36,7 @@
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="number" name="nomor" class="form-control" required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Nomor <small>(contoh: 1)</small></label>
+                            <label class="float-label">Masukkan Nomor</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <textarea type="text" name="name" class="form-control row-cols-sm-3" required></textarea>
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                 <button type="submit" form="create-renstra-tujuan" class="btn btn-primary">Simpan</button>
             </div>
         </div>

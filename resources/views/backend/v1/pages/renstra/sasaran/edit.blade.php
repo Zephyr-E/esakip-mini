@@ -13,32 +13,30 @@
                 <div class="card-header">
                     <h5>Perbaharui Sasaran</h5>
                 </div>
-                <div class="card-block">
+                <div class="modal-body">
                     <div class="mb-4">
                         <h6 class="text-center mb-5">{{ $tujuan_renstra->name }}</h6>
                     </div>
                     <form id="form-edit-renstra-sasaran-{{ $sasaran_renstra->id }}" class="form-material"
-                        action="{{ route('renstra-tujuan.update', $sasaran_renstra->id) }}" method="POST">
+                        action="{{ route('renstra-sasaran.update', $sasaran_renstra->id) }}" method="POST">
                         @csrf
                         @method('patch')
-                        <input type="text" name="tujuan_renstra_id" value="{{ $tujuan_renstra->id }}" hidden>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="number" name="nomor" class="form-control" value="{{ $sasaran_renstra->nomor }}"
                                 required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Nomor <small>(contoh: 1)</small></label>
+                            <label class="float-label">Masukkan Nomor</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <textarea name="name" class="form-control" required>{{ $sasaran_renstra->name }}</textarea>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Sasaran <small>(contoh: Datang tepat
-                                    waktu)</small></label>
+                            <label class="float-label">Masukkan Sasaran</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="tahun" class="form-control" value="{{ $sasaran_renstra->tahun }}"
                                 required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Tahun <small>(contoh: 2020)</small></label>
+                            <label class="float-label">Masukkan Tahun</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <div class="col-3 form-control">
@@ -57,7 +55,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                 <button type="submit" form="form-edit-renstra-sasaran-{{ $sasaran_renstra->id }}"
                     class="btn btn-primary">Perbaharui</button>
             </div>

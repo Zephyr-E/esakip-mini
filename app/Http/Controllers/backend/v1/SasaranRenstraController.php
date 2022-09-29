@@ -39,13 +39,13 @@ class SasaranRenstraController extends Controller
     public function store(Request $request)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renstra-tujuan.index');
+            return redirect()->route('renstra.index');
         }
 
         $request->validate([
+            'tujuan_renstra_id' => 'required',
             'nomor' => 'required',
             'name' => 'required',
-            // 'tujuan_renstra_id ' => 'required',
             'tahun' => 'required',
             'status' => 'required',
         ]);
@@ -53,7 +53,7 @@ class SasaranRenstraController extends Controller
         $data = $request->all();
         SasaranRenstra::create($data);
 
-        return redirect()->route('renstra-tujuan.index')->with(['success', 'Sasaran SKPD Berhasil di Tambahkan']);
+        return redirect()->route('renstra.index')->with(['success', 'Sasaran SKPD Berhasil di Tambahkan']);
     }
 
     /**
@@ -88,12 +88,11 @@ class SasaranRenstraController extends Controller
     public function update(Request $request, SasaranRenstra $renstra_sasaran)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renstra-tujuan.index');
+            return redirect()->route('renstra.index');
         }
         $request->validate([
             'nomor' => 'required',
             'name' => 'required',
-            // 'tujuan_renstra_id ' => 'required',
             'tahun' => 'required',
             'status' => 'required',
         ]);
@@ -101,7 +100,7 @@ class SasaranRenstraController extends Controller
         $data = $request->all();
         $renstra_sasaran->update($data);
 
-        return redirect()->route('renstra-tujuan.index')->with('toast_success', 'Tujuan SKPD Berhasil di Perbaharui');
+        return redirect()->route('renstra.index')->with('toast_success', 'Tujuan SKPD Berhasil di Perbaharui');
     }
 
     /**
@@ -113,7 +112,7 @@ class SasaranRenstraController extends Controller
     public function destroy(SasaranRenstra $renstra_sasaran)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renstra-tujuan.index');
+            return redirect()->route('renstra.index');
         }
 
         $renstra_sasaran->delete();

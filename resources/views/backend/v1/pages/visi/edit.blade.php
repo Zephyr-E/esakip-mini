@@ -11,9 +11,9 @@
         <div class="modal-content">
             <div class="card">
                 <div class="card-header">
-                    <h5>Buat Visi Baru</h5>
+                    <h5>Perbaharui Visi</h5>
                 </div>
-                <div class="card-block">
+                <div class="modal-body">
                     <form id="form-edit-visi-{{ $visi->id }}" class="form-material"
                         action="{{ route('visi.update', $visi->id) }}" method="POST">
                         @csrf
@@ -21,19 +21,19 @@
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="name" class="form-control" value="{{ $visi->name }}" required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Visi <small>(contoh: Bekerja Keras)</small></label>
+                            <label class="float-label">Masukkan Visi</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="tahun_awal" class="form-control" value="{{ $visi->tahun_awal }}"
                                 required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Tahun Awal <small>(contoh: 2018)</small></label>
+                            <label class="float-label">Masukkan Tahun Awal</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="tahun_akhir" class="form-control" value="{{ $visi->tahun_akhir }}"
                                 required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Tahun Akhir <small>(contoh: 2023)</small></label>
+                            <label class="float-label">Masukkan Tahun Akhir</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <div class="col-3 form-control">
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                 <button type="submit" form="form-edit-visi-{{ $visi->id }}" class="btn btn-primary">Perbaharui</button>
             </div>
         </div>

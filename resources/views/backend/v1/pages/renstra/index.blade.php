@@ -15,7 +15,7 @@
                     <li class="breadcrumb-item">
                         <a href="{{ route('home') }}"> <i class="fa fa-home"></i> </a>
                     </li>
-                    <li class="breadcrumb-item"><a href="{{ route('renstra-tujuan.index') }}">RENSTRA</a>
+                    <li class="breadcrumb-item"><a href="{{ route('renstra.index') }}">RENSTRA</a>
                     </li>
                 </ul>
             </div>
@@ -25,8 +25,10 @@
 @endsection
 
 @section('content')
+
+{{-- buat tujuan skpd --}}
 @if (Auth::user()->rule !== 'User')
-@include('backend.v1.pages.renstra-tujuan.create-renstra-tujuan')
+@include('backend.v1.pages.renstra.create')
 @endif
 
 <div class="card">
@@ -34,7 +36,7 @@
         <h5>RENSTRA</h5>
     </div>
     <div class="card-block">
-        @include('backend.v1.pages.renstra-tujuan.table')
+        @include('backend.v1.pages.renstra.table')
     </div>
     <!-- Row end -->
 </div>

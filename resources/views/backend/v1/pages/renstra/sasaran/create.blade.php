@@ -11,7 +11,7 @@
                 <div class="card-header">
                     <h5>Buat Sasaran SKPD Baru</h5>
                 </div>
-                <div class="card-block">
+                <div class="modal-body">
                     <div class="mb-4">
                         <h6 class="text-center mb-5">{{ $tujuan_renstra->name }}</h6>
                     </div>
@@ -22,18 +22,17 @@
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="number" name="nomor" class="form-control" required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Nomor <small>(contoh: 1)</small></label>
+                            <label class="float-label">Masukkan Nomor</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <textarea name="name" class="form-control" required></textarea>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Sasaran <small>(contoh: Datang tepat
-                                    waktu)</small></label>
+                            <label class="float-label">Masukkan Sasaran</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="tahun" class="form-control" required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Tahun <small>(contoh: 2020)</small></label>
+                            <label class="float-label">Masukkan Tahun</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <div class="col-3 form-control">
@@ -50,7 +49,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                 <button type="submit" form="form-create-renstra-sasaran-{{ $tujuan_renstra->id }}"
                     class="btn btn-primary">Simpan</button>
             </div>

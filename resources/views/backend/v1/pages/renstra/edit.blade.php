@@ -18,7 +18,7 @@
                         <h6 class="text-center mb-5">{{ $sasaran_rpjmd->name }}</h6>
                     </div>
                     <form id="form-edit-renstra-tujuan-{{ $tujuan_renstra->id }}" class="form-material"
-                        action="{{ route('renstra-tujuan.update', $tujuan_renstra->id) }}" method="POST">
+                        action="{{ route('renstra.update', $tujuan_renstra->id) }}" method="POST">
                         @csrf
                         @method('patch')
                         

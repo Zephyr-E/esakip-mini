@@ -12,7 +12,7 @@
                 <div class="card-header">
                     <h5>Perbaharui Misi</h5>
                 </div>
-                <div class="card-block">
+                <div class="modal-body">
                     <div class="mb-4">
                         <h6 class="text-center mb-5">{{ $visi->name }}</h6>
                     </div>
@@ -20,23 +20,21 @@
                         action="{{ route('misi.update', $misi->id) }}" method="POST">
                         @csrf
                         @method('patch')
-                        <input type="text" name="visi_id" value="{{ $visi->id }}" hidden>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="number" name="nomor" class="form-control" value="{{ $misi->nomor }}" required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Nomor <small>(contoh: 1)</small></label>
+                            <label class="float-label">Masukkan Nomor</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <textarea type="text" name="name" class="form-control" required>{{ $misi->name }}</textarea>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Misi <small>(contoh: Bangun pagi dan Istirahat yang
-                                    cukup)</small></label>
+                            <label class="float-label">Masukkan Misi</label>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                 <button type="submit" form="form-edit-misi-{{ $misi->id }}" class="btn btn-primary">Perbaharui</button>
             </div>
         </div>

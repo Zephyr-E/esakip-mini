@@ -39,7 +39,7 @@ Route::group(["middleware" => [
     Route::resource('tujuan', TujuanRpjmdController::class);
     Route::resource('sasaran', SasaranRpjmdController::class);
 
-    Route::resource('renstra-tujuan', TujuanRenstraController::class);
+    Route::resource('renstra', TujuanRenstraController::class);
     Route::resource('renstra-sasaran', SasaranRenstraController::class);
 
     Route::resource('renja', ProgramController::class);

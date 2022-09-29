@@ -17,15 +17,18 @@
             </tr>
         </thead>
         <tbody>
+
+            {{-- visi --}}
             @foreach ($visis as $visi)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 @if (Auth::user()->rule !== 'User')
                 <td>
                     <div class="form-inline">
-
-                        @include('backend.v1.pages.visi.edit-visi')
+                        {{-- edit visi --}}
+                        @include('backend.v1.pages.visi.edit')
                         &nbsp;
+                        {{-- hapus visi --}}
                         <form action="{{ route('visi.destroy', $visi->id) }}" method="POST">
                             @csrf
                             @method('delete')
@@ -44,14 +47,18 @@
                 <td>{{ ($visi->aktif > 0) ? 'Aktif' : 'Tidak Aktif' }}</td>
                 <td>
 
-                    @include('backend.v1.pages.visi.create-misi')
-
+                    {{-- Misi --}}
+                    {{-- tambah misi --}}
+                    @include('backend.v1.pages.visi.misi.create')
+                    {{-- query data misi --}}
                     @forelse ($visi->misi->sortBy('nomor') as $misi)
                     <div class="form-inline">
                         {{ $misi->nomor . ". " . $misi->name }}
                         &nbsp;
-                        @include('backend.v1.pages.visi.edit-misi')
+                        {{-- edit misi --}}
+                        @include('backend.v1.pages.visi.misi.edit')
                         &nbsp;
+                        {{-- hapus misi --}}
                         <form action="{{ route('misi.destroy', $misi->id) }}" method="POST">
                             @csrf
                             @method('delete')
@@ -64,9 +71,13 @@
                     @empty
                     Misi Kosong
                     @endforelse
+                    {{-- penutup misi --}}
+
                 </td>
             </tr>
             @endforeach
+            {{-- penutup visi --}}
+
         </tbody>
     </table>
 </div>

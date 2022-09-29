@@ -9,9 +9,9 @@
         <div class="modal-content">
             <div class="card">
                 <div class="card-header">
-                    <h5>Buat Misi Baru</h5>
+                    <h5>Tambah Misi</h5>
                 </div>
-                <div class="card-block">
+                <div class="modal-body">
                     <div class="mb-4">
                         <h6 class="text-center mb-5">{{ $visi->name }}</h6>
                     </div>
@@ -22,18 +22,18 @@
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="number" name="nomor" class="form-control" required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Nomor <small>(contoh: 1)</small></label>
+                            <label class="float-label">Masukkan Nomor</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <textarea name="name" class="form-control" required></textarea>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Misi <small>(contoh: Datang tepat waktu)</small></label>
+                            <label class="float-label">Masukkan Misi</label>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                 <button type="submit" form="form-create-misi-{{ $visi->id }}" class="btn btn-primary">Simpan</button>
             </div>
         </div>

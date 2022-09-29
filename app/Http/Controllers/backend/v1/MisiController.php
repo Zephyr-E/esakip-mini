@@ -40,6 +40,7 @@ class MisiController extends Controller
         if (Auth::user()->rule !== 'Admin') {
             return redirect()->route('visi.index');
         }
+
         $request->validate([
             'nomor' => 'required',
             'name' => 'required',
