@@ -21,6 +21,7 @@
                         action="{{ route('renstra-tujuan.update', $sasaran_renstra->id) }}" method="POST">
                         @csrf
                         @method('patch')
+                        <input type="text" name="tujuan_renstra_id" value="{{ $tujuan_renstra->id }}" hidden>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="number" name="nomor" class="form-control" value="{{ $sasaran_renstra->nomor }}"
                                 required>

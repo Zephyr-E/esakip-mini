@@ -124,7 +124,6 @@ class VisiController extends Controller
 
         $visi->delete();
 
-        // $query = DB::table('visis')->where('id', '=', $request->query('id'))->delete();
         return redirect()->back()->with('success', 'Visi & Misi Berhasil di Hapus');
     }
 }

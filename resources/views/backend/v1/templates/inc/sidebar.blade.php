@@ -56,8 +56,8 @@
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
-            <li class="{{ Route::currentRouteName() == 'rkt-renja' ? 'active' : '' }}">
-                <a href="!#" class="waves-effect waves-dark">
+            <li class="{{ in_array(Route::currentRouteName(), ['renja.index']) ? 'active' : '' }}">
+                <a href="{{ route('renja.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="fas fa-table"></i><b>D</b></span>
                     <span class="pcoded-mtext" style="font-size: 13px">RKT/RENJA</span>
                     <span class="pcoded-mcaret"></span>

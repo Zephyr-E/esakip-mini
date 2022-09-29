@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\backend\v1;
 
 use App\Http\Controllers\Controller;
-use App\Models\SasaranRpjmd;
-use App\Models\TujuanRenstra;
-use App\Models\TujuanRpjmd;
+use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class TujuanRenstraController extends Controller
+class KegiatanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,12 +16,6 @@ class TujuanRenstraController extends Controller
      */
     public function index()
     {
-        $data['tujuan_rpjmds'] = TujuanRpjmd::whereHas('misi.visi', function ($query) {
-            return $query->where('aktif', 1);
-        })->get();
-
-
-        return view('backend.v1.pages.renstra-tujuan.index', $data);
     }
 
     /**
@@ -46,39 +37,40 @@ class TujuanRenstraController extends Controller
     public function store(Request $request)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renstra-tujuan.index');
+            return redirect()->route('renja.index');
         }
 
         $request->validate([
-            'nomor' => 'required',
             'name' => 'required',
-            'sasaran_rpjmd_id' => 'required',
+            'otorisasi' => 'required',
+            'program_id' => 'required',
         ]);
 
         $data = $request->all();
-        TujuanRenstra::create($data);
+        Kegiatan::create($data);
 
-        return redirect()->route('renstra-tujuan.index')->with(['success', 'Tujuan SKPD Berhasil di Tambahkan']);
+        return redirect()->route('renja.index')->with(['success', 'Kegiatan Berhasil di Tambahkan']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TujuanRenstra  $tujuanRenstra
+     * @param  \App\Models\Kegiatan  $kegiatan
      * @return \Illuminate\Http\Response
      */
-    public function show(TujuanRenstra $tujuanRenstra)
+    public function show(Kegiatan $kegiatan)
     {
-        //
+        $data['kegiatan'] = $kegiatan;
+        return view('backend.v1.pages.renja.sub-kegiatan.index', $data);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TujuanRenstra  $tujuanRenstra
+     * @param  \App\Models\Kegiatan  $kegiatan
      * @return \Illuminate\Http\Response
      */
-    public function edit(TujuanRenstra $tujuanRenstra)
+    public function edit(Kegiatan $kegiatan)
     {
         //
     }
@@ -87,39 +79,41 @@ class TujuanRenstraController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TujuanRenstra  $tujuanRenstra
+     * @param  \App\Models\Kegiatan  $kegiatan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TujuanRenstra $renstra_tujuan)
+    public function update(Request $request, Kegiatan $kegiatan)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renstra-tujuan.index');
+            return redirect()->route('renja.index');
         }
+
         $request->validate([
-            'nomor' => 'required',
             'name' => 'required',
+            'otorisasi' => 'required',
+            'program_id' => 'required',
         ]);
 
         $data = $request->all();
-        $renstra_tujuan->update($data);
+        $kegiatan->update($data);
 
-        return redirect()->route('renstra-tujuan.index')->with('toast_success', 'Tujuan SKPD Berhasil di Perbaharui');
+        return redirect()->route('renja.index')->with('toast_success', 'Kegiatan Berhasil di Perbaharui');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TujuanRenstra  $tujuanRenstra
+     * @param  \App\Models\Kegiatan  $kegiatan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TujuanRenstra $renstra_tujuan)
+    public function destroy(Kegiatan $kegiatan)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renstra-tujuan.index');
+            return redirect()->route('renja.index');
         }
 
-        $renstra_tujuan->delete();
+        $kegiatan->delete();
 
-        return redirect()->back()->with('success', 'Tujuan SKPD Berhasil di Hapus');
+        return redirect()->back()->with('success', 'Kegiatan Berhasil di Hapus');
     }
 }

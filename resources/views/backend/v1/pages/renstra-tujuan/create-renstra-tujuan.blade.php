@@ -1,5 +1,5 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#renstraTujuanCreateModal"><i
-        class="fas fa-plus fa-sm"></i> Buat Tujuan SKPD</button>
+        class="fas fa-plus fa-sm"></i> Buat Tujuan</button>
 
 {{-- modal membuat misi- --}}
 <div class="modal fade" id="renstraTujuanCreateModal" tabindex="-1" role="dialog"
@@ -31,7 +31,7 @@
                                 @endforelse
                             </select>
                             <span class="form-bar"></span>
-                            <label class="float-label">Sasaran RPJMD <small> (pilih status)</small></label>
+                            <label class="float-label">Sasaran RPJMD <small> (pilih Sasaran)</small></label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="number" name="nomor" class="form-control" required>
