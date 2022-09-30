@@ -24,6 +24,7 @@
 @endsection
 
 @section('content')
+
 <div class="row">
     <!-- Material statustic card start -->
     <div class="col-xl-4 col-md-12">
@@ -166,4 +167,5 @@
     <!-- order-visitor start -->
 
 </div>
+
 @endsection
