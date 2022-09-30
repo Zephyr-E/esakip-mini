@@ -1,18 +1,23 @@
+{{-- button edit --}}
 <button type="button" class="btn btn-light btn-sm text-primary" data-toggle="modal"
     data-target="#visiEditModal{{ $visi->id }}">
     <i class="fa fa-pencil-square-o"></i>
     Edit
 </button>
 
-{{-- modal membuat misi- --}}
+{{-- modal edit visi- --}}
 <div class="modal fade" id="visiEditModal{{ $visi->id }}" tabindex="-1" role="dialog"
     aria-labelledby="visiEditModalLabel{{ $visi->id }}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card">
+
+                {{-- header --}}
                 <div class="card-header">
                     <h5>Perbaharui Visi</h5>
                 </div>
+
+                {{-- body --}}
                 <div class="modal-body">
                     <form id="form-edit-visi-{{ $visi->id }}" class="form-material"
                         action="{{ route('visi.update', $visi->id) }}" method="POST">
@@ -47,10 +52,14 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <button type="submit" form="form-edit-visi-{{ $visi->id }}" class="btn btn-primary">Perbaharui</button>
+
+                {{-- footer --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" form="form-edit-visi-{{ $visi->id }}"
+                        class="btn btn-primary">Perbaharui</button>
+                </div>
+
             </div>
         </div>
     </div>

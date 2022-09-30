@@ -8,6 +8,8 @@
             </tr>
         </thead>
         <tbody>
+
+            {{-- sasaran skpd --}}
             @php $nomor = 1 @endphp
             @forelse ($sasaran_renstras as $sasaran_renstra)
             <tr>
@@ -16,6 +18,8 @@
                     {{ 'Sasaran Strategis : '.$sasaran_renstra->name }}
                 </td>
             </tr>
+
+            {{-- program --}}
             @foreach ($sasaran_renstra->program as $program)
             <tr>
                 <td></td>
@@ -24,8 +28,12 @@
                     <div class="form-inline">
                         {{ 'Program : '.$program->name }}
                         &nbsp;
-                        @include('backend.v1.pages.renja.edit-program')
+
+                        {{-- edit --}}
+                        @include('backend.v1.pages.renja.edit')
                         &nbsp;
+
+                        {{-- hapus --}}
                         <form action="{{ route('renja.destroy', $program->id) }}" method="POST">
                             @csrf
                             @method('delete')
@@ -38,13 +46,17 @@
                 </td>
                 <td>{{ $program->otorisasi }}</td>
             </tr>
+
+            {{-- tambah kegiatan --}}
             <tr>
                 <td></td>
                 <td></td>
                 <td colspan="4">
-                    @include('backend.v1.pages.renja.create-kegiatan')
+                    @include('backend.v1.pages.renja.kegiatan.create')
                 </td>
             </tr>
+
+            {{-- kegiatan --}}
             @foreach ($program->kegiatan as $kegiatan)
             <tr>
                 <td></td>
@@ -59,7 +71,7 @@
                     <div class="form-inline">
                         {{ $kegiatan->name }}
                         &nbsp;
-                        @include('backend.v1.pages.renja.edit-kegiatan')
+                        @include('backend.v1.pages.renja.kegiatan.edit')
                         &nbsp;
                         <form action="{{ route('kegiatan.destroy', $kegiatan->id) }}" method="POST">
                             @csrf
@@ -75,13 +87,19 @@
                 <td>{{ $kegiatan->otorisasi }}</td>
             </tr>
             @endforeach
+            {{-- kegiatan berakhir --}}
+
             @endforeach
+            {{-- program berakhir --}}
+
             @empty
             <tr>
                 <td></td>
                 <td colspan="5" class="text-center">Kosong</td>
             </tr>
             @endforelse
+            {{-- sasaran skpd berakhir --}}
+
         </tbody>
     </table>
 </div>

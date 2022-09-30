@@ -1,26 +1,31 @@
+{{-- button tambah --}}
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#programCreateModal"><i
         class="fas fa-plus fa-sm"></i> Buat Program</button>
 
-{{-- modal membuat program- --}}
+{{-- modal tambah program --}}
 <div class="modal fade" id="programCreateModal" tabindex="-1" role="dialog" aria-labelledby="programCreateModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card">
+
+                {{-- header --}}
                 <div class="card-header">
                     <h5>Buat Program</h5>
                 </div>
-                <div class="card-block">
+
+                {{-- body --}}
+                <div class="modal-body">
                     <form id="create-program" class="form-material" action="{{ route('renja.store') }}" method="POST">
                         @csrf
                         <div class="form-group form-primary form-static-label pb-4">
                             <select class="form-control selectpicker" name="sasaran_renstra_id" id="sasaran_renstra_id"
                                 data-live-search="true">
-                                    @foreach ($sasaran_renstras as $sasaran_renstra)
-                                    <option value="{{ $sasaran_renstra->id }}" class="option-custom">{{
-                                        'Sasaran SKPD : '.$sasaran_renstra->name
-                                        }}</option>
-                                    @endforeach
+                                @foreach ($sasaran_renstras as $sasaran_renstra)
+                                <option value="{{ $sasaran_renstra->id }}" class="option-custom">{{
+                                    'Sasaran SKPD : '.$sasaran_renstra->name
+                                    }}</option>
+                                @endforeach
                             </select>
                             <span class="form-bar"></span>
                             <label class="float-label">Sasaran SKPD <small> (pilih Sasaran)</small></label>
@@ -28,7 +33,7 @@
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="name" class="form-control" required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Program <small>(contoh: 1)</small></label>
+                            <label class="float-label">Masukkan Program</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <textarea type="text" name="kendala" class="form-control row-cols-sm-3" required></textarea>
@@ -41,7 +46,8 @@
                             <label class="float-label">Masukkan Solusi</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
-                            <textarea type="text" name="tindak_lanjut" class="form-control row-cols-sm-3" required></textarea>
+                            <textarea type="text" name="tindak_lanjut" class="form-control row-cols-sm-3"
+                                required></textarea>
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Tindak Lanjut</label>
                         </div>
@@ -68,10 +74,13 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" form="create-program" class="btn btn-primary">Simpan</button>
+
+                {{-- footer --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" form="create-program" class="btn btn-primary">Simpan</button>
+                </div>
+
             </div>
         </div>
     </div>

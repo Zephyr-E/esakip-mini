@@ -25,6 +25,8 @@
 @endsection
 
 @section('content')
+
+{{-- tambah visi --}}
 @if (Auth::user()->rule !== 'User')
 @include('backend.v1.pages.visi.create')
 @endif
@@ -37,6 +39,7 @@
         <!-- Row start -->
         <div class="row">
             <div class="col-lg-12 col-xl-12">
+
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs  tabs" role="tablist">
                     <li class="nav-item">
@@ -46,6 +49,7 @@
                         <a class="nav-link" data-toggle="tab" href="#tampilan1" role="tab">Tampilan</a>
                     </li>
                 </ul>
+
                 <!-- Tab panes -->
                 <div class="tab-content tabs card-block">
                     {{-- tabel visi misi --}}
@@ -58,11 +62,11 @@
                         @include('backend.v1.pages.visi.tampilan')
                     </div>
                 </div>
+
             </div>
         </div>
+        <!-- Row end -->
     </div>
-    <!-- Row end -->
-</div>
 </div>
 
 @endsection

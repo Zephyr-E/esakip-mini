@@ -1,9 +1,12 @@
 <div class="card-block table-responsive">
+
+    {{-- nama visi --}}
     @if (!is_null($visi))
     <h6 class="mb-3">{{ "Visi : " . $visi->name }}</h6>
     @else
     <h6 class="mb-3">Tidak ada visi yang aktif</h6>
     @endif
+
     <table class="table table-bordered datatables">
         <thead>
             <tr>
@@ -23,7 +26,7 @@
                 </td>
             </tr>
 
-            {{-- tujuan rpjmd --}}
+            {{-- tambah tujuan --}}
             <tr>
                 <td></td>
                 <td colspan="4">
@@ -31,6 +34,8 @@
                     @include('backend.v1.pages.tujuan.create')
                 </td>
             </tr>
+
+            {{-- tujuan rpjmd --}}
             @foreach ($misi->tujuan_rpjmd as $tujuan_rpjmd)
             <tr>
                 <td></td>
@@ -39,10 +44,12 @@
                     <div class="form-inline">
                         {{ 'Tujuan '. $tujuan_rpjmd->nomor .': ' . $tujuan_rpjmd->name }}
                         &nbsp;
+
                         {{-- edit tujuan --}}
                         @include('backend.v1.pages.tujuan.edit')
-                        {{-- hapus tujuan --}}
                         &nbsp;
+
+                        {{-- hapus tujuan --}}
                         <form action="{{ route('tujuan.destroy', $tujuan_rpjmd->id) }}" method="POST">
                             @csrf
                             @method('delete')
@@ -51,20 +58,22 @@
                                 <i class="fas fa-trash text-danger"></i>Hapus
                             </button>
                         </form>
+
                     </div>
                 </td>
             </tr>
             {{-- tujuan rpjmd berakhir --}}
 
-            {{-- sasaran rpjmd --}}
+            {{-- buat sasaran --}}
             <tr>
                 <td></td>
                 <td></td>
                 <td colspan="3">
-                    {{-- buat sasaran --}}
                     @include('backend.v1.pages.tujuan.sasaran.create')
                 </td>
             </tr>
+
+            {{-- sasaran rpjmd --}}
             @foreach ($tujuan_rpjmd->sasaran_rpjmd->sortBy('nomor') as $sasaran_rpjmd)
             <tr>
                 <td></td>
@@ -74,8 +83,10 @@
                     <div class="form-inline">
                         {{ 'Sasaran '. $sasaran_rpjmd->nomor .': ' . $sasaran_rpjmd->name }}
                         &nbsp;
+
                         {{-- edit sasaran --}}
                         @include('backend.v1.pages.tujuan.sasaran.edit')
+
                         &nbsp;
                         {{-- hapus sasaran --}}
                         <form action="{{ route('sasaran.destroy', $sasaran_rpjmd->id) }}" method="POST">
@@ -87,6 +98,7 @@
                                 Hapus
                             </button>
                         </form>
+
                     </div>
                 </td>
             </tr>

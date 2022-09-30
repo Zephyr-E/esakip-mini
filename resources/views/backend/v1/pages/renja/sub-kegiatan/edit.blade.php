@@ -1,19 +1,24 @@
+{{-- edit button --}}
 <button type="button" class="btn btn-light btn-sm text-primary" data-toggle="modal"
     data-target="#subSegiatanEditModal{{ $sub_kegiatan->id }}">
     <i class="fa fa-pencil-square-o"></i>
     Edit
 </button>
 
-{{-- modal membuat tujuan- --}}
+{{-- modal edit sub kegiatan --}}
 <div class="modal fade" id="subSegiatanEditModal{{ $sub_kegiatan->id }}" tabindex="-1" role="dialog"
     aria-labelledby="subSegiatanEditModalLabel{{ $sub_kegiatan->id }}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card">
+
+                {{-- header --}}
                 <div class="card-header">
                     <h5>Perbaharui Sub Kegiatan</h5>
                 </div>
-                <div class="card-block">
+
+                {{-- body --}}
+                <div class="modal-body">
                     <div class="mb-4">
                         <h6 class="text-center mb-5">{{ $kegiatan->name }}</h6>
                     </div>
@@ -58,11 +63,14 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" form="form-edit-sub-kegiatan-{{ $sub_kegiatan->id }}"
-                    class="btn btn-primary">Perbaharui</button>
+
+                {{-- footer --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" form="form-edit-sub-kegiatan-{{ $sub_kegiatan->id }}"
+                        class="btn btn-primary">Perbaharui</button>
+                </div>
+
             </div>
         </div>
     </div>

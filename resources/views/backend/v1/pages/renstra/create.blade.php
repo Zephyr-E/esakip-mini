@@ -1,15 +1,20 @@
+{{-- button tambah --}}
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#renstraTujuanCreateModal"><i
         class="fas fa-plus fa-sm"></i> Buat Tujuan</button>
 
-{{-- modal membuat misi- --}}
+{{-- modal tambah tujuan skpd --}}
 <div class="modal fade" id="renstraTujuanCreateModal" tabindex="-1" role="dialog"
     aria-labelledby="renstraTujuanCreateModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card">
+
+                {{-- header --}}
                 <div class="card-header">
                     <h5>Buat Tujuan SKPD</h5>
                 </div>
+
+                {{-- body --}}
                 <div class="modal-body">
                     <form id="create-renstra-tujuan" class="form-material" action="{{ route('renstra.store') }}"
                         method="POST">
@@ -45,10 +50,13 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <button type="submit" form="create-renstra-tujuan" class="btn btn-primary">Simpan</button>
+
+                {{-- footer --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" form="create-renstra-tujuan" class="btn btn-primary">Simpan</button>
+                </div>
+
             </div>
         </div>
     </div>

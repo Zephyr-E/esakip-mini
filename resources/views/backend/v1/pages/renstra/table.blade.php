@@ -43,11 +43,12 @@
                     </div>
                 </td>
             </tr>
+
+            {{-- buat sasaran skpd --}}
             <tr>
                 <td></td>
                 <td></td>
                 <td colspan="3">
-                    {{-- buat sasaran skpd --}}
                     @include('backend.v1.pages.renstra.sasaran.create')
                 </td>
             </tr>
@@ -62,9 +63,11 @@
                     <div class="form-inline">
                         {{ 'Sasaran SKPD '. $sasaran_renstra->nomor .': ' . $sasaran_renstra->name }}
                         &nbsp;
+
                         {{-- edit sasaran skpd --}}
                         @include('backend.v1.pages.renstra.sasaran.edit')
                         &nbsp;
+
                         {{-- hapus sasaran skpd --}}
                         <form action="{{ route('renstra-sasaran.destroy', $sasaran_renstra->id) }}" method="POST">
                             @csrf

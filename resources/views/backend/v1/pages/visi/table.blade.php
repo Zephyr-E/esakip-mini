@@ -25,9 +25,11 @@
                 @if (Auth::user()->rule !== 'User')
                 <td>
                     <div class="form-inline">
+
                         {{-- edit visi --}}
                         @include('backend.v1.pages.visi.edit')
                         &nbsp;
+
                         {{-- hapus visi --}}
                         <form action="{{ route('visi.destroy', $visi->id) }}" method="POST">
                             @csrf
@@ -38,6 +40,7 @@
                                 Hapus
                             </button>
                         </form>
+
                     </div>
                 </td>
                 @endif
@@ -47,17 +50,19 @@
                 <td>{{ ($visi->aktif > 0) ? 'Aktif' : 'Tidak Aktif' }}</td>
                 <td>
 
-                    {{-- Misi --}}
                     {{-- tambah misi --}}
                     @include('backend.v1.pages.visi.misi.create')
-                    {{-- query data misi --}}
+
+                    {{-- Misi --}}
                     @forelse ($visi->misi->sortBy('nomor') as $misi)
                     <div class="form-inline">
                         {{ $misi->nomor . ". " . $misi->name }}
                         &nbsp;
+
                         {{-- edit misi --}}
                         @include('backend.v1.pages.visi.misi.edit')
                         &nbsp;
+
                         {{-- hapus misi --}}
                         <form action="{{ route('misi.destroy', $misi->id) }}" method="POST">
                             @csrf

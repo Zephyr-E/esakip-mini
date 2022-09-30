@@ -100,7 +100,6 @@ class ProgramController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'sasaran_renstra_id' => 'required',
             'kendala' => 'required',
             'solusi' => 'required',
             'tindak_lanjut' => 'required',

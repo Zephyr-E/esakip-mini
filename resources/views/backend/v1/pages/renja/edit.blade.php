@@ -1,19 +1,24 @@
+{{-- button edit --}}
 <button type="button" class="btn btn-light btn-sm text-primary" data-toggle="modal"
     data-target="#programEditModal{{ $program->id }}">
     <i class="fa fa-pencil-square-o"></i>
     Edit
 </button>
 
-{{-- modal membuat tujuan- --}}
+{{-- modal edit program --}}
 <div class="modal fade" id="programEditModal{{ $program->id }}" tabindex="-1" role="dialog"
     aria-labelledby="programEditModalLabel{{ $program->id }}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card">
+
+                {{-- header --}}
                 <div class="card-header">
                     <h5>Perbaharui Program</h5>
                 </div>
-                <div class="card-block">
+
+                {{-- body --}}
+                <div class="modal-body">
                     <div class="mb-4">
                         <h6 class="text-center mb-5">{{ $sasaran_renstra->name }}</h6>
                     </div>
@@ -21,7 +26,6 @@
                         action="{{ route('renja.update', $program->id) }}" method="POST">
                         @csrf
                         @method('patch')
-                        <input type="text" name="sasaran_renstra_id" value="{{ $sasaran_renstra->id }}" hidden>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="name" class="form-control" value="{{ $program->name }}" required>
                             <span class="form-bar"></span>
@@ -72,11 +76,14 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" form="form-edit-program-{{ $program->id }}"
-                    class="btn btn-primary">Perbaharui</button>
+
+                {{-- footer --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" form="form-edit-program-{{ $program->id }}"
+                        class="btn btn-primary">Perbaharui</button>
+                </div>
+
             </div>
         </div>
     </div>

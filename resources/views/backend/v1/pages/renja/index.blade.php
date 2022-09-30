@@ -25,8 +25,10 @@
 @endsection
 
 @section('content')
+
+{{-- tambah program --}}
 @if (Auth::user()->rule !== 'User')
-@include('backend.v1.pages.renja.create-program')
+@include('backend.v1.pages.renja.create')
 @endif
 
 <div class="card">

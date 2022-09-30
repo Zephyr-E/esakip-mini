@@ -1,17 +1,22 @@
+{{-- button tambah --}}
 <button type="button" class="btn btn-sm col-12" data-toggle="modal"
     data-target="#subKegiatanCreateModal{{ $kegiatan->id }}"><i class="fas fa-plus fa-sm"></i>
     Tambah Sub Kegiatan</button>
 
-{{-- modal membuat tujuan- --}}
+{{-- modal tambah sub kegiatan --}}
 <div class="modal fade" id="subKegiatanCreateModal{{ $kegiatan->id }}" tabindex="-1" role="dialog"
     aria-labelledby="subKegiatanCreateModalLabel{{ $kegiatan->id }}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card">
+
+                {{-- header --}}
                 <div class="card-header">
                     <h5>Buat Sub Kegiatan Indikator</h5>
                 </div>
-                <div class="card-block">
+
+                {{-- body --}}
+                <div class="modal-body">
                     <div class="mb-4">
                         <h6 class="text-center mb-5">{{ $kegiatan->name }}</h6>
                     </div>
@@ -51,11 +56,14 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" form="form-create-sub-kegiatan-{{ $kegiatan->id }}"
-                    class="btn btn-primary">Simpan</button>
+
+                {{-- footer --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" form="form-create-sub-kegiatan-{{ $kegiatan->id }}"
+                        class="btn btn-primary">Simpan</button>
+                </div>
+
             </div>
         </div>
     </div>

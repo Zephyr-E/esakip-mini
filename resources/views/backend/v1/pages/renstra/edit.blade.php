@@ -1,19 +1,24 @@
+{{-- button tambah --}}
 <button type="button" class="btn btn-light btn-sm text-primary" data-toggle="modal"
     data-target="#renstraTujuanEditModal{{ $tujuan_renstra->id }}">
     <i class="fa fa-pencil-square-o"></i>
     Edit
 </button>
 
-{{-- modal membuat tujuan- --}}
+{{-- modal edit tujuan skpd --}}
 <div class="modal fade" id="renstraTujuanEditModal{{ $tujuan_renstra->id }}" tabindex="-1" role="dialog"
     aria-labelledby="renstraTujuanEditModalLabel{{ $tujuan_renstra->id }}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card">
+
+                {{-- header --}}
                 <div class="card-header">
                     <h5>Perbaharui Tujuan</h5>
                 </div>
-                <div class="card-block">
+
+                {{-- body --}}
+                <div class="modal-body">
                     <div class="mb-4">
                         <h6 class="text-center mb-5">{{ $sasaran_rpjmd->name }}</h6>
                     </div>
@@ -21,7 +26,7 @@
                         action="{{ route('renstra.update', $tujuan_renstra->id) }}" method="POST">
                         @csrf
                         @method('patch')
-                        
+
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="number" name="nomor" class="form-control" value="{{ $tujuan_renstra->nomor }}"
                                 required>
@@ -36,11 +41,14 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" form="form-edit-renstra-tujuan-{{ $tujuan_renstra->id }}"
-                    class="btn btn-primary">Perbaharui</button>
+
+                {{-- footer --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" form="form-edit-renstra-tujuan-{{ $tujuan_renstra->id }}"
+                        class="btn btn-primary">Perbaharui</button>
+                </div>
+
             </div>
         </div>
     </div>

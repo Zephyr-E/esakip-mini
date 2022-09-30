@@ -1,16 +1,21 @@
+{{-- button tambah --}}
 <button type="button" class="btn btn-sm col-12" data-toggle="modal"
     data-target="#sasaranRenstraCreateModal{{ $tujuan_renstra->id }}"><i class="fas fa-plus fa-sm"></i>
     Tambah Sasaran</button>
 
-{{-- modal membuat tujuan- --}}
+{{-- modal tambah sasaran skpd --}}
 <div class="modal fade" id="sasaranRenstraCreateModal{{ $tujuan_renstra->id }}" tabindex="-1" role="dialog"
     aria-labelledby="sasaranRenstraCreateModalLabel{{ $tujuan_renstra->id }}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card">
+
+                {{-- header --}}
                 <div class="card-header">
                     <h5>Buat Sasaran SKPD Baru</h5>
                 </div>
+
+                {{-- body --}}
                 <div class="modal-body">
                     <div class="mb-4">
                         <h6 class="text-center mb-5">{{ $tujuan_renstra->name }}</h6>
@@ -47,12 +52,15 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <button type="submit" form="form-create-renstra-sasaran-{{ $tujuan_renstra->id }}"
-                    class="btn btn-primary">Simpan</button>
-            </div>
+
+                {{-- footer --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" form="form-create-renstra-sasaran-{{ $tujuan_renstra->id }}"
+                        class="btn btn-primary">Simpan</button>
+                    </div>
+
+                </div>
         </div>
     </div>
 </div>
