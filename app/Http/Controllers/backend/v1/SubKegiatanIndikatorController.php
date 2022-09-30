@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\backend\v1;
 
 use App\Http\Controllers\Controller;
-use App\Models\ProgramIndikator;
+use App\Models\SubKegiatanIndikator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ProgramIndikatorController extends Controller
+class SubKegiatanIndikatorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,8 +41,10 @@ class ProgramIndikatorController extends Controller
             return redirect()->route('renja.index');
         }
 
+        // dd($request);
+
         $request->validate([
-            'program_id' => 'required',
+            'sub_kegiatan_id' => 'required',
             'indikator' => 'required',
             'satuan' => 'required',
             'target' => 'required',
@@ -56,18 +58,18 @@ class ProgramIndikatorController extends Controller
         ]);
 
         $data = $request->all();
-        ProgramIndikator::create($data);
+        SubKegiatanIndikator::create($data);
 
-        return redirect()->route('renja.index')->with(['success', 'Program Indikator Berhasil di Tambahkan']);
+        return redirect()->back()->with('success', 'Sub Kegiatan Indikator Berhasil di Tambah');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ProgramIndikator  $programIndikator
+     * @param  \App\Models\SubKegiatanIndikator  $subKegiatanIndikator
      * @return \Illuminate\Http\Response
      */
-    public function show(ProgramIndikator $programIndikator)
+    public function show(SubKegiatanIndikator $subKegiatanIndikator)
     {
         //
     }
@@ -75,10 +77,10 @@ class ProgramIndikatorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ProgramIndikator  $programIndikator
+     * @param  \App\Models\SubKegiatanIndikator  $subKegiatanIndikator
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProgramIndikator $programIndikator)
+    public function edit(SubKegiatanIndikator $subKegiatanIndikator)
     {
         //
     }
@@ -87,10 +89,10 @@ class ProgramIndikatorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ProgramIndikator  $programIndikator
+     * @param  \App\Models\SubKegiatanIndikator  $subKegiatanIndikator
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProgramIndikator $program_indikator)
+    public function update(Request $request, SubKegiatanIndikator $sub_kegiatan_indikator)
     {
         if (Auth::user()->rule !== 'Admin') {
             return redirect()->route('renja.index');
@@ -110,25 +112,25 @@ class ProgramIndikatorController extends Controller
         ]);
 
         $data = $request->all();
-        $program_indikator->update($data);
+        $sub_kegiatan_indikator->update($data);
 
-        return redirect()->route('renja.index')->with('toast_success', 'Program Indikator Berhasil di Perbaharui');
+        return redirect()->back()->with('success', 'Sub Kegiatan Indikator Berhasil di Perbaharui');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ProgramIndikator  $programIndikator
+     * @param  \App\Models\SubKegiatanIndikator  $subKegiatanIndikator
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProgramIndikator $program_indikator)
+    public function destroy(SubKegiatanIndikator $sub_kegiatan_indikator)
     {
         if (Auth::user()->rule !== 'Admin') {
             return redirect()->route('renja.index');
         }
 
-        $program_indikator->delete();
+        $sub_kegiatan_indikator->delete();
 
-        return redirect()->back()->with('success', 'Program Indikator Berhasil di Hapus');
+        return redirect()->back()->with('success', 'Sub Kegiatan Indikator Berhasil di Hapus');
     }
 }

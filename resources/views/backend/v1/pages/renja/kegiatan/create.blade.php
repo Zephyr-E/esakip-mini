@@ -1,11 +1,10 @@
 {{-- button tambah --}}
-<button type="button" class="btn btn-sm col-12" data-toggle="modal"
-    data-target="#kegiatanCreateModal{{ $program->id }}"><i class="fas fa-plus fa-sm"></i>
-    Tambah Kegiatan</button>
+<button type="button" class="btn btn-primary" data-toggle="modal"
+    data-target="#kegiatanCreateModal"><i class="fas fa-plus fa-sm"></i> Buat Kegiatan</button>
 
 {{-- modal tambah kegiatan --}}
-<div class="modal fade" id="kegiatanCreateModal{{ $program->id }}" tabindex="-1" role="dialog"
-    aria-labelledby="kegiatanCreateModalLabel{{ $program->id }}" aria-hidden="true">
+<div class="modal fade" id="kegiatanCreateModal" tabindex="-1" role="dialog"
+    aria-labelledby="kegiatanCreateModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card">
@@ -20,7 +19,7 @@
                     <div class="mb-4">
                         <h6 class="text-center mb-5">{{ $program->name }}</h6>
                     </div>
-                    <form id="form-create-kegiatan-{{ $program->id }}" class="form-material"
+                    <form id="form-create-kegiatan" class="form-material"
                         action="{{ route('kegiatan.store') }}" method="POST">
                         @csrf
                         <input type="text" name="program_id" value="{{ $program->id }}" hidden>
@@ -40,7 +39,7 @@
                 {{-- footer --}}
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" form="form-create-kegiatan-{{ $program->id }}"
+                    <button type="submit" form="form-create-kegiatan"
                         class="btn btn-primary">Simpan</button>
                 </div>
 

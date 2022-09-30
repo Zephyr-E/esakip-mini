@@ -17,9 +17,9 @@ class SubKegiatanController extends Controller
      */
     public function index(Kegiatan $kegiatan)
     {
-        dd($kegiatan);
-        $data['sub_kegiatan'] = $kegiatan->sub_kegiatan();
-        return view('backend.v1.pages.renja.sub-kegiatan.index', $data);
+        // dd($kegiatan);
+        // $data['sub_kegiatan'] = $kegiatan->sub_kegiatan();
+        // return view('backend.v1.pages.renja.sub-kegiatan.index', $data);
     }
 
     /**

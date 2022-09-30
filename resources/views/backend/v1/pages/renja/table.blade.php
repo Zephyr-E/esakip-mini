@@ -3,7 +3,9 @@
         <thead>
             <tr>
                 <th scope="col" class="text-center" style="width: 10%">No</th>
-                <th scope="col" class="text-center" colspan="4">PROGRAM/KEGIATAN</th>
+                <th scope="col" class="text-center" colspan="3">SASARAN SKPD/PROGRAM/PROGRAM INDIKATOR</th>
+                <th scope="col" class="text-center">SATUAN</th>
+                <th scope="col" class="text-center">TARGET</th>
                 <th scope="col" class="text-center">UNIT KERJA PENANGGUNG JAWAB</th>
             </tr>
         </thead>
@@ -14,7 +16,7 @@
             @forelse ($sasaran_renstras as $sasaran_renstra)
             <tr>
                 <td>{{ $nomor++ }}</td>
-                <td colspan="5">
+                <td colspan="6">
                     {{ 'Sasaran Strategis : '.$sasaran_renstra->name }}
                 </td>
             </tr>
@@ -23,8 +25,13 @@
             @foreach ($sasaran_renstra->program as $program)
             <tr>
                 <td></td>
-                <td>{{ $loop->iteration }}</td>
-                <td colspan="3">
+                <td>
+                    <a href="{{ route('renja.show', $program->id) }}" class="btn btn-sm btn-outline-primary">
+                        Ke Halaman Kegiatan
+                        <i class="fas fa-arrow-right fa-fw"></i>
+                    </a>
+                </td>
+                <td colspan="4">
                     <div class="form-inline">
                         {{ 'Program : '.$program->name }}
                         &nbsp;
@@ -47,47 +54,48 @@
                 <td>{{ $program->otorisasi }}</td>
             </tr>
 
-            {{-- tambah kegiatan --}}
+            {{-- tambah program indikator --}}
             <tr>
                 <td></td>
                 <td></td>
-                <td colspan="4">
-                    @include('backend.v1.pages.renja.kegiatan.create')
+                <td colspan="5">
+                    @include('backend.v1.pages.renja.program-indikator.create')
                 </td>
             </tr>
 
-            {{-- kegiatan --}}
-            @foreach ($program->kegiatan as $kegiatan)
+            {{-- program indikator --}}
+            @foreach ($program->program_indikator as $program_indikator)
             <tr>
                 <td></td>
-                <td>
-                    <a href="{{ route('kegiatan.show', $kegiatan->id) }}" class="btn btn-sm btn-outline-primary">
-                        Ke Halaman Sub Kegiatan
-                        <i class="fas fa-arrow-right fa-fw"></i>
-                    </a>
-                </td>
+                <td></td>
                 <td>{{ $loop->iteration }}</td>
-                <td colspan="2">
+                <td colspan="1">
                     <div class="form-inline">
-                        {{ $kegiatan->name }}
+                        {{ $program_indikator->indikator }}
                         &nbsp;
-                        @include('backend.v1.pages.renja.kegiatan.edit')
+
+                        {{-- edit --}}
+                        @include('backend.v1.pages.renja.program-indikator.edit')
                         &nbsp;
-                        <form action="{{ route('kegiatan.destroy', $kegiatan->id) }}" method="POST">
+
+                        {{-- hapus --}}
+                        <form action="{{ route('program-indikator.destroy', $program_indikator->id) }}" method="POST">
                             @csrf
                             @method('delete')
                             <button class="btn btn-light btn-sm text-danger"
-                                onclick="return confirm('Ingin menghapus Kegiatan ini?')">
+                                onclick="return confirm('Ingin menghapus Indikator ini?')">
                                 <i class="fas fa-trash text-danger"></i>
                                 Hapus
                             </button>
                         </form>
                     </div>
                 </td>
-                <td>{{ $kegiatan->otorisasi }}</td>
+                <td>{{ $program_indikator->satuan }}</td>
+                <td>{{ $program_indikator->target }}</td>
+                <td></td>
             </tr>
             @endforeach
-            {{-- kegiatan berakhir --}}
+            {{-- program indikator berakhir --}}
 
             @endforeach
             {{-- program berakhir --}}

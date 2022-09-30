@@ -60,7 +60,7 @@ class ProgramController extends Controller
         $data = $request->all();
         Program::create($data);
 
-        return redirect()->route('renja.index')->with(['success', 'Program Berhasil di Tambahkan']);
+        redirect()->back()->with('success', 'Program Berhasil di Tambah');
     }
 
     /**
@@ -69,9 +69,10 @@ class ProgramController extends Controller
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function show(Program $program)
+    public function show(Program $renja)
     {
-        //
+        $data['program'] = $renja;
+        return view('backend.v1.pages.renja.kegiatan.index', $data);
     }
 
     /**
@@ -111,7 +112,7 @@ class ProgramController extends Controller
         $data = $request->all();
         $renja->update($data);
 
-        return redirect()->route('renja.index')->with('toast_success', 'Program Berhasil di Perbaharui');
+        return redirect()->back()->with('success', 'Program Berhasil di Perbaharui');
     }
 
     /**

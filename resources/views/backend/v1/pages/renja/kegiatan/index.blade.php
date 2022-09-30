@@ -17,7 +17,7 @@
                     </li>
                     <li class="breadcrumb-item"><a href="{{ route('renja.index') }}">RKT/RENJA</a>
                     </li>
-                    <li class="breadcrumb-item"><a href="!#">Sub Kegiatan</a>
+                    <li class="breadcrumb-item"><a href="!#">Kegiatan</a>
                     </li>
                 </ul>
             </div>
@@ -28,17 +28,17 @@
 
 @section('content')
 
-{{-- tambah sub kegiatan --}}
+{{-- tambah kegiatan --}}
 @if (Auth::user()->rule !== 'User')
-@include('backend.v1.pages.renja.sub-kegiatan.create')
+@include('backend.v1.pages.renja.kegiatan.create')
 @endif
 
 <div class="card">
     <div class="card-header">
-        <h5>Sub Kegiatan</h5>
+        <h5>Kegiatan</h5>
     </div>
     <div class="card-block">
-        @include('backend.v1.pages.renja.sub-kegiatan.table')
+        @include('backend.v1.pages.renja.kegiatan.table')
     </div>
     <!-- Row end -->
 </div>

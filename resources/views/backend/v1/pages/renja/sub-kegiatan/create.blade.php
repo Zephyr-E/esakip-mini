@@ -1,18 +1,17 @@
 {{-- button tambah --}}
-<button type="button" class="btn btn-sm col-12" data-toggle="modal"
-    data-target="#subKegiatanCreateModal{{ $kegiatan->id }}"><i class="fas fa-plus fa-sm"></i>
-    Tambah Sub Kegiatan</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#subKegiatanCreateModal"><i
+        class="fas fa-plus fa-sm"></i> Buat Sub Kegiatan</button>
 
 {{-- modal tambah sub kegiatan --}}
-<div class="modal fade" id="subKegiatanCreateModal{{ $kegiatan->id }}" tabindex="-1" role="dialog"
-    aria-labelledby="subKegiatanCreateModalLabel{{ $kegiatan->id }}" aria-hidden="true">
+<div class="modal fade" id="subKegiatanCreateModal" tabindex="-1" role="dialog"
+    aria-labelledby="subKegiatanCreateModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card">
 
                 {{-- header --}}
                 <div class="card-header">
-                    <h5>Buat Sub Kegiatan Indikator</h5>
+                    <h5>Buat Sub Kegiatan</h5>
                 </div>
 
                 {{-- body --}}
@@ -20,8 +19,8 @@
                     <div class="mb-4">
                         <h6 class="text-center mb-5">{{ $kegiatan->name }}</h6>
                     </div>
-                    <form id="form-create-sub-kegiatan-{{ $kegiatan->id }}" class="form-material"
-                        action="{{ route('sub-kegiatan.store') }}" method="POST">
+                    <form id="form-create-sub-kegiatan" class="form-material" action="{{ route('sub-kegiatan.store') }}"
+                        method="POST">
                         @csrf
                         <input type="text" name="kegiatan_id" value="{{ $kegiatan->id }}" hidden>
                         <div class="form-group form-primary form-static-label pb-4">
@@ -60,8 +59,7 @@
                 {{-- footer --}}
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" form="form-create-sub-kegiatan-{{ $kegiatan->id }}"
-                        class="btn btn-primary">Simpan</button>
+                    <button type="submit" form="form-create-sub-kegiatan" class="btn btn-primary">Simpan</button>
                 </div>
 
             </div>

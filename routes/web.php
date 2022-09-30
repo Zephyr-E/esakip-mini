@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\backend\v1\DashboardController;
 use App\Http\Controllers\backend\v1\KegiatanController;
+use App\Http\Controllers\backend\v1\KegiatanIndikatorController;
 use App\Http\Controllers\backend\v1\MisiController;
 use App\Http\Controllers\backend\v1\ProgramController;
 use App\Http\Controllers\backend\v1\ProgramIndikatorController;
 use App\Http\Controllers\backend\v1\SasaranRenstraController;
 use App\Http\Controllers\backend\v1\SasaranRpjmdController;
 use App\Http\Controllers\backend\v1\SubKegiatanController;
+use App\Http\Controllers\backend\v1\SubKegiatanIndikatorController;
 use App\Http\Controllers\backend\v1\TujuanRenstraController;
 use App\Http\Controllers\backend\v1\TujuanRpjmdController;
 use App\Http\Controllers\backend\v1\VisiController;
@@ -43,8 +45,12 @@ Route::group(["middleware" => [
     Route::resource('renstra-sasaran', SasaranRenstraController::class);
 
     Route::resource('renja', ProgramController::class);
-    Route::resource('kegiatan', KegiatanController::class);
-    Route::resource('sub-kegiatan', SubKegiatanController::class);
+    Route::resource('program-indikator', ProgramIndikatorController::class);
 
-    // Route::get('/sub-kegiatan/{sub_kegiatan:id}', [SubKegiatanController::class, 'index'])->name('sub-kegiatan.index');
+    Route::resource('kegiatan', KegiatanController::class);
+    Route::resource('kegiatan-indikator', KegiatanIndikatorController::class);
+
+    Route::resource('sub-kegiatan', SubKegiatanController::class);
+    Route::resource('sub-kegiatan-indikator', SubKegiatanIndikatorController::class);
+
 });

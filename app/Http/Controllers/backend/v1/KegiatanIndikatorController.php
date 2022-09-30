@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\backend\v1;
 
 use App\Http\Controllers\Controller;
-use App\Models\ProgramIndikator;
+use App\Models\KegiatanIndikator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ProgramIndikatorController extends Controller
+class KegiatanIndikatorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,7 +42,7 @@ class ProgramIndikatorController extends Controller
         }
 
         $request->validate([
-            'program_id' => 'required',
+            'kegiatan_id' => 'required',
             'indikator' => 'required',
             'satuan' => 'required',
             'target' => 'required',
@@ -56,18 +56,18 @@ class ProgramIndikatorController extends Controller
         ]);
 
         $data = $request->all();
-        ProgramIndikator::create($data);
+        KegiatanIndikator::create($data);
 
-        return redirect()->route('renja.index')->with(['success', 'Program Indikator Berhasil di Tambahkan']);
+        return redirect()->back()->with('success', 'Kegiatan Indikator Berhasil di Hapus');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ProgramIndikator  $programIndikator
+     * @param  \App\Models\KegiatanIndikator  $kegiatanIndikator
      * @return \Illuminate\Http\Response
      */
-    public function show(ProgramIndikator $programIndikator)
+    public function show(KegiatanIndikator $kegiatanIndikator)
     {
         //
     }
@@ -75,10 +75,10 @@ class ProgramIndikatorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ProgramIndikator  $programIndikator
+     * @param  \App\Models\KegiatanIndikator  $kegiatanIndikator
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProgramIndikator $programIndikator)
+    public function edit(KegiatanIndikator $kegiatanIndikator)
     {
         //
     }
@@ -87,10 +87,10 @@ class ProgramIndikatorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ProgramIndikator  $programIndikator
+     * @param  \App\Models\KegiatanIndikator  $kegiatanIndikator
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProgramIndikator $program_indikator)
+    public function update(Request $request, KegiatanIndikator $kegiatan_indikator)
     {
         if (Auth::user()->rule !== 'Admin') {
             return redirect()->route('renja.index');
@@ -110,25 +110,25 @@ class ProgramIndikatorController extends Controller
         ]);
 
         $data = $request->all();
-        $program_indikator->update($data);
+        $kegiatan_indikator->update($data);
 
-        return redirect()->route('renja.index')->with('toast_success', 'Program Indikator Berhasil di Perbaharui');
+        return redirect()->back()->with('success', 'Kegiatan Indikator Berhasil di Perbaharui');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ProgramIndikator  $programIndikator
+     * @param  \App\Models\KegiatanIndikator  $kegiatanIndikator
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProgramIndikator $program_indikator)
+    public function destroy(KegiatanIndikator $kegiatan_indikator)
     {
         if (Auth::user()->rule !== 'Admin') {
             return redirect()->route('renja.index');
         }
 
-        $program_indikator->delete();
+        $kegiatan_indikator->delete();
 
-        return redirect()->back()->with('success', 'Program Indikator Berhasil di Hapus');
+        return redirect()->back()->with('success', 'Program Berhasil di Hapus');
     }
 }
