@@ -103,7 +103,7 @@
             @empty
             <tr>
                 <td></td>
-                <td colspan="5" class="text-center">Kosong</td>
+                <td colspan="6" class="text-center">Kosong</td>
             </tr>
             @endforelse
             {{-- sasaran skpd berakhir --}}

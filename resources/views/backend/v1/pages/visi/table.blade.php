@@ -19,7 +19,7 @@
         <tbody>
 
             {{-- visi --}}
-            @foreach ($visis as $visi)
+            @forelse ($visis as $visi)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 @if (Auth::user()->rule !== 'User')
@@ -80,7 +80,12 @@
 
                 </td>
             </tr>
-            @endforeach
+            @empty
+            <tr>
+                <td></td>
+                <td colspan="6" class="text-center">Kosong</td>
+            </tr>
+            @endforelse
             {{-- penutup visi --}}
 
         </tbody>
