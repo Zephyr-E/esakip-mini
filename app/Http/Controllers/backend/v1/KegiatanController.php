@@ -49,7 +49,7 @@ class KegiatanController extends Controller
         $data = $request->all();
         Kegiatan::create($data);
 
-        return redirect()->route('renja.index')->with(['success', 'Kegiatan Berhasil di Tambahkan']);
+        return redirect()->back()->with('success', 'Kegiatan Berhasil di Tambah');
     }
 
     /**
@@ -96,7 +96,7 @@ class KegiatanController extends Controller
         $data = $request->all();
         $kegiatan->update($data);
 
-        return redirect()->route('renja.index')->with('toast_success', 'Kegiatan Berhasil di Perbaharui');
+        return redirect()->back()->with('success', 'Kegiatan Berhasil di Perbaharui');
     }
 
     /**

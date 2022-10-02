@@ -1,3 +1,8 @@
+<div class="breadcrumb">
+    {{-- <h5>Program: {{ $program->name }}</h5> --}}
+    <h5>Kegiatan: {{ $kegiatan->name }}</h5>
+</div>
+
 <div class="card-block table-responsive">
     <table class="table table-bordered datatables">
         <thead>
@@ -38,14 +43,6 @@
                 <td>{{ $sub_kegiatan->otorisasi }}</td>
             </tr>
 
-            {{-- tambah sub kegiatan indikator --}}
-            <tr>
-                <td></td>
-                <td colspan="6">
-                    @include('backend.v1.pages.renja.sub-kegiatan.sub-kegiatan-indikator.create')
-                </td>
-            </tr>
-
             {{-- sub kegiatan indikator --}}
             @foreach ($sub_kegiatan->sub_kegiatan_indikator as $sub_kegiatan_indikator)
             <tr>
@@ -79,6 +76,15 @@
                 <td></td>
             </tr>
             @endforeach
+
+            {{-- tambah sub kegiatan indikator --}}
+            <tr>
+                <td></td>
+                <td colspan="6">
+                    @include('backend.v1.pages.renja.sub-kegiatan.sub-kegiatan-indikator.create')
+                </td>
+            </tr>
+
             {{-- kegiatan indikator berakhir --}}
 
             @empty

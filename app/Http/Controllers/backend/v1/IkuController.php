@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\backend\v1;
 
 use App\Http\Controllers\Controller;
-use App\Models\Program;
+use App\Models\Iku;
 use App\Models\SasaranRenstra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ProgramController extends Controller
+class IkuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +21,8 @@ class ProgramController extends Controller
             return $query->where('aktif', 1);
         })->get();
 
-        return view('backend.v1.pages.renja.index', $data);
+
+        return view('backend.v1.pages.iku.index', $data);
     }
 
     /**
@@ -43,45 +44,43 @@ class ProgramController extends Controller
     public function store(Request $request)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renja.index');
+            return redirect()->route('iku.index');
         }
 
         $request->validate([
-            'name' => 'required',
             'sasaran_renstra_id' => 'required',
+            'indikator' => 'required',
             'kendala' => 'required',
             'solusi' => 'required',
             'tindak_lanjut' => 'required',
             'otorisasi' => 'required',
-            'apbd' => 'required',
             'tahun' => 'required',
         ]);
 
         $data = $request->all();
-        Program::create($data);
+        Iku::create($data);
 
-        return redirect()->back()->with('success', 'Program Berhasil di Tambah');
+        return redirect()->route('iku.index')->with(['success', 'Indikator Tujuan Utama Berhasil di Tambahkan']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\Iku  $iku
      * @return \Illuminate\Http\Response
      */
-    public function show(Program $renja)
+    public function show(Iku $iku)
     {
-        $data['program'] = $renja;
-        return view('backend.v1.pages.renja.kegiatan.index', $data);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\Iku  $iku
      * @return \Illuminate\Http\Response
      */
-    public function edit(Program $renja)
+    public function edit(Iku $iku)
     {
         //
     }
@@ -90,45 +89,43 @@ class ProgramController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\Iku  $iku
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Program $renja)
+    public function update(Request $request, Iku $iku)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renja.index');
+            return redirect()->route('iku.index');
         }
-
         $request->validate([
-            'name' => 'required',
+            'indikator' => 'required',
             'kendala' => 'required',
             'solusi' => 'required',
             'tindak_lanjut' => 'required',
             'otorisasi' => 'required',
-            'apbd' => 'required',
             'tahun' => 'required',
         ]);
 
         $data = $request->all();
-        $renja->update($data);
+        $iku->update($data);
 
-        return redirect()->back()->with('success', 'Program Berhasil di Perbaharui');
+        return redirect()->route('iku.index')->with('toast_success', 'Indikator Tujuan Utama Berhasil di Perbaharui');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\Iku  $iku
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Program $renja)
+    public function destroy(Iku $iku)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renja.index');
+            return redirect()->route('iku.index');
         }
 
-        $renja->delete();
+        $iku->delete();
 
-        return redirect()->back()->with('success', 'Program Berhasil di Hapus');
+        return redirect()->back()->with('success', 'Indikator Tujuan Utama Berhasil di Hapus');
     }
 }

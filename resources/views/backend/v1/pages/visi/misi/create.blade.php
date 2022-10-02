@@ -1,5 +1,5 @@
 {{-- button tambah --}}
-<button type="button" class="btn btn-info btn-sm col-12 mb-4" data-toggle="modal"
+<button type="button" class="btn btn-sm col-12 mb-4" data-toggle="modal"
     data-target="#misiCreateModal{{ $visi->id }}"><i class="fas fa-plus fa-sm"></i>
     Tambah Misi</button>
 

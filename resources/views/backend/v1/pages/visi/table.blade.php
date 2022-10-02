@@ -50,9 +50,6 @@
                 <td>{{ ($visi->aktif > 0) ? 'Aktif' : 'Tidak Aktif' }}</td>
                 <td>
 
-                    {{-- tambah misi --}}
-                    @include('backend.v1.pages.visi.misi.create')
-
                     {{-- Misi --}}
                     @forelse ($visi->misi->sortBy('nomor') as $misi)
                     <div class="form-inline">
@@ -76,6 +73,10 @@
                     @empty
                     Misi Kosong
                     @endforelse
+
+                    {{-- tambah misi --}}
+                    @include('backend.v1.pages.visi.misi.create')
+
                     {{-- penutup misi --}}
 
                 </td>

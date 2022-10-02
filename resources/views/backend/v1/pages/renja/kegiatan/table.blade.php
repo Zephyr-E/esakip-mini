@@ -1,3 +1,7 @@
+<div class="breadcrumb">
+    <h5>Program: {{ $program->name }}</h5>
+</div>
+
 <div class="card-block table-responsive">
     <table class="table table-bordered datatables">
         <thead>
@@ -43,14 +47,6 @@
                 <td>{{ $kegiatan->otorisasi }}</td>
             </tr>
 
-            {{-- tambah kegiatan indikator --}}
-            <tr>
-                <td></td>
-                <td colspan="6">
-                    @include('backend.v1.pages.renja.kegiatan.kegiatan-indikator.create')
-                </td>
-            </tr>
-
             {{-- kegiatan indikator --}}
             @foreach ($kegiatan->kegiatan_indikator as $kegiatan_indikator)
             <tr>
@@ -59,7 +55,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td colspan="1">
                     <div class="form-inline">
-                        {{ $kegiatan_indikator->name }}
+                        {{ $kegiatan_indikator->indikator }}
                         &nbsp;
 
                         {{-- edit --}}
@@ -83,6 +79,15 @@
                 <td></td>
             </tr>
             @endforeach
+
+            {{-- tambah kegiatan indikator --}}
+            <tr>
+                <td></td>
+                <td colspan="6">
+                    @include('backend.v1.pages.renja.kegiatan.kegiatan-indikator.create')
+                </td>
+            </tr>
+
             {{-- kegiatan indikator berakhir --}}
 
             @empty

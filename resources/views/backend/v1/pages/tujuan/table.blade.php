@@ -26,15 +26,6 @@
                 </td>
             </tr>
 
-            {{-- tambah tujuan --}}
-            <tr>
-                <td></td>
-                <td colspan="4">
-                    {{-- buat tujuan --}}
-                    @include('backend.v1.pages.tujuan.create')
-                </td>
-            </tr>
-
             {{-- tujuan rpjmd --}}
             @foreach ($misi->tujuan_rpjmd as $tujuan_rpjmd)
             <tr>
@@ -62,16 +53,17 @@
                     </div>
                 </td>
             </tr>
-            {{-- tujuan rpjmd berakhir --}}
 
-            {{-- buat sasaran --}}
+            {{-- tambah tujuan rpjmd --}}
             <tr>
                 <td></td>
-                <td></td>
-                <td colspan="3">
-                    @include('backend.v1.pages.tujuan.sasaran.create')
+                <td colspan="4">
+                    {{-- buat tujuan --}}
+                    @include('backend.v1.pages.tujuan.create')
                 </td>
             </tr>
+
+            {{-- tujuan rpjmd berakhir --}}
 
             {{-- sasaran rpjmd --}}
             @foreach ($tujuan_rpjmd->sasaran_rpjmd->sortBy('nomor') as $sasaran_rpjmd)
@@ -103,6 +95,16 @@
                 </td>
             </tr>
             @endforeach
+
+            {{-- buat sasaran rpjmd --}}
+            <tr>
+                <td></td>
+                <td></td>
+                <td colspan="3">
+                    @include('backend.v1.pages.tujuan.sasaran.create')
+                </td>
+            </tr>
+
             {{-- sasaran rpjmd berakhir --}}
 
             @endforeach

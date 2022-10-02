@@ -21,14 +21,14 @@ return new class extends Migration
             $table->string('solusi');
             $table->string('tindak_lanjut');
             $table->string('otorisasi');
-            $table->string('target');
-            $table->string('realisasi');
-            $table->string('tahun');
-            $table->string('tw_i');
-            $table->string('tw_ii');
-            $table->string('tw_iii');
-            $table->string('tw_iv');
-            $table->string('capaian');
+            $table->string('target')->nullable();
+            $table->string('realisasi')->nullable();
+            $table->string('tahun')->nullable();
+            $table->string('tw_i')->nullable();
+            $table->string('tw_ii')->nullable();
+            $table->string('tw_iii')->nullable();
+            $table->string('tw_iv')->nullable();
+            $table->string('capaian')->nullable();
             $table->timestamps();
         });
     }

@@ -63,17 +63,24 @@
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
-            <li class="{{ Route::currentRouteName() == 'iku' ? 'active' : '' }}">
-                <a href="!#" class="waves-effect waves-dark">
+            <li class="{{ in_array(Route::currentRouteName(), ['iku.index']) ? 'active' : '' }}">
+                <a href="{{ route('iku.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="fas fa-chart-bar"></i><b>D</b></span>
                     <span class="pcoded-mtext" style="font-size: 13px">IKU</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
-            <li class="{{ Route::currentRouteName() == 'renaksi' ? 'active' : '' }}">
-                <a href="!#" class="waves-effect waves-dark">
+            <li class="{{ in_array(Route::currentRouteName(), ['renaksi.index']) ? 'active' : '' }}">
+                <a href="{{ route('renaksi.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="fas fa-registered"></i><b>D</b></span>
                     <span class="pcoded-mtext" style="font-size: 13px">RENAKSI</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
+            <li class="{{ in_array(Route::currentRouteName(), ['laporan.index']) ? 'active' : '' }}">
+                <a href="{{ route('laporan.index') }}" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="fas fa-file"></i><b>D</b></span>
+                    <span class="pcoded-mtext" style="font-size: 13px">LAPORAN</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>

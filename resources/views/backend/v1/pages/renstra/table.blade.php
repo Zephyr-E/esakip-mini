@@ -44,15 +44,6 @@
                 </td>
             </tr>
 
-            {{-- buat sasaran skpd --}}
-            <tr>
-                <td></td>
-                <td></td>
-                <td colspan="3">
-                    @include('backend.v1.pages.renstra.sasaran.create')
-                </td>
-            </tr>
-
             {{-- sasaran skpd --}}
             @foreach ($tujuan_renstra->sasaran_renstra as $sasaran_renstra)
             <tr>
@@ -82,7 +73,18 @@
                 </td>
             </tr>
             @endforeach
+
+            {{-- buat sasaran skpd --}}
+            <tr>
+                <td></td>
+                <td></td>
+                <td colspan="3">
+                    @include('backend.v1.pages.renstra.sasaran.create')
+                </td>
+            </tr>
+
             {{-- sasaran skpd berakhir --}}
+
 
             @endforeach
             {{-- tujuan skpd berakhir --}}

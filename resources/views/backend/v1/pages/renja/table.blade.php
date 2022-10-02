@@ -54,15 +54,6 @@
                 <td>{{ $program->otorisasi }}</td>
             </tr>
 
-            {{-- tambah program indikator --}}
-            <tr>
-                <td></td>
-                <td></td>
-                <td colspan="5">
-                    @include('backend.v1.pages.renja.program-indikator.create')
-                </td>
-            </tr>
-
             {{-- program indikator --}}
             @foreach ($program->program_indikator as $program_indikator)
             <tr>
@@ -95,6 +86,16 @@
                 <td></td>
             </tr>
             @endforeach
+
+            {{-- tambah program indikator --}}
+            <tr>
+                <td></td>
+                <td></td>
+                <td colspan="5">
+                    @include('backend.v1.pages.renja.program-indikator.create')
+                </td>
+            </tr>
+
             {{-- program indikator berakhir --}}
 
             @endforeach

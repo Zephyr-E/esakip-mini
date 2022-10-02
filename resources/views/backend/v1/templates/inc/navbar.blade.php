@@ -19,7 +19,7 @@
             </div>
             <a href="index.html">
                 {{-- <img class="img-fluid" src="{{ url('templates/backend') }}/img/logo.png" alt="Theme-Logo" /> --}}
-                <span class="h3 text-bold">ESAKIP MINI</span>
+                <span class="h3 text-bold">E-SAKIP</span>
             </a>
             <a class="mobile-options waves-effect waves-light">
                 <i class="ti-more"></i>

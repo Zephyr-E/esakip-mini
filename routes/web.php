@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\backend\v1\DashboardController;
+use App\Http\Controllers\backend\v1\IkuController;
 use App\Http\Controllers\backend\v1\KegiatanController;
 use App\Http\Controllers\backend\v1\KegiatanIndikatorController;
+use App\Http\Controllers\backend\v1\LaporanController;
 use App\Http\Controllers\backend\v1\MisiController;
 use App\Http\Controllers\backend\v1\ProgramController;
 use App\Http\Controllers\backend\v1\ProgramIndikatorController;
+use App\Http\Controllers\backend\v1\RenaksiController;
 use App\Http\Controllers\backend\v1\SasaranRenstraController;
 use App\Http\Controllers\backend\v1\SasaranRpjmdController;
 use App\Http\Controllers\backend\v1\SubKegiatanController;
@@ -52,5 +55,11 @@ Route::group(["middleware" => [
 
     Route::resource('sub-kegiatan', SubKegiatanController::class);
     Route::resource('sub-kegiatan-indikator', SubKegiatanIndikatorController::class);
+    
+    
+    Route::resource('iku', IkuController::class);
+    Route::resource('renaksi', RenaksiController::class);    
+
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
 
 });

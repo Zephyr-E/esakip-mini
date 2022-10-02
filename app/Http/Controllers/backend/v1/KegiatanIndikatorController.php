@@ -45,14 +45,14 @@ class KegiatanIndikatorController extends Controller
             'kegiatan_id' => 'required',
             'indikator' => 'required',
             'satuan' => 'required',
-            'target' => 'required',
-            'realisasi' => 'required',
             'tahun' => 'required',
-            'tw_i' => 'required',
-            'tw_ii' => 'required',
-            'tw_iii' => 'required',
-            'tw_iv' => 'required',
-            'capaian' => 'required',
+            // 'target' => 'required',
+            // 'realisasi' => 'required',
+            // 'tw_i' => 'required',
+            // 'tw_ii' => 'required',
+            // 'tw_iii' => 'required',
+            // 'tw_iv' => 'required',
+            // 'capaian' => 'required',
         ]);
 
         $data = $request->all();
@@ -99,14 +99,14 @@ class KegiatanIndikatorController extends Controller
         $request->validate([
             'indikator' => 'required',
             'satuan' => 'required',
-            'target' => 'required',
-            'realisasi' => 'required',
             'tahun' => 'required',
-            'tw_i' => 'required',
-            'tw_ii' => 'required',
-            'tw_iii' => 'required',
-            'tw_iv' => 'required',
-            'capaian' => 'required',
+            // 'target' => 'required',
+            // 'realisasi' => 'required',
+            // 'tw_i' => 'required',
+            // 'tw_ii' => 'required',
+            // 'tw_iii' => 'required',
+            // 'tw_iv' => 'required',
+            // 'capaian' => 'required',
         ]);
 
         $data = $request->all();

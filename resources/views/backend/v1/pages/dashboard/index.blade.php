@@ -7,6 +7,7 @@
         <div class="row align-items-center">
             <div class="col-md-8">
                 <div class="page-header-title">
+                    Selamat Datang di E-SAKIP
                 </div>
             </div>
             <div class="col-md-4">
@@ -25,7 +26,7 @@
 
 @section('content')
 
-<div class="row">
+{{-- <div class="row">
     <!-- Material statustic card start -->
     <div class="col-xl-4 col-md-12">
         <div class="card mat-stat-card">
@@ -166,6 +167,6 @@
     <!-- Material statustic card end -->
     <!-- order-visitor start -->
 
-</div>
+</div> --}}
 
 @endsection
