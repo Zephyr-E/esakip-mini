@@ -26,15 +26,18 @@
 
 @section('content')
 
-{{-- tambah visi --}}
-@if (Auth::user()->rule !== 'User')
-@include('backend.v1.pages.visi.create')
-@endif
-
 <div class="card">
     <div class="card-header">
         <h5>Visi & Misi</h5>
     </div>
+
+    {{-- buat visi --}}
+    <div class="card-title">
+        @if (Auth::user()->rule !== 'User')
+        @include('backend.v1.pages.visi.create')
+        @endif
+    </div>
+
     <div class="card-block">
         <!-- Row start -->
         <div class="row">

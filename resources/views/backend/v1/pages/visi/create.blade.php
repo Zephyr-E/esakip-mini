@@ -1,5 +1,5 @@
 {{-- button tambah --}}
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#visiCreateModal"><i
+<button type="button" class="btn btn-primary btn-add" data-toggle="modal" data-target="#visiCreateModal"><i
         class="fas fa-plus fa-sm"></i> Buat Visi</button>
 
 {{-- modal tambah visi- --}}
