@@ -54,15 +54,6 @@
                 </td>
             </tr>
 
-            {{-- tambah tujuan rpjmd --}}
-            <tr>
-                <td></td>
-                <td colspan="4">
-                    {{-- buat tujuan --}}
-                    @include('backend.v1.pages.tujuan.create')
-                </td>
-            </tr>
-
             {{-- tujuan rpjmd berakhir --}}
 
             {{-- sasaran rpjmd --}}
@@ -110,9 +101,17 @@
             @endforeach
             {{-- tujuan rpjmd berakhir --}}
 
+            {{-- tambah tujuan rpjmd --}}
+            <tr>
+                <td></td>
+                <td colspan="4">
+                    {{-- buat tujuan --}}
+                    @include('backend.v1.pages.tujuan.create')
+                </td>
+            </tr>
+
             @endforeach
             {{-- misi berakhir --}}
-
 
             @else
             <tr>
