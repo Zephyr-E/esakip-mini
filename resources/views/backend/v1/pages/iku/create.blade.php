@@ -1,5 +1,5 @@
 {{-- button tambah --}}
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ikuCreateModal"><i
+<button type="button" class="btn btn-primary btn-add" data-toggle="modal" data-target="#ikuCreateModal"><i
         class="fas fa-plus fa-sm"></i> Buat IKU</button>
 
 {{-- modal tambah iku --}}

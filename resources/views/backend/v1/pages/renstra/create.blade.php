@@ -1,5 +1,5 @@
 {{-- button tambah --}}
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#renstraTujuanCreateModal"><i
+<button type="button" class="btn btn-primary btn-add" data-toggle="modal" data-target="#renstraTujuanCreateModal"><i
         class="fas fa-plus fa-sm"></i> Buat Tujuan</button>
 
 {{-- modal tambah tujuan skpd --}}

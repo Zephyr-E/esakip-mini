@@ -26,20 +26,22 @@
 
 @section('content')
 
-{{-- buat iku --}}
-@if (Auth::user()->rule !== 'User')
-@include('backend.v1.pages.iku.create')
-@endif
-
 <div class="card">
     <div class="card-header">
         <h5>IKU</h5>
     </div>
+
+    {{-- buat iku --}}
+    <div class="card-title">
+        @if (Auth::user()->rule !== 'User')
+        @include('backend.v1.pages.iku.create')
+        @endif
+    </div>
+
     <div class="card-block">
         @include('backend.v1.pages.iku.table')
     </div>
     <!-- Row end -->
-</div>
 </div>
 
 @endsection

@@ -26,15 +26,18 @@
 
 @section('content')
 
-{{-- buat tujuan skpd --}}
-@if (Auth::user()->rule !== 'User')
-@include('backend.v1.pages.renstra.create')
-@endif
-
 <div class="card">
     <div class="card-header">
         <h5>RENSTRA</h5>
     </div>
+
+    {{-- buat tujuan skpd --}}
+    <div class="card-title">
+        @if (Auth::user()->rule !== 'User')
+        @include('backend.v1.pages.renstra.create')
+        @endif
+    </div>
+
     <div class="card-block">
         @include('backend.v1.pages.renstra.table')
     </div>

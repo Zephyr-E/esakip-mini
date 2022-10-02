@@ -26,15 +26,18 @@
 
 @section('content')
 
-{{-- tambah program --}}
-@if (Auth::user()->rule !== 'User')
-@include('backend.v1.pages.renja.create')
-@endif
-
 <div class="card">
     <div class="card-header">
         <h5>RENJA/RENJA</h5>
     </div>
+
+    {{-- buat program --}}
+    <div class="card-title">
+        @if (Auth::user()->rule !== 'User')
+        @include('backend.v1.pages.renja.create')
+        @endif
+    </div>
+
     <div class="card-block">
         @include('backend.v1.pages.renja.table')
     </div>

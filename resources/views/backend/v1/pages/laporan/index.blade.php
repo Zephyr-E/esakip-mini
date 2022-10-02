@@ -31,6 +31,14 @@
         <h5>Laporan</h5>
     </div>
     <div class="card-block">
+        @include('backend.v1.pages.laporan.renstra')
+        <br>
+        @include('backend.v1.pages.laporan.iku')
+        <br>
+        @include('backend.v1.pages.laporan.renaksi')
+
+
+
 
     </div>
 </div>

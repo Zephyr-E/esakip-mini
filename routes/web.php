@@ -60,6 +60,9 @@ Route::group(["middleware" => [
     Route::resource('iku', IkuController::class);
     Route::resource('renaksi', RenaksiController::class);    
 
-    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('laporan/renstra', [LaporanController::class, 'renstra'])->name('laporan.renstra');
+    Route::get('laporan/iku', [LaporanController::class, 'iku'])->name('laporan.iku');
+    Route::get('laporan/renaksi', [LaporanController::class, 'renaksi'])->name('laporan.renaksi');
 
 });
