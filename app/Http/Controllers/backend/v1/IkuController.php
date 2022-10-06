@@ -50,9 +50,9 @@ class IkuController extends Controller
         $request->validate([
             'sasaran_renstra_id' => 'required',
             'indikator' => 'required',
-            'kendala' => 'required',
-            'solusi' => 'required',
-            'tindak_lanjut' => 'required',
+            // 'kendala' => 'required',
+            // 'solusi' => 'required',
+            // 'tindak_lanjut' => 'required',
             'otorisasi' => 'required',
             'tahun' => 'required',
         ]);
@@ -99,9 +99,9 @@ class IkuController extends Controller
         }
         $request->validate([
             'indikator' => 'required',
-            'kendala' => 'required',
-            'solusi' => 'required',
-            'tindak_lanjut' => 'required',
+            // 'kendala' => 'required',
+            // 'solusi' => 'required',
+            // 'tindak_lanjut' => 'required',
             'otorisasi' => 'required',
             'tahun' => 'required',
         ]);

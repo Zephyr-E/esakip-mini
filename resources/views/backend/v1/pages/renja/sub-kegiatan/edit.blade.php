@@ -33,19 +33,18 @@
                             <label class="float-label">Masukkan Sub Kegiatan</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
-                            <textarea name="kendala" class="form-control"
-                                required>{{ $sub_kegiatan->kendala }}</textarea>
+                            <textarea name="kendala" class="form-control">{{ $sub_kegiatan->kendala }}</textarea>
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Kendala</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
-                            <textarea name="solusi" class="form-control" required>{{ $sub_kegiatan->solusi }}</textarea>
+                            <textarea name="solusi" class="form-control">{{ $sub_kegiatan->solusi }}</textarea>
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Solusi</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
-                            <textarea name="tindak_lanjut" class="form-control"
-                                required>{{ $sub_kegiatan->tindak_lanjut }}</textarea>
+                            <textarea name="tindak_lanjut"
+                                class="form-control">{{ $sub_kegiatan->tindak_lanjut }}</textarea>
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Tindak Lanjut</label>
                         </div>

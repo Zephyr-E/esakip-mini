@@ -16,9 +16,9 @@ class SasaranRenstra extends Model
         return $this->belongsTo(TujuanRenstra::class);
     }
 
-    public function program()
+    public function sasaran_program()
     {
-        return $this->hasMany(Program::class);
+        return $this->hasMany(SasaranProgram::class);
     }
 
     public function iku()

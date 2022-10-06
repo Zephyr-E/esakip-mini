@@ -11,14 +11,14 @@ class Program extends Model
 
     protected $guarded = ['id'];
 
-    public function sasaran_renstra()
+    public function sasaran_program()
     {
-        return $this->belongsTo(SasaranRenstra::class);
+        return $this->belongsTo(SasaranProgram::class);
     }
 
-    public function kegiatan()
+    public function sasaran_kegiatan()
     {
-        return $this->hasMany(Kegiatan::class);
+        return $this->hasMany(SasaranKegiatan::class);
     }
 
     public function program_indikator()

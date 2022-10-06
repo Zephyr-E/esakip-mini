@@ -7,7 +7,6 @@
     <table class="table table-bordered datatables">
         <thead>
             <tr>
-                <th scope="col" class="text-center" style="width: 10%"></th>
                 <th scope="col" class="text-center" colspan="3">SUB KEGIATAN/SUB KEGIATAN INDIKATOR</th>
                 <th scope="col" class="text-center">SATUAN</th>
                 <th scope="col" class="text-center">TARGET</th>
@@ -19,7 +18,6 @@
             {{-- sub kegiatan --}}
             @forelse ($kegiatan->sub_kegiatan as $sub_kegiatan)
             <tr>
-                <td></td>
                 <td colspan="5">
                     <div class="form-inline">
                         {{ $sub_kegiatan->name }}
@@ -47,9 +45,8 @@
             @foreach ($sub_kegiatan->sub_kegiatan_indikator as $sub_kegiatan_indikator)
             <tr>
                 <td></td>
-                <td></td>
                 <td>{{ $loop->iteration }}</td>
-                <td colspan="1">
+                <td>
                     <div class="form-inline">
                         {{ $sub_kegiatan_indikator->indikator }}
                         &nbsp;
@@ -80,17 +77,41 @@
             {{-- tambah sub kegiatan indikator --}}
             <tr>
                 <td></td>
-                <td colspan="6">
+                <td colspan="5">
                     @include('backend.v1.pages.renja.sub-kegiatan.sub-kegiatan-indikator.create')
                 </td>
             </tr>
 
             {{-- kegiatan indikator berakhir --}}
 
+            {{-- kendala, solusi, tindak lanjut --}}
+            <tr>
+                <td></td>
+                <td>Kendala : </td>
+                <td colspan="4">
+                    {{ $sub_kegiatan->kendala }}
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Solusi : </td>
+                <td colspan="4">
+                    {{ $sub_kegiatan->solusi }}
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Tindak Lanjut : </td>
+                <td colspan="4">
+                    {{ $sub_kegiatan->tindak_lanjut }}
+                </td>
+            </tr>
+            {{-- kendala, solusi, tindak lanjut berakhir --}}
+
             @empty
-            <td colspan="7" class="text-center">Sub Kegiatan Kosong</td>
+            <td colspan="6" class="text-center">Sub Kegiatan Kosong</td>
             @endforelse
-            {{-- kegiatan berakhir --}}
+            {{-- sub kegiatan berakhir --}}
 
         </tbody>
     </table>

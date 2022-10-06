@@ -19,15 +19,10 @@
                         @csrf
                         <div class="form-group form-primary form-static-label pb-4">
                             <select class="form-control selectpicker" name="tahun" data-live-search="true">
-                                @forelse ($tujuan_renstras as $tujuan_renstra)
-                                @foreach ($tujuan_renstra->sasaran_renstra as $sasaran_renstra)
-                                <option value="{{ $sasaran_renstra->tahun }}" class="option-custom">
-                                    {{$sasaran_renstra->tahun}}
-                                </option>
-                                @endforeach
-                                @empty
-                                <option>Kosong</option>
-                                @endforelse
+                                <option value="">PILIH</option>
+                                @for ($i = 2017; $i < date('Y',strtotime('+1 year')); $i++) <option value="">{{$i}}
+                                    </option>
+                                    @endfor
                             </select>
                             <span class="form-bar"></span>
                             <label class="float-label">Tahun</label>

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('kegiatan_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('kendala');
-            $table->string('solusi');
-            $table->string('tindak_lanjut');
+            $table->string('kendala')->nullable();
+            $table->string('solusi')->nullable();
+            $table->string('tindak_lanjut')->nullable();
             $table->string('otorisasi');
             $table->string('pagu');
             $table->timestamps();

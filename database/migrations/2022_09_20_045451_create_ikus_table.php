@@ -17,12 +17,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('sasaran_renstra_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('indikator');
-            $table->string('kendala');
-            $table->string('solusi');
-            $table->string('tindak_lanjut');
+            $table->string('kendala')->nullable();
+            $table->string('solusi')->nullable();
+            $table->string('tindak_lanjut')->nullable();
             $table->string('otorisasi');
             $table->string('target')->nullable();
-            $table->string('realisasi')->nullable();
             $table->string('tahun')->nullable();
             $table->string('tw_i')->nullable();
             $table->string('tw_ii')->nullable();

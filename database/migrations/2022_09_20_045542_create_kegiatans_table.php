@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('kegiatans', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('program_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('sasaran_kegiatan_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('otorisasi');
             $table->timestamps();
         });

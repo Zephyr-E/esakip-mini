@@ -43,7 +43,7 @@ class KegiatanController extends Controller
         $request->validate([
             'name' => 'required',
             'otorisasi' => 'required',
-            'program_id' => 'required',
+            'sasaran_kegiatan_id' => 'required',
         ]);
 
         $data = $request->all();

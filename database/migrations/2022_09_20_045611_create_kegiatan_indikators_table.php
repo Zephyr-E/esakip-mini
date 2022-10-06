@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('indikator');
             $table->string('satuan');
             $table->string('target')->nullable();
-            $table->string('realisasi')->nullable();
             $table->string('tahun')->nullable();
             $table->string('tw_i')->nullable();
             $table->string('tw_ii')->nullable();

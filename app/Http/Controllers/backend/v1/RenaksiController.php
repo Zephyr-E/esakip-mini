@@ -4,17 +4,15 @@ namespace App\Http\Controllers\backend\v1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Iku;
+use App\Models\KegiatanIndikator;
+use App\Models\ProgramIndikator;
 use App\Models\SasaranRenstra;
+use App\Models\SubKegiatanIndikator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class RenaksiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $data['sasaran_renstras'] = SasaranRenstra::whereHas('tujuan_renstra.sasaran_rpjmd.tujuan_rpjmd.misi.visi', function ($query) {
@@ -24,86 +22,51 @@ class RenaksiController extends Controller
         return view('backend.v1.pages.renaksi.index', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Iku  $iku
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Iku $iku)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Iku  $iku
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Iku $iku)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Iku  $iku
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Iku $renaksi)
+    public function iku_update(Request $request, Iku $iku)
     {
         if (Auth::user()->rule !== 'Admin') {
             return redirect()->route('renaksi.index');
         }
 
-        $request->validate([
-            'target' => 'required',
-            'realisasi' => 'required',
-            'tw_i' => 'required',
-            'tw_ii' => 'required',
-            'tw_iii' => 'required',
-            'tw_iv' => 'required',
-            'capaian' => 'required',
-        ]);
-
         $data = $request->all();
-        $renaksi->update($data);
+        $iku->update($data);
 
-        return redirect()->route('renaksi.index')->with('toast_success', 'Renaksi Berhasil di Perbaharui');
+        return redirect()->route('renaksi.index')->with('toast_success', 'IKU Berhasil di Perbaharui');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Iku  $iku
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Iku $iku)
+    public function program_indikator_update(Request $request, ProgramIndikator $program_indikator)
     {
-        //
+        if (Auth::user()->rule !== 'Admin') {
+            return redirect()->route('renaksi.index');
+        }
+
+        $data = $request->all();
+        $program_indikator->update($data);
+
+        return redirect()->route('renaksi.index')->with('toast_success', 'Program Indikator Berhasil di Perbaharui');
+    }
+
+    public function kegiatan_indikator_update(Request $request, KegiatanIndikator $kegiatan_indikator)
+    {
+        if (Auth::user()->rule !== 'Admin') {
+            return redirect()->route('renaksi.index');
+        }
+
+        $data = $request->all();
+        $kegiatan_indikator->update($data);
+
+        return redirect()->route('renaksi.index')->with('toast_success', 'Kegiatan Indikator Berhasil di Perbaharui');
+    }
+
+    public function sub_kegiatan_indikator_update(Request $request, SubKegiatanIndikator $sub_kegiatan_indikator)
+    {
+        if (Auth::user()->rule !== 'Admin') {
+            return redirect()->route('renaksi.index');
+        }
+
+        $data = $request->all();
+        $sub_kegiatan_indikator->update($data);
+
+        return redirect()->route('renaksi.index')->with('toast_success', 'Sub Kegiatan Indikator Berhasil di Perbaharui');
     }
 }

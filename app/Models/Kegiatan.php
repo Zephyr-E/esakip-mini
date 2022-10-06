@@ -11,9 +11,9 @@ class Kegiatan extends Model
 
     protected $guarded = ['id'];
 
-    public function program()
+    public function sasaran_kegiatan()
     {
-        return $this->belongsTo(Program::class);
+        return $this->belongsTo(SasaranKegiatan::class);
     }
 
     public function kegiatan_indikator()

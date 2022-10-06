@@ -34,12 +34,12 @@
     {{-- buat program --}}
     <div class="card-title">
         @if (Auth::user()->rule !== 'User')
-        @include('backend.v1.pages.renja.create')
+        @include('backend.v1.pages.renja.sasaran-program.create')
         @endif
     </div>
 
     <div class="card-block">
-        @include('backend.v1.pages.renja.table')
+        @include('backend.v1.pages.renja.sasaran-program.table')
     </div>
     <!-- Row end -->
 </div>

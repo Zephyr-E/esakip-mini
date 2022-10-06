@@ -48,9 +48,9 @@ class SubKegiatanController extends Controller
         $request->validate([
             'name' => 'required',
             'kegiatan_id' => 'required',
-            'kendala' => 'required',
-            'solusi' => 'required',
-            'tindak_lanjut' => 'required',
+            // 'kendala' => 'required',
+            // 'solusi' => 'required',
+            // 'tindak_lanjut' => 'required',
             'otorisasi' => 'required',
             'pagu' => 'required',
         ]);
@@ -97,9 +97,9 @@ class SubKegiatanController extends Controller
         }
         $request->validate([
             'name' => 'required',
-            'kendala' => 'required',
-            'solusi' => 'required',
-            'tindak_lanjut' => 'required',
+            // 'kendala' => 'required',
+            // 'solusi' => 'required',
+            // 'tindak_lanjut' => 'required',
             'otorisasi' => 'required',
             'pagu' => 'required',
         ]);

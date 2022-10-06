@@ -46,6 +46,30 @@
                 <td>{{ $iku->otorisasi }}</td>
             </tr>
 
+            {{-- kendala, solusi, tindak lanjut --}}
+            <tr>
+                <td></td>
+                <td style="width: 12%">Kendala : </td>
+                <td colspan="3">
+                    {{ $iku->kendala }}
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="width: 12%">Solusi : </td>
+                <td colspan="3">
+                    {{ $iku->solusi }}
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="width: 12%">Tindak Lanjut : </td>
+                <td colspan="3">
+                    {{ $iku->tindak_lanjut }}
+                </td>
+            </tr>
+            {{-- kendala, solusi, tindak lanjut berakhir --}}
+
             @endforeach
             {{-- iku berakhir --}}
 

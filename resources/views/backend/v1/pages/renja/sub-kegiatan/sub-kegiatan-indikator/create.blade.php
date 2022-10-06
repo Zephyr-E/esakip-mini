@@ -39,45 +39,6 @@
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Tahun</label>
                         </div>
-
-                        {{-- boleh kosong --}}
-                        <h6 class="text-center mb-5">isian dibawah ini boleh kosong</h6>
-
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input type="number" name="target" class="form-control">
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Target</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input type="number" name="realisasi" class="form-control">
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Realisasi</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input type="number" name="tw_i" class="form-control">
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Triwulan I</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input type="number" name="tw_ii" class="form-control">
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Triwulan II</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input type="number" name="tw_iii" class="form-control">
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Triwulan III</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input type="number" name="tw_iv" class="form-control">
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Triwulan IV</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input type="number" name="capaian" class="form-control">
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Capaian</label>
-                        </div>
                     </form>
                 </div>
 

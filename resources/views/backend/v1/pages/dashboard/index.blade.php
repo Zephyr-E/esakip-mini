@@ -7,7 +7,7 @@
         <div class="row align-items-center">
             <div class="col-md-8">
                 <div class="page-header-title">
-                    Selamat Datang di E-SAKIP
+                    Selamat Datang di SIMANJA
                 </div>
             </div>
             <div class="col-md-4">

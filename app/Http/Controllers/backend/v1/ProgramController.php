@@ -17,11 +17,6 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        $data['sasaran_renstras'] = SasaranRenstra::whereHas('tujuan_renstra.sasaran_rpjmd.tujuan_rpjmd.misi.visi', function ($query) {
-            return $query->where('aktif', 1);
-        })->get();
-
-        return view('backend.v1.pages.renja.index', $data);
     }
 
     /**
@@ -48,10 +43,10 @@ class ProgramController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'sasaran_renstra_id' => 'required',
-            'kendala' => 'required',
-            'solusi' => 'required',
-            'tindak_lanjut' => 'required',
+            'sasaran_program_id' => 'required',
+            // 'kendala' => 'required',
+            // 'solusi' => 'required',
+            // 'tindak_lanjut' => 'required',
             'otorisasi' => 'required',
             'apbd' => 'required',
             'tahun' => 'required',
@@ -60,7 +55,7 @@ class ProgramController extends Controller
         $data = $request->all();
         Program::create($data);
 
-        return redirect()->back()->with('success', 'Program Berhasil di Tambah');
+        return redirect()->route('renja.index')->with(['success', 'Program Berhasil di Tambahkan']);
     }
 
     /**
@@ -69,10 +64,11 @@ class ProgramController extends Controller
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function show(Program $renja)
+    public function show(Program $program)
     {
-        $data['program'] = $renja;
-        return view('backend.v1.pages.renja.kegiatan.index', $data);
+        $data['program'] = $program;
+        // dd($data);
+        return view('backend.v1.pages.renja.sasaran-kegiatan.index', $data);
     }
 
     /**
@@ -93,7 +89,7 @@ class ProgramController extends Controller
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Program $renja)
+    public function update(Request $request, Program $program)
     {
         if (Auth::user()->rule !== 'Admin') {
             return redirect()->route('renja.index');
@@ -101,18 +97,18 @@ class ProgramController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'kendala' => 'required',
-            'solusi' => 'required',
-            'tindak_lanjut' => 'required',
+            // 'kendala' => 'required',
+            // 'solusi' => 'required',
+            // 'tindak_lanjut' => 'required',
             'otorisasi' => 'required',
             'apbd' => 'required',
             'tahun' => 'required',
         ]);
 
         $data = $request->all();
-        $renja->update($data);
+        $program->update($data);
 
-        return redirect()->back()->with('success', 'Program Berhasil di Perbaharui');
+        return redirect()->route('renja.index')->with(['success', 'Program Berhasil di Perbaharui']);
     }
 
     /**
@@ -121,13 +117,13 @@ class ProgramController extends Controller
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Program $renja)
+    public function destroy(Program $program)
     {
         if (Auth::user()->rule !== 'Admin') {
             return redirect()->route('renja.index');
         }
 
-        $renja->delete();
+        $program->delete();
 
         return redirect()->back()->with('success', 'Program Berhasil di Hapus');
     }

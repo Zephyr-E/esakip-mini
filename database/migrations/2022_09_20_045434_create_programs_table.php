@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('sasaran_renstra_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('kendala');
-            $table->string('solusi');
-            $table->string('tindak_lanjut');
+            $table->foreignId('sasaran_program_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('kendala')->nullable();
+            $table->string('solusi')->nullable();
+            $table->string('tindak_lanjut')->nullable();
             $table->string('otorisasi');
             $table->enum('apbd', ['murni', 'perubahan']);
             $table->string('tahun');

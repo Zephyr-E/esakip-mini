@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th scope="col" class="text-center" style="width: 10%"></th>
-                <th scope="col" class="text-center" colspan="3">KEGIATAN/KEGIATAN INDIKATOR</th>
+                <th scope="col" class="text-center" colspan="3">SASARAN KEGIATAN/KEGIATAN/KEGIATAN INDIKATOR</th>
                 <th scope="col" class="text-center">SATUAN</th>
                 <th scope="col" class="text-center">TARGET</th>
                 <th scope="col" class="text-center">UNIT KERJA PENANGGUNG JAWAB</th>
@@ -15,10 +15,39 @@
         </thead>
         <tbody>
 
+            {{-- sasaran kegiatan --}}
+            @forelse ($program->sasaran_kegiatan as $sasaran_kegiatan)
+
+            <tr>
+                <td></td>
+                <td colspan="6">
+                    <div class="form-inline">
+                        {{ 'Sasaran Kegiatan : ' . $sasaran_kegiatan->name }}
+                        &nbsp;
+
+                        {{-- edit sasaran kegiatan --}}
+                        @include('backend.v1.pages.renja.sasaran-kegiatan.edit')
+                        &nbsp;
+
+                        {{-- hapus sasaran kegiatan --}}
+                        <form action="{{ route('sasaran-kegiatan.destroy', $sasaran_kegiatan->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-light btn-sm text-danger"
+                                onclick="return confirm('Ingin menghapus Sasaran Kegiatan ini?')">
+                                <i class="fas fa-trash text-danger"></i>Hapus
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+
             {{-- kegiatan --}}
-            @forelse ($program->kegiatan as $kegiatan)
+            @foreach ($sasaran_kegiatan->kegiatan as $kegiatan)
             <tr>
                 <td>
+
+                    {{-- halaman sub kegiatan --}}
                     <a href="{{ route('kegiatan.show', $kegiatan->id) }}" class="btn btn-sm btn-outline-primary">
                         Ke Halaman Sub Kegiatan
                         <i class="fas fa-arrow-right fa-fw"></i>
@@ -30,7 +59,7 @@
                         &nbsp;
 
                         {{-- edit kegiatan --}}
-                        @include('backend.v1.pages.renja.kegiatan.edit')
+                        @include('backend.v1.pages.renja.sasaran-kegiatan.kegiatan.edit')
                         &nbsp;
 
                         {{-- hapus kegiatan --}}
@@ -58,11 +87,11 @@
                         {{ $kegiatan_indikator->indikator }}
                         &nbsp;
 
-                        {{-- edit --}}
-                        @include('backend.v1.pages.renja.kegiatan.kegiatan-indikator.edit')
+                        {{-- edit kegiatan indikator --}}
+                        @include('backend.v1.pages.renja.sasaran-kegiatan.kegiatan.kegiatan-indikator.edit')
                         &nbsp;
 
-                        {{-- hapus --}}
+                        {{-- hapus kegiatan indikator --}}
                         <form action="{{ route('kegiatan-indikator.destroy', $kegiatan_indikator->id) }}" method="POST">
                             @csrf
                             @method('delete')
@@ -84,16 +113,28 @@
             <tr>
                 <td></td>
                 <td colspan="6">
-                    @include('backend.v1.pages.renja.kegiatan.kegiatan-indikator.create')
+                    @include('backend.v1.pages.renja.sasaran-kegiatan.kegiatan.kegiatan-indikator.create')
                 </td>
             </tr>
 
             {{-- kegiatan indikator berakhir --}}
 
-            @empty
-            <td colspan="7" class="text-center">Kegiatan Kosong</td>
-            @endforelse
+            @endforeach
+
+            {{-- tambah kegiatan --}}
+            <tr>
+                <td></td>
+                <td colspan="6">
+                    @include('backend.v1.pages.renja.sasaran-kegiatan.kegiatan.create')
+                </td>
+            </tr>
+
             {{-- kegiatan berakhir --}}
+
+            @empty
+            <td colspan="7" class="text-center">Sasaran Kegiatan Kosong</td>
+            @endforelse
+            {{-- sasaran kegiatan berakhir --}}
 
         </tbody>
     </table>
