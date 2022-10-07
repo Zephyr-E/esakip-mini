@@ -15,7 +15,7 @@
                     <li class="breadcrumb-item">
                         <a href="{{ route('home') }}"> <i class="fa fa-home"></i> </a>
                     </li>
-                    <li class="breadcrumb-item"><a href="{{ route('renaksi.index') }}">RENAKSI</a>
+                    <li class="breadcrumb-item"><a href="{{ route('monev.index') }}">MONEV</a>
                     </li>
                 </ul>
             </div>
@@ -28,10 +28,10 @@
 
 <div class="card">
     <div class="card-header">
-        <h5>RENAKSI</h5>
+        <h5>MONEV</h5>
     </div>
     <div class="card-block">
-        @include('backend.v1.pages.renaksi.table')
+        @include('backend.v1.pages.monev.table')
     </div>
     <!-- Row end -->
 </div>

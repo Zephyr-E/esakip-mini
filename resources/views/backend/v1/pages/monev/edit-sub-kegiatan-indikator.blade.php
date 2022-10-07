@@ -23,7 +23,7 @@
                         <h6 class="text-center mb-5">{{ $sub_kegiatan_indikator->indikator }}</h6>
                     </div>
                     <form id="form-edit-sub-kegiatan-indikator-{{ $sub_kegiatan_indikator->id }}" class="form-material"
-                        action="{{ route('renaksi.sub-kegiatan-indikator-update', $sub_kegiatan_indikator->id) }}"
+                        action="{{ route('monev.sub-kegiatan-indikator-update', $sub_kegiatan_indikator->id) }}"
                         method="POST">
                         @csrf
                         @method('patch')

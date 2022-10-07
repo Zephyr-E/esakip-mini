@@ -19,54 +19,54 @@ class RenaksiController extends Controller
             return $query->where('aktif', 1);
         })->get();
 
-        return view('backend.v1.pages.renaksi.index', $data);
+        return view('backend.v1.pages.monev.index', $data);
     }
 
     public function iku_update(Request $request, Iku $iku)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renaksi.index');
+            return redirect()->route('monev.index');
         }
 
         $data = $request->all();
         $iku->update($data);
 
-        return redirect()->route('renaksi.index')->with('toast_success', 'IKU Berhasil di Perbaharui');
+        return redirect()->route('monev.index')->with('toast_success', 'IKU Berhasil di Perbaharui');
     }
 
     public function program_indikator_update(Request $request, ProgramIndikator $program_indikator)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renaksi.index');
+            return redirect()->route('monev.index');
         }
 
         $data = $request->all();
         $program_indikator->update($data);
 
-        return redirect()->route('renaksi.index')->with('toast_success', 'Program Indikator Berhasil di Perbaharui');
+        return redirect()->route('monev.index')->with('toast_success', 'Program Indikator Berhasil di Perbaharui');
     }
 
     public function kegiatan_indikator_update(Request $request, KegiatanIndikator $kegiatan_indikator)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renaksi.index');
+            return redirect()->route('monev.index');
         }
 
         $data = $request->all();
         $kegiatan_indikator->update($data);
 
-        return redirect()->route('renaksi.index')->with('toast_success', 'Kegiatan Indikator Berhasil di Perbaharui');
+        return redirect()->route('monev.index')->with('toast_success', 'Kegiatan Indikator Berhasil di Perbaharui');
     }
 
     public function sub_kegiatan_indikator_update(Request $request, SubKegiatanIndikator $sub_kegiatan_indikator)
     {
         if (Auth::user()->rule !== 'Admin') {
-            return redirect()->route('renaksi.index');
+            return redirect()->route('monev.index');
         }
 
         $data = $request->all();
         $sub_kegiatan_indikator->update($data);
 
-        return redirect()->route('renaksi.index')->with('toast_success', 'Sub Kegiatan Indikator Berhasil di Perbaharui');
+        return redirect()->route('monev.index')->with('toast_success', 'Sub Kegiatan Indikator Berhasil di Perbaharui');
     }
 }

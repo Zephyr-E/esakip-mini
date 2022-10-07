@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>RENAKSI</title>
+    <title>MONEV</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href="{{ url('templates/backend') }}/css/bootstrap.min.css">
@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <h6 class="text-center"><b>Dokumen Renaksi</b></h6>
+    <h6 class="text-center"><b>Dokumen Monev</b></h6>
     <h6 class="text-center"><b>Dinas Perdagangan Kab. Tapin</b></h6>
     <div class="col-12">
         <div class="container">

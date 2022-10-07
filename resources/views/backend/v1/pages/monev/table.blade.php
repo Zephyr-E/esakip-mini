@@ -42,7 +42,7 @@
                         &nbsp;
 
                         {{-- edit --}}
-                        @include('backend.v1.pages.renaksi.edit-iku')
+                        @include('backend.v1.pages.monev.edit-iku')
                         &nbsp;
 
                     </div>
@@ -76,7 +76,7 @@
                         &nbsp;
 
                         {{-- edit --}}
-                        @include('backend.v1.pages.renaksi.edit-program-indikator')
+                        @include('backend.v1.pages.monev.edit-program-indikator')
                         &nbsp;
 
                     </div>
@@ -104,7 +104,7 @@
                         &nbsp;
 
                         {{-- edit --}}
-                        @include('backend.v1.pages.renaksi.edit-kegiatan-indikator')
+                        @include('backend.v1.pages.monev.edit-kegiatan-indikator')
                         &nbsp;
 
                     </div>
@@ -131,7 +131,7 @@
                         &nbsp;
 
                         {{-- edit --}}
-                        @include('backend.v1.pages.renaksi.edit-sub-kegiatan-indikator')
+                        @include('backend.v1.pages.monev.edit-sub-kegiatan-indikator')
                         &nbsp;
 
                     </div>

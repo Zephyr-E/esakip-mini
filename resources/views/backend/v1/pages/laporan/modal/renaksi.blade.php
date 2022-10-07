@@ -1,8 +1,8 @@
 {{-- button tambah --}}
-<button type="button" class="btn btn-outline-primary col-2 text-left" data-toggle="modal" data-target="#renaksiModal">3. PRINT
-    RENAKSI</button>
+<button type="button" class="btn btn-outline-primary col-2 text-left" data-toggle="modal" data-target="#monevModal">3. PRINT
+    MONEV</button>
 {{-- modal tambah iku --}}
-<div class="modal fade" id="renaksiModal" tabindex="-1" role="dialog" aria-labelledby="renaksiModalLabel"
+<div class="modal fade" id="monevModal" tabindex="-1" role="dialog" aria-labelledby="monevModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -10,12 +10,12 @@
 
                 {{-- header --}}
                 <div class="card-header">
-                    <h5>RENAKSI</h5>
+                    <h5>MONEV</h5>
                 </div>
 
                 {{-- body --}}
                 <div class="modal-body">
-                    <form id="renaksi" class="form-material" action="{{ route('laporan.renaksi') }}" method="POST">
+                    <form id="monev" class="form-material" action="{{ route('laporan.monev') }}" method="POST">
                         @csrf
                         <div class="form-group form-primary form-static-label pb-4">
                             <select class="form-control selectpicker" name="tahun" data-live-search="true">
@@ -49,7 +49,7 @@
                 {{-- footer --}}
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" form="renaksi" class="btn btn-primary">Print</button>
+                    <button type="submit" form="monev" class="btn btn-primary">Print</button>
                 </div>
 
             </div>

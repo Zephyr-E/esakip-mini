@@ -70,10 +70,10 @@
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
-            <li class="{{ in_array(Route::currentRouteName(), ['renaksi.index']) ? 'active' : '' }}">
-                <a href="{{ route('renaksi.index') }}" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="fas fa-registered"></i><b>D</b></span>
-                    <span class="pcoded-mtext" style="font-size: 13px">RENAKSI</span>
+            <li class="{{ in_array(Route::currentRouteName(), ['monev.index']) ? 'active' : '' }}">
+                <a href="{{ route('monev.index') }}" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="fas fa-tasks"></i><b>D</b></span>
+                    <span class="pcoded-mtext" style="font-size: 13px">MONEV</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>

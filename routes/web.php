@@ -61,15 +61,15 @@ Route::group(["middleware" => [
     Route::resource('sub-kegiatan-indikator', SubKegiatanIndikatorController::class);
 
     Route::resource('iku', IkuController::class);
-    Route::get('renaksi', [RenaksiController::class, 'index'])->name('renaksi.index');
+    Route::get('monev', [RenaksiController::class, 'index'])->name('monev.index');
 
-    Route::match(['put', 'patch'], 'renaksi/iku/{iku:id}', [RenaksiController::class, 'iku_update'])->name('renaksi.iku');
+    Route::match(['put', 'patch'], 'monev/iku/{iku:id}', [RenaksiController::class, 'iku_update'])->name('monev.iku');
 
-    Route::match(['put', 'patch'], 'renaksi/program-indikator-update{program_indikator:id}', [RenaksiController::class, 'program_indikator_update'])->name('renaksi.program-indikator-update');
+    Route::match(['put', 'patch'], 'monev/program-indikator-update{program_indikator:id}', [RenaksiController::class, 'program_indikator_update'])->name('monev.program-indikator-update');
 
-    Route::match(['put', 'patch'], 'renaksi/kegiatan-indikator-update{kegiatan_indikator:id}', [RenaksiController::class, 'kegiatan_indikator_update'])->name('renaksi.kegiatan-indikator-update');
+    Route::match(['put', 'patch'], 'monev/kegiatan-indikator-update{kegiatan_indikator:id}', [RenaksiController::class, 'kegiatan_indikator_update'])->name('monev.kegiatan-indikator-update');
 
-    Route::match(['put', 'patch'], 'renaksi/sub-kegiatan-indikator-update{sub_kegiatan_indikator:id}', [RenaksiController::class, 'sub_kegiatan_indikator_update'])->name('renaksi.sub-kegiatan-indikator-update');
+    Route::match(['put', 'patch'], 'monev/sub-kegiatan-indikator-update{sub_kegiatan_indikator:id}', [RenaksiController::class, 'sub_kegiatan_indikator_update'])->name('monev.sub-kegiatan-indikator-update');
 
     Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');
     Route::get('print', [LaporanController::class, 'print'])->name('laporan.print');
