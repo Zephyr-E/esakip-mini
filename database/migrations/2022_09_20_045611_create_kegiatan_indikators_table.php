@@ -17,13 +17,17 @@ return new class extends Migration
             $table->id();
             $table->foreignId('kegiatan_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('indikator');
-            $table->string('satuan');
+            $table->string('satuan')->nullable();
             $table->string('target')->nullable();
             $table->string('tahun')->nullable();
             $table->string('tw_i')->nullable();
             $table->string('tw_ii')->nullable();
             $table->string('tw_iii')->nullable();
             $table->string('tw_iv')->nullable();
+            $table->string('pagu_i')->nullable();
+            $table->string('pagu_ii')->nullable();
+            $table->string('pagu_iii')->nullable();
+            $table->string('pagu_iv')->nullable();
             $table->string('capaian')->nullable();
             $table->timestamps();
         });

@@ -32,7 +32,7 @@
                         <div class="form-group form-primary form-static-label pb-4">
                             <input name="otorisasi" class="form-control" required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Unit Kerja Penanggung Jawab</label>
+                            <label class="float-label">Masukkan Otorisasi</label>
                         </div>
                     </form>
                 </div>

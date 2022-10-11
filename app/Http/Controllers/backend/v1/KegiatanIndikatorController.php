@@ -44,8 +44,8 @@ class KegiatanIndikatorController extends Controller
         $request->validate([
             'kegiatan_id' => 'required',
             'indikator' => 'required',
-            'satuan' => 'required',
-            'tahun' => 'required',
+            // 'tahun' => 'required',
+            // 'satuan' => 'required',
             // 'target' => 'required',
             // 'realisasi' => 'required',
             // 'tw_i' => 'required',
@@ -98,8 +98,8 @@ class KegiatanIndikatorController extends Controller
 
         $request->validate([
             'indikator' => 'required',
-            'satuan' => 'required',
-            'tahun' => 'required',
+            // 'tahun' => 'required',
+            // 'satuan' => 'required',
             // 'target' => 'required',
             // 'realisasi' => 'required',
             // 'tw_i' => 'required',

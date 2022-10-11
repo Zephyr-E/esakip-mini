@@ -18,6 +18,7 @@ class LaporanController extends Controller
 
     public function print()
     {
+        // dd($request);
         $data['sasaran_renstras'] = SasaranRenstra::whereHas('tujuan_renstra.sasaran_rpjmd.tujuan_rpjmd.misi.visi', function ($query) {
             return $query->where('aktif', 1);
         })->get();

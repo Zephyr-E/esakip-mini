@@ -31,8 +31,8 @@
         <h5>Laporan</h5>
     </div>
     <div class="card-block">
-        <a href="{{ route('laporan.print') }}" class="btn btn-outline-primary" target="_blank">PRINT</a>
-        {{-- <form id="print" class="form-material" action="{{ route('laporan.print') }}" method="POST">
+        {{-- <a href="{{ route('laporan.print') }}" class="btn btn-outline-primary" target="_blank">PRINT</a> --}}
+        <form id="print" class="form-material" action="{{ route('laporan.print') }}" method="POST">
             @csrf
             <div class="form-group form-primary form-static-label col-3 pb-4">
                 <select class="form-control selectpicker" name="tahun" data-live-search="true">
@@ -53,13 +53,13 @@
                 <span class="form-bar"></span>
                 <label class="float-label">Status</label>
             </div>
-        </form> --}}
+        </form>
     </div>
 
     {{-- footer --}}
-    {{-- <div class="card-footer">
+    <div class="card-footer">
         <button type="submit" form="print" class="btn btn-primary">Print</button>
-    </div> --}}
+    </div>
 
 </div>
 

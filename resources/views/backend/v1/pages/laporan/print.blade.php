@@ -23,11 +23,23 @@
             background: rgba(58, 240, 155, 0.723);
         }
 
-        .sasaran-program {
+        .header-2 {
+            background: rgba(255, 255, 0, 0.793);
+        }
+
+        .sasaran-renstra td:not(:first-child) {
+            background: rgba(236, 203, 17, 0.825)
+        }
+
+        .sasaran-program td:not(:first-child) {
+            background: rgba(12, 119, 213, 0.838)
+        }
+
+        .sasaran-kegiatan td:not(:first-child) {
             background: rgba(157, 206, 248, 0.723);
         }
 
-        .sasaran-kegiatan {
+        .sasaran-sub-kegiatan td:not(:first-child) {
             background: rgba(192, 210, 226, 0.56)
         }
     </style>
@@ -46,12 +58,6 @@
                     </th>
                     <th scope="col" class="text-center" style="vertical-align: middle" rowspan="2">
                         KINERJA UTAMA/SASARAN STRATEGIS
-                    </th>
-                    <th scope="col" class="text-center" style="vertical-align: middle" rowspan="2">
-                        PROGRAM/KEGIATAN/SUB KEGIATAN
-                    </th>
-                    <th scope="col" class="text-center" style="vertical-align: middle" rowspan="2">
-                        INDIKATOR KINERJA UTAMA (IKU)
                     </th>
                     <th scope="col" class="text-center" style="vertical-align: middle" rowspan="2">
                         TARGET KINERJA DAN ANGGARAN
@@ -73,6 +79,58 @@
             <tbody>
 
                 {{-- iku --}}
+            @foreach ($sasaran_renstras as $sasaran_renstra)
+                {{-- ###################### --}}
+                <tr class="sasaran-renstra">
+                    <td>{{ $loop->iteration }}</td>
+                    <td colspan="8"><b>Sasaran Strategis : </b>{{ $sasaran_renstra->name }}</td>
+                </tr>
+                {{-- <tr class="header-2">
+                    <td></td>
+                    <td colspan="9"><b>PROGRAM</b></td>
+                </tr> --}}
+                    @foreach ($sasaran_renstra->sasaran_program as $sasaran_program)
+                        @foreach ($sasaran_program->program as $program)
+                        <tr class="sasaran-renstra">
+                            <td></td>
+                            <td colspan="8"><b>-- Program : </b>{{ $program->name }}</td>
+                        </tr>
+                        @endforeach
+                    @endforeach
+                {{-- <tr class="header-2">
+                    <td></td>
+                    <td colspan="9"><b>INDIKATOR KINERJA UTAMA (IKU)</b></td>
+                </tr> --}}
+                    @foreach ($sasaran_renstra->iku as $iku)
+                        <tr class="sasaran-renstra">
+                            <td></td>
+                            <td><b>-- Indikator Kinerja Utama : </b>{{ $iku->indikator }}</td>
+                            <td class="text-center">{{ $iku->target .' '. $iku->satuan }}</td>
+                            <td class="text-center">{{ $iku->tw_i }}</td>
+                            <td class="text-center">{{ $iku->tw_ii }}</td>
+                            <td class="text-center">{{ $iku->tw_iii }}</td>
+                            <td class="text-center">{{ $iku->tw_iv }}</td>
+                            <td class="text-center">{{ $iku->capaian }}</td>
+                            <td></td>
+                        </tr>
+                        <tr class="sasaran-renstra">
+                            <td></td>
+                            <td>KENDALA</td>
+                            <td colspan="7">{{ $iku->kendala }}</td>
+                        </tr>
+                        <tr class="sasaran-renstra">
+                            <td></td>
+                            <td>SOLUSI</td>
+                            <td colspan="7">{{ $iku->solusi }}</td>
+                        </tr>
+                        <tr class="sasaran-renstra">
+                            <td></td>
+                            <td>TINDAK LANJUT</td>
+                            <td colspan="7">{{ $iku->tindak_lanjut }}</td>
+                        </tr>
+                    @endforeach
+            @endforeach
+                {{-- ###################### --}}
 
                 {{-- data sasaran program, program, program indikator dibawah ini hanya akan tampil ketika program
                 indikator nya sudah diisi --}}
@@ -83,101 +141,135 @@
                 @foreach ($sasaran_renstras as $sasaran_renstra)
                 {{-- sasaran program --}}
                 @foreach ($sasaran_renstra->sasaran_program as $sasaran_program)
-                {{-- program --}}
-                @foreach ($sasaran_program->program as $program)
-                {{-- program indikator --}}
-                @foreach ($program->program_indikator as $program_indikator)
-                <tr class="sasaran-program">
-                    <td rowspan="4">{{ $no++ }}</td>
-                    <td rowspan="4">{{ $sasaran_program->name }}</td>
-                    <td rowspan="4">{{ $program->name }}</td>
-                    <td>{{ $program_indikator->indikator }}</td>
-                    <td class="text-center">{{ $program_indikator->target .' '. $program_indikator->satuan }}</td>
-                    <td class="text-center">{{ $program_indikator->tw_i }}</td>
-                    <td class="text-center">{{ $program_indikator->tw_ii }}</td>
-                    <td class="text-center">{{ $program_indikator->tw_iii }}</td>
-                    <td class="text-center">{{ $program_indikator->tw_iv }}</td>
-                    <td class="text-center">{{ $program_indikator->capaian }}</td>
-                    <td rowspan="4" class="text-center">{{ $program->otorisasi }}</td>
-                </tr>
-                <tr class="sasaran-program">
-                    <td>KENDALA</td>
-                    <td colspan="6">{{ $program->kendala }}</td>
-                </tr>
-                <tr class="sasaran-program">
-                    <td>SOLUSI</td>
-                    <td colspan="6">{{ $program->solusi }}</td>
-                </tr>
-                <tr class="sasaran-program">
-                    <td>TINDAK LANJUT</td>
-                    <td colspan="6">{{ $program->tindak_lanjut }}</td>
-                </tr>
-                @endforeach
-                {{-- program indikator berakhir --}}
-
-                {{-- sasaran kegiatan --}}
-                @foreach ($program->sasaran_kegiatan as $sasaran_kegiatan)
-                {{-- kegiatan --}}
-                @foreach ($sasaran_kegiatan->kegiatan as $kegiatan)
-                {{-- kegiatan indikator --}}
-                @foreach ($kegiatan->kegiatan_indikator as $kegiatan_indikator)
-                <tr class="sasaran-kegiatan">
+                <tr class="header-2">
                     <td></td>
-                    <td>{{ $sasaran_kegiatan->name }}</td>
-                    <td>{{ $kegiatan->name }}</td>
-                    <td>{{ $kegiatan_indikator->indikator }}</td>
-                    <td class="text-center">{{ $kegiatan_indikator->target .' '. $kegiatan_indikator->satuan }}</td>
-                    <td class="text-center">{{ $kegiatan_indikator->tw_i }}</td>
-                    <td class="text-center">{{ $kegiatan_indikator->tw_ii }}</td>
-                    <td class="text-center">{{ $kegiatan_indikator->tw_iii }}</td>
-                    <td class="text-center">{{ $kegiatan_indikator->tw_iv }}</td>
-                    <td class="text-center">{{ $kegiatan_indikator->capaian }}</td>
-                    <td class="text-center">{{ $kegiatan->otorisasi }}</td>
+                    <td colspan="9"><b>SASARAN PROGRAM/PROGRAM/INDIKATOR PROGRAM</b></td>
                 </tr>
-                @endforeach
-                {{-- kegiatan indikator berakhir --}}
+                <tr class="sasaran-program">
+                    <td>{{ $no++ }}</td>
+                    <td colspan="8"><b>Sasaran Program : </b>{{ $sasaran_program->name }}</td>
+                </tr>
+                    {{-- program --}}
+                    @foreach ($sasaran_program->program as $program)
+                    <tr class="sasaran-program">
+                        <td></td>
+                        <td colspan="7"><b>-- Program : </b>{{ $program->name }}</td>
+                        <td class="text-center">{{ $program->otorisasi }}</td>
+                    </tr>
+                        {{-- program indikator --}}
+                        @foreach ($program->program_indikator as $program_indikator)
+                        <tr class="sasaran-program">
+                            <td></td>
+                            <td><b>--- Indikator Program : </b>{{ $program_indikator->indikator }}</td>
+                            <td class="text-center">{{ $program_indikator->target .' '. $program_indikator->satuan }}</td>
+                            <td class="text-center">{{ $program_indikator->tw_i }}</td>
+                            <td class="text-center">{{ $program_indikator->tw_ii }}</td>
+                            <td class="text-center">{{ $program_indikator->tw_iii }}</td>
+                            <td class="text-center">{{ $program_indikator->tw_iv }}</td>
+                            <td class="text-center">{{ $program_indikator->capaian }}</td>
+                            <td></td>
+                        </tr>
+                        @endforeach
+                        {{-- program indikator berakhir --}}
+                    <tr class="sasaran-program">
+                        <td></td>
+                        <td>KENDALA</td>
+                        <td colspan="7">{{ $program->kendala }}</td>
+                    </tr>
+                    <tr class="sasaran-program">
+                        <td></td>
+                        <td>SOLUSI</td>
+                        <td colspan="7">{{ $program->solusi }}</td>
+                    </tr>
+                    <tr class="sasaran-program">
+                        <td></td>
+                        <td>TINDAK LANJUT</td>
+                        <td colspan="7">{{ $program->tindak_lanjut }}</td>
+                    </tr>
 
-                {{-- sub kegiatan --}}
-                @foreach ($kegiatan->sub_kegiatan as $sub_kegiatan)
-                {{-- sub kegiatan indikator --}}
-                @foreach ($sub_kegiatan->sub_kegiatan_indikator as $sub_kegiatan_indikator)
-                <tr>
-                    <td rowspan="4"></td>
-                    <td rowspan="4"></td>
-                    <td rowspan="4">{{ $sub_kegiatan->name }}</td>
-                    <td>{{ $sub_kegiatan_indikator->indikator }}</td>
-                    <td class="text-center">{{ $sub_kegiatan_indikator->target .' '. $sub_kegiatan_indikator->satuan }}
-                    </td>
-                    <td class="text-center">{{ $sub_kegiatan_indikator->tw_i }}</td>
-                    <td class="text-center">{{ $sub_kegiatan_indikator->tw_ii }}</td>
-                    <td class="text-center">{{ $sub_kegiatan_indikator->tw_iii }}</td>
-                    <td class="text-center">{{ $sub_kegiatan_indikator->tw_iv }}</td>
-                    <td class="text-center">{{ $sub_kegiatan_indikator->capaian }}</td>
-                    <td rowspan="4" class="text-center">{{ $sub_kegiatan->otorisasi }}</td>
-                </tr>
-                <tr>
-                    <td>KENDALA</td>
-                    <td colspan="6">{{ $sub_kegiatan->kendala }}</td>
-                </tr>
-                <tr>
-                    <td>SOLUSI</td>
-                    <td colspan="6">{{ $sub_kegiatan->solusi }}</td>
-                </tr>
-                <tr>
-                    <td>TINDAK LANJUT</td>
-                    <td colspan="6">{{ $sub_kegiatan->tindak_lanjut }}</td>
-                </tr>
-                @endforeach
-                {{-- sub kegiatan indikator berakhir --}}
-                @endforeach
-                {{-- sub kegiatan berakhir --}}
+                    {{-- sasaran kegiatan --}}
+                    @foreach ($program->sasaran_kegiatan as $sasaran_kegiatan)
+                    <tr class="header-2">
+                        <td></td>
+                        <td colspan="8"><b>SASARAN KEGIATAN/KEGIATAN/INDIKATOR KEGIATAN</b></td>
+                    </tr>
+                    <tr class="sasaran-kegiatan">
+                        <td></td>
+                        <td colspan="8"><b>-- Sasaran Kegiatan : </b>{{ $sasaran_kegiatan->name }}</td>
+                    </tr>
+                        {{-- kegiatan --}}
+                        @foreach ($sasaran_kegiatan->kegiatan as $kegiatan)
+                        <tr class="sasaran-kegiatan">
+                            <td></td>
+                            <td colspan="7"><b>-- Kegiatan : </b>{{ $kegiatan->name }}</td>
+                            <td>{{ $kegiatan->otorisasi }}</td>
+                        </tr>
+                            {{-- kegiatan indikator --}}
+                            @foreach ($kegiatan->kegiatan_indikator as $kegiatan_indikator)
+                            <tr class="sasaran-kegiatan">
+                                <td></td>
+                                <td><b>-- Indikator Kegiatan : </b>{{ $kegiatan_indikator->indikator }}</td>
+                                <td class="text-center">{{ $kegiatan_indikator->target .' '. $kegiatan_indikator->satuan }}</td>
+                                <td class="text-center">{{ $kegiatan_indikator->tw_i }}</td>
+                                <td class="text-center">{{ $kegiatan_indikator->tw_ii }}</td>
+                                <td class="text-center">{{ $kegiatan_indikator->tw_iii }}</td>
+                                <td class="text-center">{{ $kegiatan_indikator->tw_iv }}</td>
+                                <td class="text-center">{{ $kegiatan_indikator->capaian }}</td>
+                                <td></td>
+                            </tr>
+                            @endforeach
+                            {{-- kegiatan indikator berakhir --}}
 
-                @endforeach
-                {{-- kegiatan berakhir --}}
-                @endforeach
-                {{-- sasaran kegiatan berakhir --}}
-                @endforeach
-                {{-- program berakhir --}}
+                        {{-- <tr class="header-2">
+                            <td></td>
+                            <td colspan="8"><b>SUB KEGIATAN/INDIKATOR SUB KEGIATAN</b></td>
+                        </tr> --}}
+                        {{-- sub kegiatan --}}
+                        @foreach ($kegiatan->sub_kegiatan as $sub_kegiatan)
+                        <tr class="sasaran-sub-kegiatan">
+                            <td></td>
+                            <td colspan="7"><b>--- Sub Kegiatan : </b>{{ $sub_kegiatan->name }}</td>
+                            <td>{{ $sub_kegiatan->otorisasi }}</td>
+                        </tr>
+                            {{-- sub kegiatan indikator --}}
+                            @foreach ($sub_kegiatan->sub_kegiatan_indikator as $sub_kegiatan_indikator)
+                            <tr class="sasaran-sub-kegiatan">
+                                <td></td>
+                                <td><b>--- Indikator Sub Kegiatan : </b>{{ $sub_kegiatan_indikator->indikator }}</td>
+                                <td class="text-center">{{ $sub_kegiatan_indikator->target .' '. $sub_kegiatan_indikator->satuan }}</td>
+                                <td class="text-center">{{ $sub_kegiatan_indikator->tw_i }}</td>
+                                <td class="text-center">{{ $sub_kegiatan_indikator->tw_ii }}</td>
+                                <td class="text-center">{{ $sub_kegiatan_indikator->tw_iii }}</td>
+                                <td class="text-center">{{ $sub_kegiatan_indikator->tw_iv }}</td>
+                                <td class="text-center">{{ $sub_kegiatan_indikator->capaian }}</td>
+                                <td></td>
+                            </tr>
+                            @endforeach
+                            {{-- sub kegiatan indikator berakhir --}}
+                        <tr class="sasaran-sub-kegiatan">
+                            <td></td>
+                            <td>KENDALA</td>
+                            <td colspan="7">{{ $sub_kegiatan->kendala }}</td>
+                        </tr>
+                        <tr class="sasaran-sub-kegiatan">
+                            <td></td>
+                            <td>SOLUSI</td>
+                            <td colspan="7">{{ $sub_kegiatan->solusi }}</td>
+                        </tr>
+                        <tr class="sasaran-sub-kegiatan">
+                            <td></td>
+                            <td>TINDAK LANJUT</td>
+                            <td colspan="7">{{ $sub_kegiatan->tindak_lanjut }}</td>
+                        </tr>
+                        @endforeach
+                        {{-- sub kegiatan berakhir --}}
+
+                        @endforeach
+                        {{-- kegiatan berakhir --}}
+                    @endforeach
+                    {{-- sasaran kegiatan berakhir --}}
+                    @endforeach
+                    {{-- program berakhir --}}
                 @endforeach
                 {{-- sasaran program berakhir --}}
                 @endforeach

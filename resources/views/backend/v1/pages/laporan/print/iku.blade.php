@@ -29,7 +29,7 @@
                         <tr>
                             <th scope="col"></th>
                             <th scope="col" colspan="3">SASARAN SKPD/INDIKATOR KINERJA UTAMA</th>
-                            <th scope="col">UNIT KERJA PENANGGUNG JAWAB</th>
+                            <th scope="col">OTORISASI</th>
                         </tr>
                     </thead>
                     <tbody>

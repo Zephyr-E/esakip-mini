@@ -4,13 +4,13 @@
 </div>
 
 <div class="card-block table-responsive">
-    <table class="table table-bordered datatables">
+    <table class="table table-bordered" style="white-space: nowrap">
         <thead>
             <tr>
                 <th scope="col" class="text-center" colspan="3">SUB KEGIATAN/SUB KEGIATAN INDIKATOR</th>
-                <th scope="col" class="text-center">SATUAN</th>
                 <th scope="col" class="text-center">TARGET</th>
-                <th scope="col" class="text-center">UNIT KERJA PENANGGUNG JAWAB</th>
+                <th scope="col" class="text-center">PAGU</th>
+                <th scope="col" class="text-center">OTORISASI</th>
             </tr>
         </thead>
         <tbody>
@@ -18,7 +18,7 @@
             {{-- sub kegiatan --}}
             @forelse ($kegiatan->sub_kegiatan as $sub_kegiatan)
             <tr>
-                <td colspan="5">
+                <td colspan="4">
                     <div class="form-inline">
                         {{ $sub_kegiatan->name }}
                         &nbsp;
@@ -38,14 +38,15 @@
                         </form>
                     </div>
                 </td>
+                <td>@currency($sub_kegiatan->pagu)</td>
                 <td>{{ $sub_kegiatan->otorisasi }}</td>
             </tr>
 
             {{-- sub kegiatan indikator --}}
             @foreach ($sub_kegiatan->sub_kegiatan_indikator as $sub_kegiatan_indikator)
             <tr>
-                <td></td>
-                <td>{{ $loop->iteration }}</td>
+                <td style="width: 10%"></td>
+                <td style="width: 10%">{{ $loop->iteration }}</td>
                 <td>
                     <div class="form-inline">
                         {{ $sub_kegiatan_indikator->indikator }}
@@ -68,9 +69,8 @@
                         </form>
                     </div>
                 </td>
-                <td>{{ $sub_kegiatan_indikator->satuan }}</td>
-                <td>{{ $sub_kegiatan_indikator->target }}</td>
-                <td></td>
+                <td>{{ $sub_kegiatan_indikator->target .' '. $sub_kegiatan_indikator->satuan }}</td>
+                <td colspan="2"></td>
             </tr>
             @endforeach
 

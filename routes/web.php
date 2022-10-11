@@ -72,6 +72,6 @@ Route::group(["middleware" => [
     Route::match(['put', 'patch'], 'monev/sub-kegiatan-indikator-update{sub_kegiatan_indikator:id}', [RenaksiController::class, 'sub_kegiatan_indikator_update'])->name('monev.sub-kegiatan-indikator-update');
 
     Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');
-    Route::get('print', [LaporanController::class, 'print'])->name('laporan.print');
+    Route::post('print', [LaporanController::class, 'print'])->name('laporan.print');
 
 });

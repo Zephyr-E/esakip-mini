@@ -29,16 +29,6 @@
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Indikator</label>
                         </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input name="satuan" class="form-control" required>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Satuan (contoh: persentasi)</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input name="tahun" class="form-control" required>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Tahun</label>
-                        </div>
                     </form>
                 </div>
 

@@ -53,7 +53,7 @@
                             <input type="text" name="otorisasi" class="form-control row-cols-sm-3"
                                 value="{{ $program->otorisasi }}" required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Unit Kerja Penanggung Jawab</label>
+                            <label class="float-label">Masukkan Otorisasi</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <div class="col-3 form-control">
@@ -67,12 +67,6 @@
                             </div>
                             <span class="form-bar"></span>
                             <label class="float-label">APBD <small> (pilih APBD)</small></label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input type="text" name="tahun" class="form-control row-cols-sm-3"
-                                value="{{ $program->tahun }}" required>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Tahun</label>
                         </div>
                     </form>
                 </div>

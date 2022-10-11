@@ -51,15 +51,10 @@
                             <label class="float-label">Masukkan Tindak Lanjut</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
-                            <input type="text" name="tahun" class="form-control" value="{{ $iku->tahun }}" required>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Tahun</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="otorisasi" class="form-control row-cols-sm-3"
                                 value="{{ $iku->otorisasi }}" required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Unit Kerja Penanggung Jawab</label>
+                            <label class="float-label">Masukkan Otorisasi</label>
                         </div>
                     </form>
                 </div>

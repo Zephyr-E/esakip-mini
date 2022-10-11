@@ -1,18 +1,18 @@
 <div class="card-block table-responsive">
-    <table class="table table-bordered datatables">
+    <table class="table table-bordered" style="white-space: nowrap;">
         <thead>
             <tr>
                 <th scope="col" class="text-center" style="width: 10%">No</th>
                 <th scope="col" class="text-center" colspan="3">SASARAN SKPD</th>
-                <th scope="col" class="text-center">SATUAN</th>
                 <th scope="col" class="text-center">TARGET</th>
-                <th scope="col" class="text-center">UNIT KERJA PENANGGUNG JAWAB</th>
+                <th scope="col" class="text-center">PAGU</th>
+                <th scope="col" class="text-center">OTORISASI</th>
             </tr>
         </thead>
         <tbody>
 
             {{-- sasaran skpd --}}
-            {{-- @php $nomor = 1 @endphp --}}
+            @php $nomor = 1 @endphp
             @forelse ($sasaran_renstras as $sasaran_renstra)
             <tr>
                 <td></td>
@@ -32,7 +32,7 @@
             {{-- sasaran program --}}
             @foreach ($sasaran_renstra->sasaran_program as $sasaran_program)
             <tr>
-                <td>{{ $loop->iteration }}</td>
+                <td>{{ $nomor++ }}</td>
                 <td colspan="6">
                     <div class="form-inline">
                         {{ 'Sasaran Program : ' . $sasaran_program->name }}
@@ -67,7 +67,7 @@
                         <i class="fas fa-arrow-right fa-fw"></i>
                     </a>
                 </td>
-                <td colspan="4">
+                <td colspan="3">
                     <div class="form-inline">
                         {{ 'Program : '.strtoupper($program->name) }}
                         &nbsp;
@@ -87,6 +87,17 @@
                         </form>
                     </div>
                 </td>
+                @php
+                $pagu = 0;
+                foreach ($program->sasaran_kegiatan as $sasaran_kegiatan) {
+                foreach ($sasaran_kegiatan->kegiatan as $kegiatan) {
+                foreach ($kegiatan->sub_kegiatan as $sub_kegiatan) {
+                $pagu = $sub_kegiatan->pagu + $pagu;
+                }
+                }
+                }
+                @endphp
+                <td>@currency($pagu)</td>
                 <td>{{ $program->otorisasi }}</td>
             </tr>
 
@@ -117,9 +128,8 @@
                         </form>
                     </div>
                 </td>
-                <td>{{ $program_indikator->satuan }}</td>
-                <td>{{ $program_indikator->target }}</td>
-                <td></td>
+                <td>{{ $program_indikator->target .' '. $program_indikator->satuan }}</td>
+                <td colspan="2"></td>
             </tr>
             @endforeach
 

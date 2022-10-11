@@ -27,32 +27,76 @@
                         @csrf
                         @method('patch')
                         <div class="form-group form-primary form-static-label pb-4">
-                            <input type="text" name="target" class="form-control" value="{{ $kegiatan_indikator->target }}">
+                            <input type="text" name="satuan" class="form-control"
+                                value="{{ $kegiatan_indikator->satuan }}">
+                            <span class="form-bar"></span>
+                            <label class="float-label">Masukkan Satuan</label>
+                        </div>
+                        <div class="form-group form-primary form-static-label pb-4">
+                            <input type="text" name="target" class="form-control"
+                                value="{{ $kegiatan_indikator->target }}">
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Target</label>
                         </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input type="text" name="tw_i" class="form-control" value="{{ $kegiatan_indikator->tw_i }}">
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Triwulan I</label>
+                        <div class="form-inline">
+                            <div class="form-group form-primary form-static-label pb-4 col-6">
+                                <input type="text" name="tw_i" class="form-control"
+                                    value="{{ $kegiatan_indikator->tw_i }}">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Masukkan Triwulan I</label>
+                            </div>
+                            <div class="form-group form-primary form-static-label pb-4 col-6">
+                                <input type="number" name="pagu_i" class="form-control"
+                                    value="{{ $kegiatan_indikator->pagu_i }}">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Masukkan Pagu I</label>
+                            </div>
+                        </div>
+                        <div class="form-inline">
+                            <div class="form-group form-primary form-static-label pb-4 col-6">
+                                <input type="text" name="tw_ii" class="form-control"
+                                    value="{{ $kegiatan_indikator->tw_ii }}">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Masukkan Triwulan II</label>
+                            </div>
+                            <div class="form-group form-primary form-static-label pb-4 col-6">
+                                <input type="number" name="pagu_ii" class="form-control"
+                                    value="{{ $kegiatan_indikator->pagu_ii }}">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Masukkan Pagu II</label>
+                            </div>
+                        </div>
+                        <div class="form-inline">
+                            <div class="form-group form-primary form-static-label pb-4 col-6">
+                                <input type="text" name="tw_iii" class="form-control"
+                                    value="{{ $kegiatan_indikator->tw_iii }}">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Masukkan Triwulan III</label>
+                            </div>
+                            <div class="form-group form-primary form-static-label pb-4 col-6">
+                                <input type="number" name="pagu_iii" class="form-control"
+                                    value="{{ $kegiatan_indikator->pagu_iii }}">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Masukkan Pagu III</label>
+                            </div>
+                        </div>
+                        <div class="form-inline">
+                            <div class="form-group form-primary form-static-label pb-4 col-6">
+                                <input type="text" name="tw_iv" class="form-control"
+                                    value="{{ $kegiatan_indikator->tw_iv }}">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Masukkan Triwulan IV</label>
+                            </div>
+                            <div class="form-group form-primary form-static-label pb-4 col-6">
+                                <input type="number" name="pagu_iv" class="form-control"
+                                    value="{{ $kegiatan_indikator->pagu_iv }}">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Masukkan Pagu IV</label>
+                            </div>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
-                            <input type="text" name="tw_ii" class="form-control" value="{{ $kegiatan_indikator->tw_ii }}">
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Triwulan II</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input type="text" name="tw_iii" class="form-control" value="{{ $kegiatan_indikator->tw_iii }}">
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Triwulan III</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input type="text" name="tw_iv" class="form-control" value="{{ $kegiatan_indikator->tw_iv }}">
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Triwulan IV</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <input type="text" name="capaian" class="form-control" value="{{ $kegiatan_indikator->capaian }}">
+                            <input type="text" name="capaian" class="form-control"
+                                value="{{ $kegiatan_indikator->capaian }}">
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Capaian</label>
                         </div>

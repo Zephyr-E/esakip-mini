@@ -4,7 +4,7 @@
             <tr>
                 <th scope="col" class="text-center" style="width: 10%">No</th>
                 <th scope="col" class="text-center" colspan="3">SASARAN SKPD/INDIKATOR KINERJA UTAMA</th>
-                <th scope="col" class="text-center">UNIT KERJA PENANGGUNG JAWAB</th>
+                <th scope="col" class="text-center">OTORISASI</th>
             </tr>
         </thead>
         <tbody>

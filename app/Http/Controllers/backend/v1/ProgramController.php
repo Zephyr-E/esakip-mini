@@ -49,7 +49,7 @@ class ProgramController extends Controller
             // 'tindak_lanjut' => 'required',
             'otorisasi' => 'required',
             'apbd' => 'required',
-            'tahun' => 'required',
+            // 'tahun' => 'required',
         ]);
 
         $data = $request->all();
@@ -102,7 +102,7 @@ class ProgramController extends Controller
             // 'tindak_lanjut' => 'required',
             'otorisasi' => 'required',
             'apbd' => 'required',
-            'tahun' => 'required',
+            // 'tahun' => 'required',
         ]);
 
         $data = $request->all();

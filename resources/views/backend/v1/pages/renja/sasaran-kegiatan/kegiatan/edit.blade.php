@@ -35,7 +35,7 @@
                             <input type="text" name="otorisasi" class="form-control row-cols-sm-3"
                                 value="{{ $kegiatan->otorisasi }}" required>
                             <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Unit Kerja Penanggung Jawab</label>
+                            <label class="float-label">Masukkan Otorisasi</label>
                         </div>
                     </form>
                 </div>

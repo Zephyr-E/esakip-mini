@@ -3,14 +3,14 @@
 </div>
 
 <div class="card-block table-responsive">
-    <table class="table table-bordered datatables">
+    <table class="table table-bordered" style="white-space: nowrap">
         <thead>
             <tr>
                 <th scope="col" class="text-center" style="width: 10%"></th>
                 <th scope="col" class="text-center" colspan="3">SASARAN KEGIATAN/KEGIATAN/KEGIATAN INDIKATOR</th>
-                <th scope="col" class="text-center">SATUAN</th>
                 <th scope="col" class="text-center">TARGET</th>
-                <th scope="col" class="text-center">UNIT KERJA PENANGGUNG JAWAB</th>
+                <th scope="col" class="text-center">PAGU</th>
+                <th scope="col" class="text-center">OTORISASI</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +19,7 @@
             @forelse ($program->sasaran_kegiatan as $sasaran_kegiatan)
 
             <tr>
-                <td></td>
-                <td colspan="6">
+                <td colspan="7">
                     <div class="form-inline">
                         {{ 'Sasaran Kegiatan : ' . $sasaran_kegiatan->name }}
                         &nbsp;
@@ -53,7 +52,7 @@
                         <i class="fas fa-arrow-right fa-fw"></i>
                     </a>
                 </td>
-                <td colspan="5">
+                <td colspan="4">
                     <div class="form-inline">
                         {{ $kegiatan->name }}
                         &nbsp;
@@ -73,14 +72,20 @@
                         </form>
                     </div>
                 </td>
+                @php
+                $pagu = 0;
+                foreach ($kegiatan->sub_kegiatan as $sub_kegiatan) {
+                $pagu = $sub_kegiatan->pagu + $pagu;
+                }
+                @endphp
+                <td>@currency($pagu)</td>
                 <td>{{ $kegiatan->otorisasi }}</td>
             </tr>
 
             {{-- kegiatan indikator --}}
             @foreach ($kegiatan->kegiatan_indikator as $kegiatan_indikator)
             <tr>
-                <td></td>
-                <td></td>
+                <td colspan="2"></td>
                 <td>{{ $loop->iteration }}</td>
                 <td colspan="1">
                     <div class="form-inline">
@@ -103,9 +108,8 @@
                         </form>
                     </div>
                 </td>
-                <td>{{ $kegiatan_indikator->satuan }}</td>
-                <td>{{ $kegiatan_indikator->target }}</td>
-                <td></td>
+                <td>{{ $kegiatan_indikator->target .' '. $kegiatan_indikator->satuan }}</td>
+                <td colspan="2"></td>
             </tr>
             @endforeach
 

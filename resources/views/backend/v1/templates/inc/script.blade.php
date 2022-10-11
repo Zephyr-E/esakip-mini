@@ -38,4 +38,5 @@
 <script>
     $('.datatables').DataTable();
     $('.selectpicker').selectpicker();
+    
 </script>

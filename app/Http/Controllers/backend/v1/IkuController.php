@@ -54,7 +54,7 @@ class IkuController extends Controller
             // 'solusi' => 'required',
             // 'tindak_lanjut' => 'required',
             'otorisasi' => 'required',
-            'tahun' => 'required',
+            // 'tahun' => 'required',
         ]);
 
         $data = $request->all();
@@ -103,7 +103,7 @@ class IkuController extends Controller
             // 'solusi' => 'required',
             // 'tindak_lanjut' => 'required',
             'otorisasi' => 'required',
-            'tahun' => 'required',
+            // 'tahun' => 'required',
         ]);
 
         $data = $request->all();
