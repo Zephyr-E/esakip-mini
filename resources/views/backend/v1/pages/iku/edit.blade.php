@@ -19,9 +19,7 @@
 
                 {{-- body --}}
                 <div class="modal-body">
-                    <div class="mb-4">
-                        <h6 class="text-center mb-5">{{ $sasaran_renstra->name }}</h6>
-                    </div>
+                    <h6 style="white-space: normal; text-align: center" class="mb-5">{{ $sasaran_renstra->name }}</h6>
                     <form id="form-edit-iku-{{ $iku->id }}" class="form-material"
                         action="{{ route('iku.update', $iku->id) }}" method="POST">
                         @csrf
@@ -31,24 +29,6 @@
                                 required>
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Indikator</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <textarea type="text" name="kendala"
-                                class="form-control row-cols-sm-3">{{ $iku->kendala }}</textarea>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Kendala</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <textarea type="text" name="solusi"
-                                class="form-control row-cols-sm-3">{{ $iku->solusi }}</textarea>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Solusi</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <textarea type="text" name="tindak_lanjut"
-                                class="form-control row-cols-sm-3">{{ $iku->tindak_lanjut }}</textarea>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Tindak Lanjut</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="otorisasi" class="form-control row-cols-sm-3"

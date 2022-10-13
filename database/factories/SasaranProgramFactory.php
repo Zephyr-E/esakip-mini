@@ -17,7 +17,9 @@ class SasaranProgramFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nomor' => '1',
+            'name' => 'sasaran renstra 1',
+            'sasaran_renstra_id' => '1'
         ];
     }
 }

@@ -17,7 +17,9 @@ class KegiatanFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => 'kegiatan 1',
+            'sasaran_kegiatan_id' => '1',
+            'otorisasi' => 'otorisasi 1'
         ];
     }
 }

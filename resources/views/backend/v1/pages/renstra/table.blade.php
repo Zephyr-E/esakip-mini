@@ -1,5 +1,5 @@
 <div class="card-block table-responsive">
-    <table class="table table-bordered datatables">
+    <table class="table table-bordered" style="white-space: nowrap">
         <thead>
             <tr>
                 <th scope="col" class="text-center" style="width: 10%">No</th>

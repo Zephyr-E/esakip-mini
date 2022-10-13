@@ -17,7 +17,8 @@ class ProgramIndikatorFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'indikator' => 'program indikator 1',
+            'program_id' => '1'
         ];
     }
 }

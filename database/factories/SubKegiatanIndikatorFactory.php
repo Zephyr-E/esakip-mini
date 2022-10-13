@@ -17,7 +17,8 @@ class SubKegiatanIndikatorFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'indikator' => 'sub kegiatan indikator 1',
+            'sub_kegiatan_id' => '1'
         ];
     }
 }

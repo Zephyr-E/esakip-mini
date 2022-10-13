@@ -16,9 +16,6 @@
 
                 {{-- body --}}
                 <div class="modal-body">
-                    <div class="mb-4">
-                        <h6 class="text-center mb-5">{{ $kegiatan->name }}</h6>
-                    </div>
                     <form id="form-create-sub-kegiatan" class="form-material" action="{{ route('sub-kegiatan.store') }}"
                         method="POST">
                         @csrf
@@ -27,21 +24,6 @@
                             <input type="text" name="name" class="form-control" required>
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Sub Kegiatan</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <textarea name="kendala" class="form-control"></textarea>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Kendala</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <textarea name="solusi" class="form-control"></textarea>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Solusi</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <textarea name="tindak_lanjut" class="form-control"></textarea>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Tindak Lanjut</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="otorisasi" class="form-control" required>

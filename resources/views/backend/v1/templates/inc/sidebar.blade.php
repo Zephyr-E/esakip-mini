@@ -32,6 +32,7 @@
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
+            @if (Auth::user()->rule !== 'User')
             <li class="{{ in_array(Route::currentRouteName(), ['visi.index']) ? 'active' : '' }}">
                 <a href="{{ route('visi.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="fa fa-check-square"></i><b>D</b></span>
@@ -70,6 +71,7 @@
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
+            @endif
             <li class="{{ in_array(Route::currentRouteName(), ['monev.index']) ? 'active' : '' }}">
                 <a href="{{ route('monev.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="fas fa-tasks"></i><b>D</b></span>

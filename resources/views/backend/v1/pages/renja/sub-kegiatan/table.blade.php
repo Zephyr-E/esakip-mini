@@ -84,30 +84,6 @@
 
             {{-- kegiatan indikator berakhir --}}
 
-            {{-- kendala, solusi, tindak lanjut --}}
-            <tr>
-                <td></td>
-                <td>Kendala : </td>
-                <td colspan="4">
-                    {{ $sub_kegiatan->kendala }}
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Solusi : </td>
-                <td colspan="4">
-                    {{ $sub_kegiatan->solusi }}
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Tindak Lanjut : </td>
-                <td colspan="4">
-                    {{ $sub_kegiatan->tindak_lanjut }}
-                </td>
-            </tr>
-            {{-- kendala, solusi, tindak lanjut berakhir --}}
-
             @empty
             <td colspan="6" class="text-center">Sub Kegiatan Kosong</td>
             @endforelse

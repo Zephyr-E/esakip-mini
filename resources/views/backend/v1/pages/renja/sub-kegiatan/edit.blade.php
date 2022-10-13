@@ -19,9 +19,7 @@
 
                 {{-- body --}}
                 <div class="modal-body">
-                    <div class="mb-4">
-                        <h6 class="text-center mb-5">{{ $kegiatan->name }}</h6>
-                    </div>
+                    <h6 style="white-space: normal; text-align: center" class="mb-5">{{ $kegiatan->name }}</h6>
                     <form id="form-edit-sub-kegiatan-{{ $sub_kegiatan->id }}" class="form-material"
                         action="{{ route('sub-kegiatan.update', $sub_kegiatan->id) }}" method="POST">
                         @csrf
@@ -31,22 +29,6 @@
                                 required>
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Sub Kegiatan</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <textarea name="kendala" class="form-control">{{ $sub_kegiatan->kendala }}</textarea>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Kendala</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <textarea name="solusi" class="form-control">{{ $sub_kegiatan->solusi }}</textarea>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Solusi</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <textarea name="tindak_lanjut"
-                                class="form-control">{{ $sub_kegiatan->tindak_lanjut }}</textarea>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Tindak Lanjut</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="otorisasi" class="form-control"

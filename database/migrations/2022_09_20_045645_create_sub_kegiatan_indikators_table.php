@@ -28,6 +28,18 @@ return new class extends Migration
             $table->string('pagu_ii')->nullable();
             $table->string('pagu_iii')->nullable();
             $table->string('pagu_iv')->nullable();
+            $table->string('kendala_i')->nullable();
+            $table->string('solusi_i')->nullable();
+            $table->string('tindak_lanjut_i')->nullable();
+            $table->string('kendala_ii')->nullable();
+            $table->string('solusi_ii')->nullable();
+            $table->string('tindak_lanjut_ii')->nullable();
+            $table->string('kendala_iii')->nullable();
+            $table->string('solusi_iii')->nullable();
+            $table->string('tindak_lanjut_iii')->nullable();
+            $table->string('kendala_iv')->nullable();
+            $table->string('solusi_iv')->nullable();
+            $table->string('tindak_lanjut_iv')->nullable();
             $table->string('capaian')->nullable();
             $table->timestamps();
         });

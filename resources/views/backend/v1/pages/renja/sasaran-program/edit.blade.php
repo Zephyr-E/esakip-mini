@@ -19,9 +19,7 @@
 
                 {{-- body --}}
                 <div class="modal-body">
-                    <div class="mb-4">
-                        <h6 class="text-center mb-5">{{ $sasaran_renstra->name }}</h6>
-                    </div>
+                    <h6 style="white-space: normal; text-align: center" class="mb-5">{{ $sasaran_renstra->name }}</h6>
                     <form id="form-edit-sasaran-program-{{ $sasaran_program->id }}" class="form-material"
                         action="{{ route('renja.update', $sasaran_program->id) }}" method="POST">
                         @csrf

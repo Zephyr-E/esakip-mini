@@ -17,7 +17,9 @@ class SasaranKegiatanFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nomor' => '1',
+            'name' => 'sasaran kegiatan 1',
+            'program_id' => '1'
         ];
     }
 }

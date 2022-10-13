@@ -17,9 +17,7 @@
 
                 {{-- body --}}
                 <div class="modal-body">
-                    <div class="mb-4">
-                        <h6 class="text-center mb-5">{{ $tujuan_rpjmd->name }}</h6>
-                    </div>
+                    <h6 style="white-space: normal; text-align: center" class="mb-5">{{ $tujuan_rpjmd->name }}</h6>
                     <form id="form-create-sasaran-{{ $tujuan_rpjmd->id }}" class="form-material"
                         action="{{ route('sasaran.store') }}" method="POST">
                         @csrf

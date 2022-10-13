@@ -51,7 +51,7 @@
                         <i class="fas fa-th-list mat-icon f-24"></i>
                     </div>
                     <div class="col-9 cst-cont">
-                        <h5>{{ count($program_indikators) }}</h5>
+                        <h5>{{ $program_indikators }}</h5>
                         <p class="m-b-0">Program Indikator</p>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                         <i class="fas fa-th-list mat-icon f-24"></i>
                     </div>
                     <div class="col-9 cst-cont">
-                        <h5>{{ count($kegiatan_indikators) }}</h5>
+                        <h5>{{ $kegiatan_indikators }}</h5>
                         <p class="m-b-0">Kegiatan Indikator</p>
                     </div>
                 </div>
@@ -81,16 +81,33 @@
                         <i class="fas fa-th-list mat-icon f-24"></i>
                     </div>
                     <div class="col-9 cst-cont">
-                        <h5>{{ count($sub_kegiatan_indikators) }}</h5>
+                        <h5>{{ $sub_kegiatan_indikators }}</h5>
                         <p class="m-b-0">Sub Kegiatan Indikator</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Material statustic card end -->
-    <!-- order-visitor start -->
-
 </div>
+<!-- Row end -->
+
+<!-- Material statustic card end -->
+<!-- order-visitor start -->
+<div class="col-md-12">
+    <div class="card">
+        @include('backend.v1.pages.dashboard.publikasi.program-indikator')
+    </div>
+    <div class="card">
+        @include('backend.v1.pages.dashboard.publikasi.kegiatan-indikator')
+    </div>
+    <div class="card">
+        @include('backend.v1.pages.dashboard.publikasi.sub-kegiatan-indikator')
+    </div>
+    <div class="card">
+        @include('backend.v1.pages.dashboard.publikasi.iku')
+    </div>
+</div>
+
+
 
 @endsection

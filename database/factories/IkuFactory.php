@@ -17,7 +17,9 @@ class IkuFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'indikator' => 'iku 1',
+            'sasaran_renstra_id' => '1',
+            'otorisasi' => 'otorisasi 1'
         ];
     }
 }

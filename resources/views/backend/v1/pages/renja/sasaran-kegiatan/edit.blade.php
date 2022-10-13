@@ -19,9 +19,7 @@
 
                 {{-- body --}}
                 <div class="modal-body">
-                    <div class="mb-4">
-                        <h6 class="text-center mb-5">{{ $program->name }}</h6>
-                    </div>
+                    <h6 style="white-space: normal; text-align: center" class="mb-5">{{ $program->name }}</h6>
                     <form id="form-edit-sasaran-kegiatan-{{ $sasaran_kegiatan->id }}" class="form-material"
                         action="{{ route('sasaran-kegiatan.update', $sasaran_kegiatan->id) }}" method="POST">
                         @csrf

@@ -17,7 +17,9 @@ class TujuanRpjmdFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nomor' => '1',
+            'name' => 'tujuan rpjmd 1',
+            'misi_id' => '1'
         ];
     }
 }

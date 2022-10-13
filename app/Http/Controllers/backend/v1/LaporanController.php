@@ -16,7 +16,7 @@ class LaporanController extends Controller
         return view('backend.v1.pages.laporan.index');
     }
 
-    public function print()
+    public function print(Request $request)
     {
         // dd($request);
         $data['sasaran_renstras'] = SasaranRenstra::whereHas('tujuan_renstra.sasaran_rpjmd.tujuan_rpjmd.misi.visi', function ($query) {

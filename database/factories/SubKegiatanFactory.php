@@ -17,7 +17,10 @@ class SubKegiatanFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => 'sub kegiatan 1',
+            'kegiatan_id' => '1',
+            'otorisasi' => 'otorisasi 1',
+            'pagu' => '1000000'
         ];
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SasaranRpjmds>
  */
-class SasaranRpjmdsFactory extends Factory
+class SasaranRpjmdFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,9 @@ class SasaranRpjmdsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nomor' => '1',
+            'name' => 'sasaran rpjmd 1',
+            'tujuan_rpjmd_id' => '1'
         ];
     }
 }

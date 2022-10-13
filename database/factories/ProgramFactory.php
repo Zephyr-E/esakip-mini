@@ -17,7 +17,11 @@ class ProgramFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => 'program 1',
+            'sasaran_program_id' => '1',
+            'otorisasi' => 'otorisasi 1',
+            'apbd' => 'murni',
+            'tahun' => '2022'
         ];
     }
 }

@@ -145,33 +145,6 @@
             {{-- program indikator berakhir --}}
 
 
-            {{-- kendala, solusi, tindak lanjut --}}
-            <tr>
-                <td></td>
-                <td></td>
-                <td>Kendala : </td>
-                <td colspan="4">
-                    {{ $program->kendala }}
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>Solusi : </td>
-                <td colspan="4">
-                    {{ $program->solusi }}
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>Tindak Lanjut : </td>
-                <td colspan="4">
-                    {{ $program->tindak_lanjut }}
-                </td>
-            </tr>
-            {{-- kendala, solusi, tindak lanjut berakhir --}}
-
             @endforeach
 
             {{-- program berakhir --}}

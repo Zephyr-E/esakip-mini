@@ -7,7 +7,7 @@
     <h6 class="mb-3">Tidak ada visi yang aktif</h6>
     @endif
 
-    <table class="table table-bordered datatables">
+    <table class="table table-bordered" style="white-space: nowrap">
         <thead>
             <tr>
                 <th scope="col" class="text-center" style="width: 10%">No</th>

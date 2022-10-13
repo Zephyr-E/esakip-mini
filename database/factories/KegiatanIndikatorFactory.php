@@ -17,7 +17,8 @@ class KegiatanIndikatorFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'indikator' => 'kegiatan indikator 1',
+            'kegiatan_id' => '1',
         ];
     }
 }

@@ -38,21 +38,6 @@
                             <label class="float-label">Masukkan Indikator</label>
                         </div>
                         <div class="form-group form-primary form-static-label pb-4">
-                            <textarea type="text" name="kendala" class="form-control row-cols-sm-3"></textarea>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Kendala</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <textarea type="text" name="solusi" class="form-control row-cols-sm-3"></textarea>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Solusi</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
-                            <textarea type="text" name="tindak_lanjut" class="form-control row-cols-sm-3"></textarea>
-                            <span class="form-bar"></span>
-                            <label class="float-label">Masukkan Tindak Lanjut</label>
-                        </div>
-                        <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="otorisasi" class="form-control row-cols-sm-3" required>
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Otorisasi</label>

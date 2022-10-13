@@ -19,7 +19,8 @@ class VisiFactory extends Factory
         return [
             'name' => '"' . $this->faker->sentence(4, true) . '"',
             'tahun_awal' => '2018',
-            'tahun_akhir' => '2023'
+            'tahun_akhir' => '2023',
+            'aktif' => '1'
         ];
     }
 }

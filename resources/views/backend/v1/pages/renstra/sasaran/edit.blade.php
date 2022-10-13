@@ -19,9 +19,7 @@
 
                 {{-- body --}}
                 <div class="modal-body">
-                    <div class="mb-4">
-                        <h6 class="text-center mb-5">{{ $tujuan_renstra->name }}</h6>
-                    </div>
+                    <h6 style="white-space: normal; text-align: center" class="mb-5">{{ $tujuan_renstra->name }}</h6>
                     <form id="form-edit-renstra-sasaran-{{ $sasaran_renstra->id }}" class="form-material"
                         action="{{ route('renstra-sasaran.update', $sasaran_renstra->id) }}" method="POST">
                         @csrf
