@@ -18,10 +18,14 @@ class LaporanController extends Controller
 
     public function print(Request $request)
     {
-        // dd($request);
         $data['sasaran_renstras'] = SasaranRenstra::whereHas('tujuan_renstra.sasaran_rpjmd.tujuan_rpjmd.misi.visi', function ($query) {
             return $query->where('aktif', 1);
-        })->get();
+        })->where('tahun', $request->tahun)->where('status', $request->status)->get();
+
+        $data['tahun'] = $request->tahun;
+        $data['status'] = $request->status;
+
+        // dd($data);
 
 
         return view('backend.v1.pages.laporan.print', $data);

@@ -15,6 +15,12 @@
             overflow-x: auto;
         }
 
+        td,
+        th {
+            border-width: 3px !important;
+            border-color: black !important
+        }
+
         th,
         td,
         p {
@@ -50,10 +56,15 @@
 
 <body>
     <h6 class="text-center"><b>MONITORING DAN EVALUASI CAPAIAN KINERJA ATAS RENCANA AKSI</b></h6>
-    <h6 class="text-center"><b>DINAS PERDAGANGAN TAHUN 2022</b></h6>
+    <h6 class="text-center"><b>DINAS PERDAGANGAN TAHUN {{ $tahun }}</b></h6>
     <div class="wrapper mt-4">
-        <p>NAMA SKPD : DINAS PERDAGANGAN</p>
-        <p>TAHUN : 2022</p>
+        <div class="text-bold mb-3">
+            <span>NAMA SKPD : DINAS PERDAGANGAN</span>
+            <br>
+            <span>STATUS : {{ ucfirst($status) }}</span>
+            <br>
+            <span>TAHUN : {{ $tahun }}</span>
+        </div>
         <table class="table table-bordered">
             <thead>
                 <tr class="header">
@@ -93,6 +104,7 @@
             </thead>
             <tbody>
 
+                @if (count($sasaran_renstras) > 0)
                 {{-- iku --}}
                 @foreach ($sasaran_renstras as $sasaran_renstra)
                 {{-- ###################### --}}
@@ -104,7 +116,7 @@
                     <td></td>
                     <td colspan="9"><b>PROGRAM</b></td>
                 </tr> --}}
-                @foreach ($sasaran_renstra->sasaran_program as $sasaran_program)
+                {{-- @foreach ($sasaran_renstra->sasaran_program as $sasaran_program)
                 @foreach ($sasaran_program->program as $program)
                 <tr class="sasaran-renstra">
                     <td></td>
@@ -112,7 +124,7 @@
                     <td>{{ $program->otorisasi }}</td>
                 </tr>
                 @endforeach
-                @endforeach
+                @endforeach --}}
                 {{-- <tr class="header-2">
                     <td></td>
                     <td colspan="9"><b>INDIKATOR KINERJA UTAMA (IKU)</b></td>
@@ -132,26 +144,63 @@
                     <td class="text-center">{{ $iku->tw_iv .' '. $iku->satuan }}</td>
                     <td class="text-center">@currency($iku->pagu_iv)</td>
                     <td class="text-center">{{ $iku->capaian .' '. $iku->satuan }}</td>
-                    <td></td>
+                    <td class="text-center">{{ $iku->otorisasi }}</td>
                 </tr>
                 <tr class="sasaran-renstra">
                     <td></td>
-                    <td>KENDALA</td>
-                    <td colspan="12">{{ $iku->kendala }}</td>
+                    <td colspan="3">-- Kendala : </td>
+                    <td colspan="2">
+                        {{ $iku->kendala_i }}
+                    </td>
+                    <td colspan="2">
+                        {{ $iku->kendala_ii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $iku->kendala_iii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $iku->kendala_iv }}
+                    </td>
+                    <td colspan="2"></td>
                 </tr>
                 <tr class="sasaran-renstra">
                     <td></td>
-                    <td>SOLUSI</td>
-                    <td colspan="12">{{ $iku->solusi }}</td>
+                    <td colspan="3">-- Solusi : </td>
+                    <td colspan="2">
+                        {{ $iku->solusi_i }}
+                    </td>
+                    <td colspan="2">
+                        {{ $iku->solusi_ii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $iku->solusi_iii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $iku->solusi_iv }}
+                    </td>
+                    <td colspan="2"></td>
                 </tr>
                 <tr class="sasaran-renstra">
                     <td></td>
-                    <td>TINDAK LANJUT</td>
-                    <td colspan="12">{{ $iku->tindak_lanjut }}</td>
+                    <td colspan="3">-- Tindak Lanjut : </td>
+                    <td colspan="2">
+                        {{ $iku->tindak_lanjut_i }}
+                    </td>
+                    <td colspan="2">
+                        {{ $iku->tindak_lanjut_ii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $iku->tindak_lanjut_iii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $iku->tindak_lanjut_iv }}
+                    </td>
+                    <td colspan="2"></td>
                 </tr>
                 @endforeach
                 @endforeach
                 {{-- ###################### --}}
+                {{-- iku berakhir --}}
 
                 {{-- data sasaran program, program, program indikator dibawah ini hanya akan tampil ketika program
                 indikator nya sudah diisi --}}
@@ -163,7 +212,7 @@
                 {{-- sasaran program --}}
                 @foreach ($sasaran_renstra->sasaran_program as $sasaran_program)
                 <tr class="header-2">
-                    <td></td>
+                    <td><b>No</b></td>
                     <td colspan="13"><b>SASARAN PROGRAM/PROGRAM/INDIKATOR PROGRAM</b></td>
                 </tr>
                 <tr class="sasaran-program">
@@ -205,28 +254,65 @@
                     <td class="text-center">{{ $program_indikator->capaian .' '. $program_indikator->satuan }}</td>
                     <td></td>
                 </tr>
+                <tr class="sasaran-program">
+                    <td></td>
+                    <td colspan="3">-- Kendala : </td>
+                    <td colspan="2">
+                        {{ $program_indikator->kendala_i }}
+                    </td>
+                    <td colspan="2">
+                        {{ $program_indikator->kendala_ii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $program_indikator->kendala_iii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $program_indikator->kendala_iv }}
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr class="sasaran-program">
+                    <td></td>
+                    <td colspan="3">-- Solusi : </td>
+                    <td colspan="2">
+                        {{ $program_indikator->solusi_i }}
+                    </td>
+                    <td colspan="2">
+                        {{ $program_indikator->solusi_ii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $program_indikator->solusi_iii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $program_indikator->solusi_iv }}
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr class="sasaran-program">
+                    <td></td>
+                    <td colspan="3">-- Tindak Lanjut : </td>
+                    <td colspan="2">
+                        {{ $program_indikator->tindak_lanjut_i }}
+                    </td>
+                    <td colspan="2">
+                        {{ $program_indikator->tindak_lanjut_ii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $program_indikator->tindak_lanjut_iii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $program_indikator->tindak_lanjut_iv }}
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
                 @endforeach
                 {{-- program indikator berakhir --}}
-                <tr class="sasaran-program">
-                    <td></td>
-                    <td>KENDALA</td>
-                    <td colspan="12">{{ $program->kendala }}</td>
-                </tr>
-                <tr class="sasaran-program">
-                    <td></td>
-                    <td>SOLUSI</td>
-                    <td colspan="12">{{ $program->solusi }}</td>
-                </tr>
-                <tr class="sasaran-program">
-                    <td></td>
-                    <td>TINDAK LANJUT</td>
-                    <td colspan="12">{{ $program->tindak_lanjut }}</td>
-                </tr>
+
 
                 {{-- sasaran kegiatan --}}
                 @foreach ($program->sasaran_kegiatan as $sasaran_kegiatan)
                 <tr class="header-2">
-                    <td></td>
+                    <td><b>No</b></td>
                     <td colspan="13"><b>SASARAN KEGIATAN/KEGIATAN/INDIKATOR KEGIATAN</b></td>
                 </tr>
                 <tr class="sasaran-kegiatan">
@@ -268,7 +354,7 @@
                 {{-- kegiatan indikator berakhir --}}
 
                 <tr class="header-2">
-                    <td></td>
+                    <td><b>No</b></td>
                     <td colspan="13"><b>SUB KEGIATAN/INDIKATOR SUB KEGIATAN</b></td>
                 </tr>
                 {{-- sub kegiatan --}}
@@ -302,23 +388,59 @@
                     </td>
                     <td></td>
                 </tr>
+                <tr class="sasaran-sub-kegiatan">
+                    <td></td>
+                    <td colspan="3">-- Kendala : </td>
+                    <td colspan="2">
+                        {{ $sub_kegiatan_indikator->kendala_i }}
+                    </td>
+                    <td colspan="2">
+                        {{ $sub_kegiatan_indikator->kendala_ii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $sub_kegiatan_indikator->kendala_iii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $sub_kegiatan_indikator->kendala_iv }}
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr class="sasaran-sub-kegiatan">
+                    <td></td>
+                    <td colspan="3">-- Solusi : </td>
+                    <td colspan="2">
+                        {{ $sub_kegiatan_indikator->solusi_i }}
+                    </td>
+                    <td colspan="2">
+                        {{ $sub_kegiatan_indikator->solusi_ii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $sub_kegiatan_indikator->solusi_iii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $sub_kegiatan_indikator->solusi_iv }}
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr class="sasaran-sub-kegiatan">
+                    <td></td>
+                    <td colspan="3">-- Tindak Lanjut : </td>
+                    <td colspan="2">
+                        {{ $sub_kegiatan_indikator->tindak_lanjut_i }}
+                    </td>
+                    <td colspan="2">
+                        {{ $sub_kegiatan_indikator->tindak_lanjut_ii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $sub_kegiatan_indikator->tindak_lanjut_iii }}
+                    </td>
+                    <td colspan="2">
+                        {{ $sub_kegiatan_indikator->tindak_lanjut_iv }}
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
                 @endforeach
                 {{-- sub kegiatan indikator berakhir --}}
-                <tr class="sasaran-sub-kegiatan">
-                    <td></td>
-                    <td>KENDALA</td>
-                    <td colspan="12">{{ $sub_kegiatan->kendala }}</td>
-                </tr>
-                <tr class="sasaran-sub-kegiatan">
-                    <td></td>
-                    <td>SOLUSI</td>
-                    <td colspan="12">{{ $sub_kegiatan->solusi }}</td>
-                </tr>
-                <tr class="sasaran-sub-kegiatan">
-                    <td></td>
-                    <td>TINDAK LANJUT</td>
-                    <td colspan="12">{{ $sub_kegiatan->tindak_lanjut }}</td>
-                </tr>
                 @endforeach
                 {{-- sub kegiatan berakhir --}}
 
@@ -332,6 +454,11 @@
                 {{-- sasaran program berakhir --}}
                 @endforeach
                 {{-- sasaran renstra berakhir --}}
+                @else
+                <tr>
+                    <td class="text-center" colspan="14">DATA KOSONG</td>
+                </tr>
+                @endif
             </tbody>
         </table>
     </div>

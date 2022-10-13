@@ -62,7 +62,7 @@
                 <td>
 
                     {{-- halaman kegiatan --}}
-                    <a href="{{ route('program.show', $program->id) }}" class="btn btn-sm btn-outline-primary">
+                    <a href="{{ route('program.show', $program->id) }}" class="btn btn-sm btn-primary">
                         Ke Halaman Kegiatan
                         <i class="fas fa-arrow-right fa-fw"></i>
                     </a>

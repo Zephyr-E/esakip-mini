@@ -43,19 +43,19 @@ class DashboardController extends Controller
 
         // publikasi
         $data['programs'] = Program::whereHas('sasaran_program.sasaran_renstra.tujuan_renstra.sasaran_rpjmd.tujuan_rpjmd.misi.visi', function ($query) {
-            return $query->where('aktif', 1);
+            return $query->where('aktif', 1)->orderBy('updated_at', 'DESC');
         })->get();
 
         $data['kegiatans'] = Kegiatan::whereHas('sasaran_kegiatan.program.sasaran_program.sasaran_renstra.tujuan_renstra.sasaran_rpjmd.tujuan_rpjmd.misi.visi', function ($query) {
-            return $query->where('aktif', 1);
+            return $query->where('aktif', 1)->orderBy('updated_at', 'DESC');
         })->get();
 
         $data['sub_kegiatans'] = SubKegiatan::whereHas('kegiatan.sasaran_kegiatan.program.sasaran_program.sasaran_renstra.tujuan_renstra.sasaran_rpjmd.tujuan_rpjmd.misi.visi', function ($query) {
-            return $query->where('aktif', 1);
+            return $query->where('aktif', 1)->orderBy('updated_at', 'DESC');
         })->get();
 
         $data['ikus'] = Iku::whereHas('sasaran_renstra.tujuan_renstra.sasaran_rpjmd.tujuan_rpjmd.misi.visi', function ($query) {
-            return $query->where('aktif', 1);
+            return $query->where('aktif', 1)->orderBy('updated_at', 'DESC');
         })->get();
 
         return view('backend.v1.pages.dashboard.index', $data);

@@ -6,7 +6,13 @@
     <table class="table table-bordered" style="white-space: nowrap">
         <thead>
             <tr>
-                <th scope="col" class="text-center" style="width: 10%"></th>
+                <th scope="col" class="text-center" style="width: 10%">
+                    {{-- halaman program --}}
+                    <a href="{{ route('renja.index') }}" class="btn btn-sm btn-info">
+                        <i class="fas fa-arrow-left fa-fw"></i>
+                        Ke Halaman Program
+                    </a>
+                </th>
                 <th scope="col" class="text-center" colspan="3">SASARAN KEGIATAN/KEGIATAN/KEGIATAN INDIKATOR</th>
                 <th scope="col" class="text-center">TARGET</th>
                 <th scope="col" class="text-center">PAGU</th>
@@ -47,7 +53,7 @@
                 <td>
 
                     {{-- halaman sub kegiatan --}}
-                    <a href="{{ route('kegiatan.show', $kegiatan->id) }}" class="btn btn-sm btn-outline-primary">
+                    <a href="{{ route('kegiatan.show', $kegiatan->id) }}" class="btn btn-sm btn-primary">
                         Ke Halaman Sub Kegiatan
                         <i class="fas fa-arrow-right fa-fw"></i>
                     </a>

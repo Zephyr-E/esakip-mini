@@ -7,6 +7,13 @@
     <table class="table table-bordered" style="white-space: nowrap">
         <thead>
             <tr>
+                <th scope="col" class="text-center">
+                    {{-- halaman kegiatan --}}
+                    <a href="{{ url()->previous() }}" class="btn btn-sm btn-info">
+                        <i class="fas fa-arrow-left fa-fw"></i>
+                        Ke Halaman Kegiatan
+                    </a>
+                </th>
                 <th scope="col" class="text-center" colspan="3">SUB KEGIATAN/SUB KEGIATAN INDIKATOR</th>
                 <th scope="col" class="text-center">TARGET</th>
                 <th scope="col" class="text-center">PAGU</th>
@@ -18,6 +25,7 @@
             {{-- sub kegiatan --}}
             @forelse ($kegiatan->sub_kegiatan as $sub_kegiatan)
             <tr>
+                <td></td>
                 <td colspan="4">
                     <div class="form-inline">
                         {{ $sub_kegiatan->name }}
@@ -45,9 +53,9 @@
             {{-- sub kegiatan indikator --}}
             @foreach ($sub_kegiatan->sub_kegiatan_indikator as $sub_kegiatan_indikator)
             <tr>
-                <td style="width: 10%"></td>
+                <td></td>
                 <td style="width: 10%">{{ $loop->iteration }}</td>
-                <td>
+                <td colspan="2">
                     <div class="form-inline">
                         {{ $sub_kegiatan_indikator->indikator }}
                         &nbsp;
@@ -77,7 +85,7 @@
             {{-- tambah sub kegiatan indikator --}}
             <tr>
                 <td></td>
-                <td colspan="5">
+                <td colspan="6">
                     @include('backend.v1.pages.renja.sub-kegiatan.sub-kegiatan-indikator.create')
                 </td>
             </tr>
@@ -85,7 +93,7 @@
             {{-- kegiatan indikator berakhir --}}
 
             @empty
-            <td colspan="6" class="text-center">Sub Kegiatan Kosong</td>
+            <td colspan="7" class="text-center">Sub Kegiatan Kosong</td>
             @endforelse
             {{-- sub kegiatan berakhir --}}
 
