@@ -36,15 +36,15 @@
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Target</label>
                         </div>
-
-                        @include('backend.v1.pages.monev.triwulan.kegiatan-indikator')
-
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="capaian" class="form-control"
                                 value="{{ $kegiatan_indikator->capaian }}">
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Capaian</label>
                         </div>
+
+                        @include('backend.v1.pages.monev.triwulan.kegiatan-indikator')
+
                     </form>
                 </div>
 

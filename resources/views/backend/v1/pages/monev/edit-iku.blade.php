@@ -42,14 +42,14 @@
                                 <label class="float-label">Masukkan Pagu Target</label>
                             </div>
                         </div>
-
-                        @include('backend.v1.pages.monev.triwulan.iku')
-
                         <div class="form-group form-primary form-static-label pb-4">
                             <input type="text" name="capaian" class="form-control" value="{{ $iku->capaian }}">
                             <span class="form-bar"></span>
                             <label class="float-label">Masukkan Capaian</label>
                         </div>
+
+                        @include('backend.v1.pages.monev.triwulan.iku')
+
                     </form>
                 </div>
 
