@@ -51,6 +51,11 @@
         .sasaran-sub-kegiatan td:not(:first-child) {
             background: rgba(192, 210, 226, 0.56)
         }
+
+        .ttd {
+            float: right;
+            margin-right: 50px
+        }
     </style>
 </head>
 
@@ -112,23 +117,6 @@
                     <td>{{ $loop->iteration }}</td>
                     <td colspan="13"><b>Sasaran Strategis : </b>{{ $sasaran_renstra->name }}</td>
                 </tr>
-                {{-- <tr class="header-2">
-                    <td></td>
-                    <td colspan="9"><b>PROGRAM</b></td>
-                </tr> --}}
-                {{-- @foreach ($sasaran_renstra->sasaran_program as $sasaran_program)
-                @foreach ($sasaran_program->program as $program)
-                <tr class="sasaran-renstra">
-                    <td></td>
-                    <td colspan="12"><b>-- Program : </b>{{ $program->name }}</td>
-                    <td>{{ $program->otorisasi }}</td>
-                </tr>
-                @endforeach
-                @endforeach --}}
-                {{-- <tr class="header-2">
-                    <td></td>
-                    <td colspan="9"><b>INDIKATOR KINERJA UTAMA (IKU)</b></td>
-                </tr> --}}
                 @foreach ($sasaran_renstra->iku as $iku)
                 <tr class="sasaran-renstra">
                     <td></td>
@@ -461,6 +449,17 @@
                 @endif
             </tbody>
         </table>
+    </div>
+
+    <div class="ttd">
+        <h6><b>Kepala Dinas</b></h6>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h6><u><b>H. SUGIAN NOOR, S. HUT, MM, M. IP</b></u></h6>
+        <span>Pembina</span><br>
+        <span>NIP. 196706222008011008</span>
     </div>
 
     <script type="text/javascript" src="{{ url('templates/backend') }}/js/core/jquery.3.2.1.min.js "></script>
