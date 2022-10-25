@@ -12,7 +12,7 @@
 
                 {{-- header --}}
                 <div class="card-header">
-                    <h5>Buat Sasaran SKPD Baru</h5>
+                    <h5>Buat Sasaran SKPD</h5>
                 </div>
 
                 {{-- body --}}

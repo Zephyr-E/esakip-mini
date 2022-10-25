@@ -12,7 +12,7 @@
 
                 {{-- header --}}
                 <div class="card-header">
-                    <h5>Buat Sasaran Program</h5>
+                    <h5>Buat Program</h5>
                 </div>
 
                 {{-- body --}}

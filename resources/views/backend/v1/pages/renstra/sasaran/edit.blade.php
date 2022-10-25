@@ -14,7 +14,7 @@
 
                 {{-- header --}}
                 <div class="card-header">
-                    <h5>Perbaharui Sasaran</h5>
+                    <h5>Perbaharui Sasaran SKPD</h5>
                 </div>
 
                 {{-- body --}}

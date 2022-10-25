@@ -14,7 +14,7 @@
 
                 {{-- header --}}
                 <div class="card-header">
-                    <h5>Perbaharui Program</h5>
+                    <h5>Perbaharui Indikator Kinerja Utama</h5>
                 </div>
 
                 {{-- body --}}
